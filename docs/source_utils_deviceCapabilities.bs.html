@@ -349,8 +349,10 @@ function getTranscodingProfiles() as object
     ' Video codecs
     videoCodecList = "h264"
 
-    if di.CanDecodeVideo({ Codec: "hevc", Container: container }).Result
-      videoCodecList = "hevc,h265," + videoCodecList
+    if container = "mp4"
+      if di.CanDecodeVideo({ Codec: "hevc", Container: container }).Result
+        videoCodecList = "hevc,h265," + videoCodecList
+      end if
     end if
 
     if di.CanDecodeVideo({ Codec: "mpeg4 avc", Container: container }).Result
