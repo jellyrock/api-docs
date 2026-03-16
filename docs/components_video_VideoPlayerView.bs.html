@@ -1232,6 +1232,7 @@ sub destroy()
 
   if isValid(m.osd)
     m.osd.unobserveField("action")
+    m.osd.callFunc("destroy")
   end if
 
   ' Stop and release timers
