@@ -1,4 +1,4 @@
-# jellyrock-code-docs
+# api-docs
 
 [![API docs](https://img.shields.io/badge/API%20docs-purple)](https://jellyrock.github.io/api-docs/)
 
