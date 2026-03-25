@@ -8,21 +8,32 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Generate GitHub App Token
+        id: app-token
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
-          token: ${{ secrets.JELLYROCK_BOT_TOKEN || secrets.GITHUB_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
+
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
           node-version: "lts/*"
           cache: "npm"
+
       - name: Install NPM dependencies
         run: npm ci
+
       - name: Checkout jellyrock
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           repository: jellyrock/jellyrock
           path: jellyrock
           ref: main
+
       - name: Build code docs
         # TODO: fix jsdoc build errors then remove '|| true' from run command below
         run: npm run build || true
