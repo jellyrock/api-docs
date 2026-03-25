@@ -1,14 +1,14 @@
 # jellyrock-code-docs
 
-[![Code Documentation](https://img.shields.io/badge/Code%20Documentation-purple)](https://jellyrock.github.io/api-docs/)
+[![API docs](https://img.shields.io/badge/API%20docs-purple)](https://jellyrock.github.io/api-docs/)
 
-Automatically generated code documentation for the [JellyRock](https://github.com/jellyrock/jellyrock) Roku app.
+Automatically generated API documentation for the [JellyRock](https://github.com/jellyrock/jellyrock) Roku app.
 
 ## Build
 
 ``` bash
 git clone https://github.com/jellyrock/api-docs.git
-cd jellyrock-code-docs
+cd api-docs
 npm install
 npm run build
 ```
