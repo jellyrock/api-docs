@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "JellyRock code documentation using JSDoc.",
   "dependencies": {
-    "brighterscript": "0.70.3",
+    "brighterscript": "0.70.4",
     "brighterscript-jsdocs-plugin": "0.7.3",
     "clean-jsdoc-theme": "4.3.0",
     "jsdoc": "4.0.5",
