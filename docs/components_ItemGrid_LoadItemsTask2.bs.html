@@ -134,7 +134,7 @@ sub loadItems()
   else if m.top.ItemType = "MusicArtist"
     queryType = "artists"
     ' Merge Genres with existing fields instead of overriding
-    if fields.Instr(",Genres") = -1 and fields &lt;> "Genres"
+    if fields.inStr(",Genres") = -1 and fields &lt;> "Genres"
       fields = fields + ",Genres"
     end if
     params.append({
@@ -145,7 +145,7 @@ sub loadItems()
   else if m.top.ItemType = "AlbumArtists"
     queryType = "albumArtists"
     ' Merge Genres with existing fields instead of overriding
-    if fields.Instr(",Genres") = -1 and fields &lt;> "Genres"
+    if fields.inStr(",Genres") = -1 and fields &lt;> "Genres"
       fields = fields + ",Genres"
     end if
     params.append({
