@@ -1,8 +1,8 @@
 # JellyRock API Docs
 
-[![Deploy](https://github.com/jellyrock/api-docs/actions/workflows/deploy.yml/badge.svg?branch=main&label=Deploy)](https://github.com/jellyrock/api-docs/actions/workflows/deploy.yml)
-[![API Reference](https://img.shields.io/badge/docs-api.jellyrock.app-purple)](https://api.jellyrock.app/)
-[![License](https://img.shields.io/github/license/jellyrock/api-docs)](./LICENSE)
+[![API Reference](https://img.shields.io/badge/docs-api.jellyrock.app-purple "API reference")](https://api.jellyrock.app/)
+[![License](https://img.shields.io/github/license/jellyrock/api-docs "License")](./LICENSE)
+[![build](https://img.shields.io/github/actions/workflow/status/jellyrock/api-docs/deploy.yml?logo=github&branch=main "build")](https://github.com/jellyrock/api-docs/actions/workflows/deploy.yml?query=branch%3Amain)
 
 Auto-generated BrightScript API reference for
 [JellyRock](https://github.com/jellyrock/jellyrock), published at
