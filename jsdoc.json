@@ -22,7 +22,7 @@
     },
     "theme_opts": {
       "default_theme": "fallback-dark",
-      "base_url": "https://jellyrock.github.io/api-docs/",
+      "base_url": "https://api.jellyrock.app/",
       "title": "JellyRock Code Documentation",
       "homepageTitle": "JellyRock Code Documentation",
       "displayModuleHeader": true,
@@ -49,7 +49,7 @@
           "id": "jellyfin-link"
         }
       ],
-      "footer": "<span class=\"jsdoc-message\">Automatically generated using <a href=\"https://github.com/jsdoc/jsdoc\" target=\"_blank\">JSDoc</a> and the <a href=\"https://github.com/ankitskvmdam/clean-jsdoc-theme\" target=\"_blank\">clean-jsdoc-theme</a>.</span>"
+      "footer": "<span class=\"jsdoc-message\">Automatically generated using <a href=\"https://github.com/jsdoc/jsdoc\" target=\"_blank\">JSDoc</a> and the <a href=\"https://github.com/ankitskvmdam/clean-jsdoc-theme\" target=\"_blank\">clean-jsdoc-theme</a>.</span><script defer src=\"https://analytics.jellyrock.app/script.js\" data-website-id=\"07139597-641c-42e6-8f5a-cbb0d9182a20\"></script>"
     }
   },
   "markdown": {
