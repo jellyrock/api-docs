@@ -23,7 +23,7 @@
     "code-docs"
   ],
   "author": "Charles Ewert",
-  "license": "GPL-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jellyrock/api-docs/issues"
   },
