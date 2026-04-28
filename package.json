@@ -6,7 +6,7 @@
   "dependencies": {
     "brighterscript": "0.71.1",
     "brighterscript-jsdocs-plugin": "0.7.3",
-    "clean-jsdoc-theme": "4.3.0",
+    "clean-jsdoc-theme": "4.3.2",
     "jsdoc": "4.0.5",
     "rimraf": "6.1.3"
   },
