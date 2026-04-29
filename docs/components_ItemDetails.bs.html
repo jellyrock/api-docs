@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" style="font-size:16px"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Source: components/ItemDetails.bs</title><!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]--><script src="scripts/third-party/hljs.js" defer="defer"></script><script src="scripts/third-party/hljs-line-num.js" defer="defer"></script><script src="scripts/third-party/popper.js" defer="defer"></script><script src="scripts/third-party/tippy.js" defer="defer"></script><script src="scripts/third-party/tocbot.min.js"></script><script>var baseURL="/",locationPathname="";baseURL=(baseURL=(baseURL="https://api.jellyrock.app/").replace(/https?:\/\//i,"")).substr(baseURL.indexOf("/"))</script><link rel="stylesheet" href="styles/clean-jsdoc-theme.min.css"><svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none"><defs><symbol id="copy-icon" viewbox="0 0 488.3 488.3"><g><path d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124    C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124    c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z"/><path d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227    c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6    V38.6C439.65,17.3,422.35,0,401.05,0z"/></g></symbol><symbol id="search-icon" viewBox="0 0 512 512"><g><g><path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474    c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323    c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848    S326.847,409.323,225.474,409.323z"/></g></g><g><g><path d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328    c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z"/></g></g></symbol><symbol id="font-size-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.246 15H4.754l-2 5H.6L7 4h2l6.4 16h-2.154l-2-5zm-.8-2L8 6.885 5.554 13h4.892zM21 12.535V12h2v8h-2v-.535a4 4 0 1 1 0-6.93zM19 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol><symbol id="add-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></symbol><symbol id="minus-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M5 11h14v2H5z"/></symbol><symbol id="dark-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol><symbol id="light-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol><symbol id="reset-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795z"/></symbol><symbol id="down-icon" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></symbol><symbol id="codepen-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.5 13.202L13 15.535v3.596L19.197 15 16.5 13.202zM14.697 12L12 10.202 9.303 12 12 13.798 14.697 12zM20 10.869L18.303 12 20 13.131V10.87zM19.197 9L13 4.869v3.596l3.5 2.333L19.197 9zM7.5 10.798L11 8.465V4.869L4.803 9 7.5 10.798zM4.803 15L11 19.131v-3.596l-3.5-2.333L4.803 15zM4 13.131L5.697 12 4 10.869v2.262zM2 9a1 1 0 0 1 .445-.832l9-6a1 1 0 0 1 1.11 0l9 6A1 1 0 0 1 22 9v6a1 1 0 0 1-.445.832l-9 6a1 1 0 0 1-1.11 0l-9-6A1 1 0 0 1 2 15V9z"/></symbol><symbol id="close-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></symbol><symbol id="menu-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></symbol></defs></svg></head><body data-theme="fallback-dark"><div class="sidebar-container"><div class="sidebar" id="sidebar"><a href="/" class="sidebar-title sidebar-title-anchor">JellyRock Code Documentation</a><div class="sidebar-items-container"><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-modules"><div>Modules</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-AlbumTrackList.html">AlbumTrackList</a></div><div class="sidebar-section-children"><a href="module-Alpha.html">Alpha</a></div><div class="sidebar-section-children"><a href="module-AlphaKeyboard.html">AlphaKeyboard</a></div><div class="sidebar-section-children"><a href="module-ApiClient.html">ApiClient</a></div><div class="sidebar-section-children"><a href="module-ApiQueueTask.html">ApiQueueTask</a></div><div class="sidebar-section-children"><a href="module-ApiTask.html">ApiTask</a></div><div class="sidebar-section-children"><a href="module-AudioPlayer.html">AudioPlayer</a></div><div class="sidebar-section-children"><a href="module-AudioPlayerView.html">AudioPlayerView</a></div><div class="sidebar-section-children"><a href="module-AudioTrackListItem.html">AudioTrackListItem</a></div><div class="sidebar-section-children"><a href="module-BackdropFader.html">BackdropFader</a></div><div class="sidebar-section-children"><a href="module-BaseGridView.html">BaseGridView</a></div><div class="sidebar-section-children"><a href="module-BrandingConfigTask.html">BrandingConfigTask</a></div><div class="sidebar-section-children"><a href="module-BrowseRowItem.html">BrowseRowItem</a></div><div class="sidebar-section-children"><a href="module-Clock.html">Clock</a></div><div class="sidebar-section-children"><a href="module-CommunityRating.html">CommunityRating</a></div><div class="sidebar-section-children"><a href="module-ConfigData.html">ConfigData</a></div><div class="sidebar-section-children"><a href="module-ConfigItem.html">ConfigItem</a></div><div class="sidebar-section-children"><a href="module-ConfigList.html">ConfigList</a></div><div class="sidebar-section-children"><a href="module-CriticRating.html">CriticRating</a></div><div class="sidebar-section-children"><a href="module-ExtrasRowList.html">ExtrasRowList</a></div><div class="sidebar-section-children"><a href="module-ExtrasSlider.html">ExtrasSlider</a></div><div class="sidebar-section-children"><a href="module-FavoritesRows.html">FavoritesRows</a></div><div class="sidebar-section-children"><a href="module-FocusableOverview.html">FocusableOverview</a></div><div class="sidebar-section-children"><a href="module-FontDownloadTask.html">FontDownloadTask</a></div><div class="sidebar-section-children"><a href="module-FontScalingTask.html">FontScalingTask</a></div><div class="sidebar-section-children"><a href="module-GenericPresenter.html">GenericPresenter</a></div><div class="sidebar-section-children"><a href="module-GetFiltersTask.html">GetFiltersTask</a></div><div class="sidebar-section-children"><a href="module-GetNextEpisodeTask.html">GetNextEpisodeTask</a></div><div class="sidebar-section-children"><a href="module-GetPlaybackInfoTask.html">GetPlaybackInfoTask</a></div><div class="sidebar-section-children"><a href="module-GetShuffleItemsTask.html">GetShuffleItemsTask</a></div><div class="sidebar-section-children"><a href="module-Gradient.html">Gradient</a></div><div class="sidebar-section-children"><a href="module-GridItem.html">GridItem</a></div><div class="sidebar-section-children"><a href="module-GridItemSmall.html">GridItemSmall</a></div><div class="sidebar-section-children"><a href="module-GridPresenterBase.html">GridPresenterBase</a></div><div class="sidebar-section-children"><a href="module-HexKeyboard.html">HexKeyboard</a></div><div class="sidebar-section-children"><a href="module-Home.html">Home</a></div><div class="sidebar-section-children"><a href="module-HomeAction.html">HomeAction</a></div><div class="sidebar-section-children"><a href="module-HomeRows.html">HomeRows</a></div><div class="sidebar-section-children"><a href="module-IconButton.html">IconButton</a></div><div class="sidebar-section-children"><a href="module-IntegerKeyboard.html">IntegerKeyboard</a></div><div class="sidebar-section-children"><a href="module-ItemDetails.html">ItemDetails</a></div><div class="sidebar-section-children"><a href="module-ItemGridOptions.html">ItemGridOptions</a></div><div class="sidebar-section-children"><a href="module-ItemOptions.html">ItemOptions</a></div><div class="sidebar-section-children"><a href="module-JRButtonGroup.html">JRButtonGroup</a></div><div class="sidebar-section-children"><a href="module-JRButtons.html">JRButtons</a></div><div class="sidebar-section-children"><a href="module-JRDropdown.html">JRDropdown</a></div><div class="sidebar-section-children"><a href="module-JRDropdownItem.html">JRDropdownItem</a></div><div class="sidebar-section-children"><a href="module-JRLabel.html">JRLabel</a></div><div class="sidebar-section-children"><a href="module-JRLabelList.html">JRLabelList</a></div><div class="sidebar-section-children"><a href="module-JRMarkupGrid.html">JRMarkupGrid</a></div><div class="sidebar-section-children"><a href="module-JRMessageDialog.html">JRMessageDialog</a></div><div class="sidebar-section-children"><a href="module-JROverhang.html">JROverhang</a></div><div class="sidebar-section-children"><a href="module-JROverhangIcon.html">JROverhangIcon</a></div><div class="sidebar-section-children"><a href="module-JRPoster.html">JRPoster</a></div><div class="sidebar-section-children"><a href="module-JRPosterGrid.html">JRPosterGrid</a></div><div class="sidebar-section-children"><a href="module-JRRowItem.html">JRRowItem</a></div><div class="sidebar-section-children"><a href="module-JRRowList.html">JRRowList</a></div><div class="sidebar-section-children"><a href="module-JRScene.html">JRScene</a></div><div class="sidebar-section-children"><a href="module-JRScreen.html">JRScreen</a></div><div class="sidebar-section-children"><a href="module-JRScrollingLabel.html">JRScrollingLabel</a></div><div class="sidebar-section-children"><a href="module-JRServer.html">JRServer</a></div><div class="sidebar-section-children"><a href="module-JRTab.html">JRTab</a></div><div class="sidebar-section-children"><a href="module-JRTabBar.html">JRTabBar</a></div><div class="sidebar-section-children"><a href="module-JRTimeGrid.html">JRTimeGrid</a></div><div class="sidebar-section-children"><a href="module-JellyfinDataTransformer.html">JellyfinDataTransformer</a></div><div class="sidebar-section-children"><a href="module-JellyfinUserSettings.html">JellyfinUserSettings</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLarge.html">LabelDisabledLarge</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLarger.html">LabelDisabledLarger</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLargest.html">LabelDisabledLargest</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledMedium.html">LabelDisabledMedium</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmall.html">LabelDisabledSmall</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmaller.html">LabelDisabledSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmallest.html">LabelDisabledSmallest</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLarge.html">LabelErrorLarge</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLarger.html">LabelErrorLarger</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLargest.html">LabelErrorLargest</a></div><div class="sidebar-section-children"><a href="module-LabelErrorMedium.html">LabelErrorMedium</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmall.html">LabelErrorSmall</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmaller.html">LabelErrorSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmallest.html">LabelErrorSmallest</a></div><div class="sidebar-section-children"><a href="module-LabelLarge.html">LabelLarge</a></div><div class="sidebar-section-children"><a href="module-LabelLarger.html">LabelLarger</a></div><div class="sidebar-section-children"><a href="module-LabelLargest.html">LabelLargest</a></div><div class="sidebar-section-children"><a href="module-LabelMedium.html">LabelMedium</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLarge.html">LabelPrimaryLarge</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLarger.html">LabelPrimaryLarger</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLargest.html">LabelPrimaryLargest</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryMedium.html">LabelPrimaryMedium</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmall.html">LabelPrimarySmall</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmaller.html">LabelPrimarySmaller</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmallest.html">LabelPrimarySmallest</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLarge.html">LabelSecondaryLarge</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLarger.html">LabelSecondaryLarger</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLargest.html">LabelSecondaryLargest</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryMedium.html">LabelSecondaryMedium</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmall.html">LabelSecondarySmall</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmaller.html">LabelSecondarySmaller</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmallest.html">LabelSecondarySmallest</a></div><div class="sidebar-section-children"><a href="module-LabelSmall.html">LabelSmall</a></div><div class="sidebar-section-children"><a href="module-LabelSmaller.html">LabelSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelSmallest.html">LabelSmallest</a></div><div class="sidebar-section-children"><a href="module-LanguagePicker.html">LanguagePicker</a></div><div class="sidebar-section-children"><a href="module-LiveTVPresenter.html">LiveTVPresenter</a></div><div class="sidebar-section-children"><a href="module-LoadChannelListForQueueTask.html">LoadChannelListForQueueTask</a></div><div class="sidebar-section-children"><a href="module-LoadChannelsTask.html">LoadChannelsTask</a></div><div class="sidebar-section-children"><a href="module-LoadItemsTask.html">LoadItemsTask</a></div><div class="sidebar-section-children"><a href="module-LoadItemsTask2.html">LoadItemsTask2</a></div><div class="sidebar-section-children"><a href="module-LoadPhotoTask.html">LoadPhotoTask</a></div><div class="sidebar-section-children"><a href="module-LoadProgramDetailsTask.html">LoadProgramDetailsTask</a></div><div class="sidebar-section-children"><a href="module-LoadScreenSaverTimeoutTask.html">LoadScreenSaverTimeoutTask</a></div><div class="sidebar-section-children"><a href="module-LoadSheduleTask.html">LoadSheduleTask</a></div><div class="sidebar-section-children"><a href="module-LoadVideoContentTask.html">LoadVideoContentTask</a></div><div class="sidebar-section-children"><a href="module-LoginScene.html">LoginScene</a></div><div class="sidebar-section-children"><a href="module-MediaSegmentAction.html">MediaSegmentAction</a></div><div class="sidebar-section-children"><a href="module-MediaSegmentType.html">MediaSegmentType</a></div><div class="sidebar-section-children"><a href="module-MockSceneManager.html">MockSceneManager</a></div><div class="sidebar-section-children"><a href="module-MoviePresenter.html">MoviePresenter</a></div><div class="sidebar-section-children"><a href="module-MusicArtistGridItem.html">MusicArtistGridItem</a></div><div class="sidebar-section-children"><a href="module-MusicPresenter.html">MusicPresenter</a></div><div class="sidebar-section-children"><a href="module-OSD.html">OSD</a></div><div class="sidebar-section-children"><a href="module-OSDButtonGroup.html">OSDButtonGroup</a></div><div class="sidebar-section-children"><a href="module-OptionNode.html">OptionNode</a></div><div class="sidebar-section-children"><a href="module-OptionsButton.html">OptionsButton</a></div><div class="sidebar-section-children"><a href="module-OptionsData.html">OptionsData</a></div><div class="sidebar-section-children"><a href="module-OptionsSlider.html">OptionsSlider</a></div><div class="sidebar-section-children"><a href="module-OverviewDialog.html">OverviewDialog</a></div><div class="sidebar-section-children"><a href="module-PhotoDetails.html">PhotoDetails</a></div><div class="sidebar-section-children"><a href="module-PhotoPresenter.html">PhotoPresenter</a></div><div class="sidebar-section-children"><a href="module-PlaybackDialog.html">PlaybackDialog</a></div><div class="sidebar-section-children"><a href="module-PresentationBackdrop.html">PresentationBackdrop</a></div><div class="sidebar-section-children"><a href="module-ProgramDetails.html">ProgramDetails</a></div><div class="sidebar-section-children"><a href="module-PublicUserData.html">PublicUserData</a></div><div class="sidebar-section-children"><a href="module-QueueManager.html">QueueManager</a></div><div class="sidebar-section-children"><a href="module-QuickConnect.html">QuickConnect</a></div><div class="sidebar-section-children"><a href="module-QuickConnectDialog.html">QuickConnectDialog</a></div><div class="sidebar-section-children"><a href="module-QuickConnectEnabledTask.html">QuickConnectEnabledTask</a></div><div class="sidebar-section-children"><a href="module-QuickPlayTask.html">QuickPlayTask</a></div><div class="sidebar-section-children"><a href="module-RadioDialog.html">RadioDialog</a></div><div class="sidebar-section-children"><a href="module-RecordProgramTask.html">RecordProgramTask</a></div><div class="sidebar-section-children"><a href="module-RectangleBackgroundPrimary.html">RectangleBackgroundPrimary</a></div><div class="sidebar-section-children"><a href="module-RectangleBackgroundSecondary.html">RectangleBackgroundSecondary</a></div><div class="sidebar-section-children"><a href="module-RectangleSecondary.html">RectangleSecondary</a></div><div class="sidebar-section-children"><a href="module-RefreshLiveTvMetadataTask.html">RefreshLiveTvMetadataTask</a></div><div class="sidebar-section-children"><a href="module-ResumeButton.html">ResumeButton</a></div><div class="sidebar-section-children"><a href="module-SceneManager.html">SceneManager</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLarge.html">ScrollingLabelDisabledLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLarger.html">ScrollingLabelDisabledLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLargest.html">ScrollingLabelDisabledLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledMedium.html">ScrollingLabelDisabledMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmall.html">ScrollingLabelDisabledSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmaller.html">ScrollingLabelDisabledSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmallest.html">ScrollingLabelDisabledSmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLarge.html">ScrollingLabelErrorLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLarger.html">ScrollingLabelErrorLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLargest.html">ScrollingLabelErrorLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorMedium.html">ScrollingLabelErrorMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmall.html">ScrollingLabelErrorSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmaller.html">ScrollingLabelErrorSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmallest.html">ScrollingLabelErrorSmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLarge.html">ScrollingLabelLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLarger.html">ScrollingLabelLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLargest.html">ScrollingLabelLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelMedium.html">ScrollingLabelMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLarge.html">ScrollingLabelPrimaryLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLarger.html">ScrollingLabelPrimaryLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLargest.html">ScrollingLabelPrimaryLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryMedium.html">ScrollingLabelPrimaryMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmall.html">ScrollingLabelPrimarySmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmaller.html">ScrollingLabelPrimarySmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmallest.html">ScrollingLabelPrimarySmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLarge.html">ScrollingLabelSecondaryLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLarger.html">ScrollingLabelSecondaryLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLargest.html">ScrollingLabelSecondaryLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryMedium.html">ScrollingLabelSecondaryMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmall.html">ScrollingLabelSecondarySmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmaller.html">ScrollingLabelSecondarySmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmallest.html">ScrollingLabelSecondarySmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmall.html">ScrollingLabelSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmaller.html">ScrollingLabelSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmallest.html">ScrollingLabelSmallest</a></div><div class="sidebar-section-children"><a href="module-SearchBox.html">SearchBox</a></div><div class="sidebar-section-children"><a href="module-SearchResults.html">SearchResults</a></div><div class="sidebar-section-children"><a href="module-SearchRow.html">SearchRow</a></div><div class="sidebar-section-children"><a href="module-SearchTask.html">SearchTask</a></div><div class="sidebar-section-children"><a href="module-ServerAction.html">ServerAction</a></div><div class="sidebar-section-children"><a href="module-ServerDiscoveryTask.html">ServerDiscoveryTask</a></div><div class="sidebar-section-children"><a href="module-SessionDataTransformer.html">SessionDataTransformer</a></div><div class="sidebar-section-children"><a href="module-SetServerScreen.html">SetServerScreen</a></div><div class="sidebar-section-children"><a href="module-SideEffectTask.html">SideEffectTask</a></div><div class="sidebar-section-children"><a href="module-SongItem.html">SongItem</a></div><div class="sidebar-section-children"><a href="module-Spinner.html">Spinner</a></div><div class="sidebar-section-children"><a href="module-StandardDialog.html">StandardDialog</a></div><div class="sidebar-section-children"><a href="module-SubtitleSelection.html">SubtitleSelection</a></div><div class="sidebar-section-children"><a href="module-TVShowPresenter.html">TVShowPresenter</a></div><div class="sidebar-section-children"><a href="module-TextButton.html">TextButton</a></div><div class="sidebar-section-children"><a href="module-TextSizeTask.html">TextSizeTask</a></div><div class="sidebar-section-children"><a href="module-Toast.html">Toast</a></div><div class="sidebar-section-children"><a href="module-TrickplayCarousel.html">TrickplayCarousel</a></div><div class="sidebar-section-children"><a href="module-TrickplayTileLoader.html">TrickplayTileLoader</a></div><div class="sidebar-section-children"><a href="module-UserData.html">UserData</a></div><div class="sidebar-section-children"><a href="module-UserItem.html">UserItem</a></div><div class="sidebar-section-children"><a href="module-UserRow.html">UserRow</a></div><div class="sidebar-section-children"><a href="module-UserSelect.html">UserSelect</a></div><div class="sidebar-section-children"><a href="module-VertButtonGroup.html">VertButtonGroup</a></div><div class="sidebar-section-children"><a href="module-VideoNotification.html">VideoNotification</a></div><div class="sidebar-section-children"><a href="module-VideoPlayerView.html">VideoPlayerView</a></div><div class="sidebar-section-children"><a href="module-VideoProgressBar.html">VideoProgressBar</a></div><div class="sidebar-section-children"><a href="module-VideoTrackListItem.html">VideoTrackListItem</a></div><div class="sidebar-section-children"><a href="module-ViewCreator.html">ViewCreator</a></div><div class="sidebar-section-children"><a href="module-apiPool.html">apiPool</a></div><div class="sidebar-section-children"><a href="module-backdrop.html">backdrop</a></div><div class="sidebar-section-children"><a href="module-baseRequest.html">baseRequest</a></div><div class="sidebar-section-children"><a href="module-captionTask.html">captionTask</a></div><div class="sidebar-section-children"><a href="module-chapterItems.html">chapterItems</a></div><div class="sidebar-section-children"><a href="module-conditional.html">conditional</a></div><div class="sidebar-section-children"><a href="module-config.html">config</a></div><div class="sidebar-section-children"><a href="module-deviceCapabilities.html">deviceCapabilities</a></div><div class="sidebar-section-children"><a href="module-displaySettings.html">displaySettings</a></div><div class="sidebar-section-children"><a href="module-extrasLayout.html">extrasLayout</a></div><div class="sidebar-section-children"><a href="module-image.html">image</a></div><div class="sidebar-section-children"><a href="module-imageHelpers.html">imageHelpers</a></div><div class="sidebar-section-children"><a href="module-itemImageUrl.html">itemImageUrl</a></div><div class="sidebar-section-children"><a href="module-items.html">items</a></div><div class="sidebar-section-children"><a href="module-languages.html">languages</a></div><div class="sidebar-section-children"><a href="module-libraryViewFactory.html">libraryViewFactory</a></div><div class="sidebar-section-children"><a href="module-liveTv.html">liveTv</a></div><div class="sidebar-section-children"><a href="module-main.html">main</a></div><div class="sidebar-section-children"><a href="module-mediaDisplayTitle.html">mediaDisplayTitle</a></div><div class="sidebar-section-children"><a href="module-mediaSegments.html">mediaSegments</a></div><div class="sidebar-section-children"><a href="module-migrations.html">migrations</a></div><div class="sidebar-section-children"><a href="module-misc.html">misc</a></div><div class="sidebar-section-children"><a href="module-nodeHelpers.html">nodeHelpers</a></div><div class="sidebar-section-children"><a href="module-nodeUtils.html">nodeUtils</a></div><div class="sidebar-section-children"><a href="module-placeholderImage.html">placeholderImage</a></div><div class="sidebar-section-children"><a href="module-queueBackdropHelper.html">queueBackdropHelper</a></div><div class="sidebar-section-children"><a href="module-quickplay.html">quickplay</a></div><div class="sidebar-section-children"><a href="module-rowItemImage.html">rowItemImage</a></div><div class="sidebar-section-children"><a href="module-rowItemText.html">rowItemText</a></div><div class="sidebar-section-children"><a href="module-rowListWrap.html">rowListWrap</a></div><div class="sidebar-section-children"><a href="module-schedule.html">schedule</a></div><div class="sidebar-section-children"><a href="module-sdkV1.html">sdkV1</a></div><div class="sidebar-section-children"><a href="module-sdkV2.html">sdkV2</a></div><div class="sidebar-section-children"><a href="module-section.html">section</a></div><div class="sidebar-section-children"><a href="module-sectionScroller.html">sectionScroller</a></div><div class="sidebar-section-children"><a href="module-settings.html">settings</a></div><div class="sidebar-section-children"><a href="module-showScenes.html">showScenes</a></div><div class="sidebar-section-children"><a href="module-streamSelection.html">streamSelection</a></div><div class="sidebar-section-children"><a href="module-subtitles.html">subtitles</a></div><div class="sidebar-section-children"><a href="module-textureManager.html">textureManager</a></div><div class="sidebar-section-children"><a href="module-timeouts.html">timeouts</a></div><div class="sidebar-section-children"><a href="module-translate.html">translate</a></div><div class="sidebar-section-children"><a href="module-translateLocale.html">translateLocale</a></div><div class="sidebar-section-children"><a href="module-trickplay.html">trickplay</a></div><div class="sidebar-section-children"><a href="module-url.html">url</a></div><div class="sidebar-section-children"><a href="module-userAuth.html">userAuth</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-classes"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-ApiClient.ApiClient.html">ApiClient</a></div><div class="sidebar-section-children"><a href="module-GenericPresenter.GenericPresenter.html">GenericPresenter</a></div><div class="sidebar-section-children"><a href="module-GridPresenterBase.GridPresenterBase.html">GridPresenterBase</a></div><div class="sidebar-section-children"><a href="module-JellyfinDataTransformer.JellyfinDataTransformer.html">JellyfinDataTransformer</a></div><div class="sidebar-section-children"><a href="module-LiveTVPresenter.LiveTVPresenter.html">LiveTVPresenter</a></div><div class="sidebar-section-children"><a href="module-MoviePresenter.MoviePresenter.html">MoviePresenter</a></div><div class="sidebar-section-children"><a href="module-MusicPresenter.MusicPresenter.html">MusicPresenter</a></div><div class="sidebar-section-children"><a href="module-PhotoPresenter.PhotoPresenter.html">PhotoPresenter</a></div><div class="sidebar-section-children"><a href="module-SessionDataTransformer.SessionDataTransformer.html">SessionDataTransformer</a></div><div class="sidebar-section-children"><a href="module-TVShowPresenter.TVShowPresenter.html">TVShowPresenter</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-namespaces"><div>Namespaces</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="extrasLayout.html">extrasLayout</a></div><div class="sidebar-section-children"><a href="nodeHelpers.html">nodeHelpers</a></div><div class="sidebar-section-children"><a href="nodeUtils.html">nodeUtils</a></div><div class="sidebar-section-children"><a href="quickplay.html">quickplay</a></div><div class="sidebar-section-children"><a href="sdkV1.html">sdkV1</a></div><div class="sidebar-section-children"><a href="sdkV1_sdkV1.html">sdkV1/sdkV1</a></div><div class="sidebar-section-children"><a href="sdkV1_sdkV1_users.html">sdkV1/sdkV1/users</a></div><div class="sidebar-section-children"><a href="sdkV2.html">sdkV2</a></div><div class="sidebar-section-children"><a href="sdkV2_sdkV2.html">sdkV2/sdkV2</a></div><div class="sidebar-section-children"><a href="sdkV2_sdkV2_users.html">sdkV2/sdkV2/users</a></div><div class="sidebar-section-children"><a href="timeouts.html">timeouts</a></div><div class="sidebar-section-children"><a href="trickplay.html">trickplay</a></div></div></div></div></div><div class="navbar-container" id="VuAckcnZhf"><nav class="navbar"><div class="navbar-left-items"><div class="external-link navbar-item"><a id="github-link" href="https://github.com/jellyrock/api-docs" target="_blank">Source</a></div><div class="external-link navbar-item"><a id="jellyfin-link" href="https://jellyfin.org/docs/" target="_blank">Jellyfin docs</a></div><div class="external-link navbar-item"><a id="jellyfin-link" href="https://api.jellyfin.org/" target="_blank">Jellyfin API docs</a></div></div><div class="navbar-right-items"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#dark-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div><nav></nav></nav></div><div class="toc-container"><div class="toc-content"><span class="bold">On this page</span><div id="eed4d2a0bfd64539bb9df78095dec881"></div></div></div><div class="body-wrapper"><div class="main-content"><div class="main-wrapper"><section id="source-page" class="source-page"><header><h1 id="title" class="has-anchor">components_ItemDetails.bs</h1></header><article><pre class="prettyprint source lang-js"><code>import "pkg:/source/api/ApiClient.bs"
+    <![endif]--><script src="scripts/third-party/hljs.js" defer="defer"></script><script src="scripts/third-party/hljs-line-num.js" defer="defer"></script><script src="scripts/third-party/popper.js" defer="defer"></script><script src="scripts/third-party/tippy.js" defer="defer"></script><script src="scripts/third-party/tocbot.min.js"></script><script>var baseURL="/",locationPathname="";baseURL=(baseURL=(baseURL="https://api.jellyrock.app/").replace(/https?:\/\//i,"")).substr(baseURL.indexOf("/"))</script><link rel="stylesheet" href="styles/clean-jsdoc-theme.min.css"><svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none"><defs><symbol id="copy-icon" viewbox="0 0 488.3 488.3"><g><path d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124    C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124    c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z"/><path d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227    c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6    V38.6C439.65,17.3,422.35,0,401.05,0z"/></g></symbol><symbol id="search-icon" viewBox="0 0 512 512"><g><g><path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474    c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323    c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848    S326.847,409.323,225.474,409.323z"/></g></g><g><g><path d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328    c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z"/></g></g></symbol><symbol id="font-size-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.246 15H4.754l-2 5H.6L7 4h2l6.4 16h-2.154l-2-5zm-.8-2L8 6.885 5.554 13h4.892zM21 12.535V12h2v8h-2v-.535a4 4 0 1 1 0-6.93zM19 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol><symbol id="add-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></symbol><symbol id="minus-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M5 11h14v2H5z"/></symbol><symbol id="dark-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol><symbol id="light-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol><symbol id="reset-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795z"/></symbol><symbol id="down-icon" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></symbol><symbol id="codepen-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.5 13.202L13 15.535v3.596L19.197 15 16.5 13.202zM14.697 12L12 10.202 9.303 12 12 13.798 14.697 12zM20 10.869L18.303 12 20 13.131V10.87zM19.197 9L13 4.869v3.596l3.5 2.333L19.197 9zM7.5 10.798L11 8.465V4.869L4.803 9 7.5 10.798zM4.803 15L11 19.131v-3.596l-3.5-2.333L4.803 15zM4 13.131L5.697 12 4 10.869v2.262zM2 9a1 1 0 0 1 .445-.832l9-6a1 1 0 0 1 1.11 0l9 6A1 1 0 0 1 22 9v6a1 1 0 0 1-.445.832l-9 6a1 1 0 0 1-1.11 0l-9-6A1 1 0 0 1 2 15V9z"/></symbol><symbol id="close-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></symbol><symbol id="menu-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></symbol></defs></svg></head><body data-theme="fallback-dark"><div class="sidebar-container"><div class="sidebar" id="sidebar"><a href="/" class="sidebar-title sidebar-title-anchor">JellyRock Code Documentation</a><div class="sidebar-items-container"><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-modules"><div>Modules</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-AlbumTrackList.html">AlbumTrackList</a></div><div class="sidebar-section-children"><a href="module-Alpha.html">Alpha</a></div><div class="sidebar-section-children"><a href="module-AlphaKeyboard.html">AlphaKeyboard</a></div><div class="sidebar-section-children"><a href="module-ApiClient.html">ApiClient</a></div><div class="sidebar-section-children"><a href="module-ApiQueueTask.html">ApiQueueTask</a></div><div class="sidebar-section-children"><a href="module-ApiTask.html">ApiTask</a></div><div class="sidebar-section-children"><a href="module-AudioPlayer.html">AudioPlayer</a></div><div class="sidebar-section-children"><a href="module-AudioPlayerView.html">AudioPlayerView</a></div><div class="sidebar-section-children"><a href="module-BackdropFader.html">BackdropFader</a></div><div class="sidebar-section-children"><a href="module-BaseGridView.html">BaseGridView</a></div><div class="sidebar-section-children"><a href="module-BrandingConfigTask.html">BrandingConfigTask</a></div><div class="sidebar-section-children"><a href="module-BrowseRowItem.html">BrowseRowItem</a></div><div class="sidebar-section-children"><a href="module-Clock.html">Clock</a></div><div class="sidebar-section-children"><a href="module-CommunityRating.html">CommunityRating</a></div><div class="sidebar-section-children"><a href="module-ConfigData.html">ConfigData</a></div><div class="sidebar-section-children"><a href="module-ConfigItem.html">ConfigItem</a></div><div class="sidebar-section-children"><a href="module-ConfigList.html">ConfigList</a></div><div class="sidebar-section-children"><a href="module-CriticRating.html">CriticRating</a></div><div class="sidebar-section-children"><a href="module-ExtrasRowList.html">ExtrasRowList</a></div><div class="sidebar-section-children"><a href="module-ExtrasSlider.html">ExtrasSlider</a></div><div class="sidebar-section-children"><a href="module-FavoritesRows.html">FavoritesRows</a></div><div class="sidebar-section-children"><a href="module-FocusableOverview.html">FocusableOverview</a></div><div class="sidebar-section-children"><a href="module-FontDownloadTask.html">FontDownloadTask</a></div><div class="sidebar-section-children"><a href="module-FontScalingTask.html">FontScalingTask</a></div><div class="sidebar-section-children"><a href="module-GenericPresenter.html">GenericPresenter</a></div><div class="sidebar-section-children"><a href="module-GetFiltersTask.html">GetFiltersTask</a></div><div class="sidebar-section-children"><a href="module-GetNextEpisodeTask.html">GetNextEpisodeTask</a></div><div class="sidebar-section-children"><a href="module-GetPlaybackInfoTask.html">GetPlaybackInfoTask</a></div><div class="sidebar-section-children"><a href="module-GetShuffleItemsTask.html">GetShuffleItemsTask</a></div><div class="sidebar-section-children"><a href="module-Gradient.html">Gradient</a></div><div class="sidebar-section-children"><a href="module-GridItem.html">GridItem</a></div><div class="sidebar-section-children"><a href="module-GridItemSmall.html">GridItemSmall</a></div><div class="sidebar-section-children"><a href="module-GridPresenterBase.html">GridPresenterBase</a></div><div class="sidebar-section-children"><a href="module-HexKeyboard.html">HexKeyboard</a></div><div class="sidebar-section-children"><a href="module-Home.html">Home</a></div><div class="sidebar-section-children"><a href="module-HomeAction.html">HomeAction</a></div><div class="sidebar-section-children"><a href="module-HomeRows.html">HomeRows</a></div><div class="sidebar-section-children"><a href="module-IconButton.html">IconButton</a></div><div class="sidebar-section-children"><a href="module-IntegerKeyboard.html">IntegerKeyboard</a></div><div class="sidebar-section-children"><a href="module-ItemDetails.html">ItemDetails</a></div><div class="sidebar-section-children"><a href="module-ItemGridOptions.html">ItemGridOptions</a></div><div class="sidebar-section-children"><a href="module-JRButtonGroup.html">JRButtonGroup</a></div><div class="sidebar-section-children"><a href="module-JRButtons.html">JRButtons</a></div><div class="sidebar-section-children"><a href="module-JRDropdown.html">JRDropdown</a></div><div class="sidebar-section-children"><a href="module-JRDropdownItem.html">JRDropdownItem</a></div><div class="sidebar-section-children"><a href="module-JRLabel.html">JRLabel</a></div><div class="sidebar-section-children"><a href="module-JRLabelList.html">JRLabelList</a></div><div class="sidebar-section-children"><a href="module-JRMarkupGrid.html">JRMarkupGrid</a></div><div class="sidebar-section-children"><a href="module-JRMessageDialog.html">JRMessageDialog</a></div><div class="sidebar-section-children"><a href="module-JROverhang.html">JROverhang</a></div><div class="sidebar-section-children"><a href="module-JROverhangIcon.html">JROverhangIcon</a></div><div class="sidebar-section-children"><a href="module-JRPoster.html">JRPoster</a></div><div class="sidebar-section-children"><a href="module-JRPosterGrid.html">JRPosterGrid</a></div><div class="sidebar-section-children"><a href="module-JRRowItem.html">JRRowItem</a></div><div class="sidebar-section-children"><a href="module-JRRowList.html">JRRowList</a></div><div class="sidebar-section-children"><a href="module-JRScene.html">JRScene</a></div><div class="sidebar-section-children"><a href="module-JRScreen.html">JRScreen</a></div><div class="sidebar-section-children"><a href="module-JRScrollingLabel.html">JRScrollingLabel</a></div><div class="sidebar-section-children"><a href="module-JRServer.html">JRServer</a></div><div class="sidebar-section-children"><a href="module-JRTab.html">JRTab</a></div><div class="sidebar-section-children"><a href="module-JRTabBar.html">JRTabBar</a></div><div class="sidebar-section-children"><a href="module-JRTimeGrid.html">JRTimeGrid</a></div><div class="sidebar-section-children"><a href="module-JellyfinDataTransformer.html">JellyfinDataTransformer</a></div><div class="sidebar-section-children"><a href="module-JellyfinUserSettings.html">JellyfinUserSettings</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLarge.html">LabelDisabledLarge</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLarger.html">LabelDisabledLarger</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLargest.html">LabelDisabledLargest</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledMedium.html">LabelDisabledMedium</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmall.html">LabelDisabledSmall</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmaller.html">LabelDisabledSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmallest.html">LabelDisabledSmallest</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLarge.html">LabelErrorLarge</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLarger.html">LabelErrorLarger</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLargest.html">LabelErrorLargest</a></div><div class="sidebar-section-children"><a href="module-LabelErrorMedium.html">LabelErrorMedium</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmall.html">LabelErrorSmall</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmaller.html">LabelErrorSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmallest.html">LabelErrorSmallest</a></div><div class="sidebar-section-children"><a href="module-LabelLarge.html">LabelLarge</a></div><div class="sidebar-section-children"><a href="module-LabelLarger.html">LabelLarger</a></div><div class="sidebar-section-children"><a href="module-LabelLargest.html">LabelLargest</a></div><div class="sidebar-section-children"><a href="module-LabelMedium.html">LabelMedium</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLarge.html">LabelPrimaryLarge</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLarger.html">LabelPrimaryLarger</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLargest.html">LabelPrimaryLargest</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryMedium.html">LabelPrimaryMedium</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmall.html">LabelPrimarySmall</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmaller.html">LabelPrimarySmaller</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmallest.html">LabelPrimarySmallest</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLarge.html">LabelSecondaryLarge</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLarger.html">LabelSecondaryLarger</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLargest.html">LabelSecondaryLargest</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryMedium.html">LabelSecondaryMedium</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmall.html">LabelSecondarySmall</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmaller.html">LabelSecondarySmaller</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmallest.html">LabelSecondarySmallest</a></div><div class="sidebar-section-children"><a href="module-LabelSmall.html">LabelSmall</a></div><div class="sidebar-section-children"><a href="module-LabelSmaller.html">LabelSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelSmallest.html">LabelSmallest</a></div><div class="sidebar-section-children"><a href="module-LanguagePicker.html">LanguagePicker</a></div><div class="sidebar-section-children"><a href="module-LiveTVPresenter.html">LiveTVPresenter</a></div><div class="sidebar-section-children"><a href="module-LoadChannelListForQueueTask.html">LoadChannelListForQueueTask</a></div><div class="sidebar-section-children"><a href="module-LoadChannelsTask.html">LoadChannelsTask</a></div><div class="sidebar-section-children"><a href="module-LoadItemsTask.html">LoadItemsTask</a></div><div class="sidebar-section-children"><a href="module-LoadItemsTask2.html">LoadItemsTask2</a></div><div class="sidebar-section-children"><a href="module-LoadPhotoTask.html">LoadPhotoTask</a></div><div class="sidebar-section-children"><a href="module-LoadProgramDetailsTask.html">LoadProgramDetailsTask</a></div><div class="sidebar-section-children"><a href="module-LoadScreenSaverTimeoutTask.html">LoadScreenSaverTimeoutTask</a></div><div class="sidebar-section-children"><a href="module-LoadSheduleTask.html">LoadSheduleTask</a></div><div class="sidebar-section-children"><a href="module-LoadVideoContentTask.html">LoadVideoContentTask</a></div><div class="sidebar-section-children"><a href="module-LoginScene.html">LoginScene</a></div><div class="sidebar-section-children"><a href="module-MediaSegmentAction.html">MediaSegmentAction</a></div><div class="sidebar-section-children"><a href="module-MediaSegmentType.html">MediaSegmentType</a></div><div class="sidebar-section-children"><a href="module-MockSceneManager.html">MockSceneManager</a></div><div class="sidebar-section-children"><a href="module-MoviePresenter.html">MoviePresenter</a></div><div class="sidebar-section-children"><a href="module-MusicArtistGridItem.html">MusicArtistGridItem</a></div><div class="sidebar-section-children"><a href="module-MusicPresenter.html">MusicPresenter</a></div><div class="sidebar-section-children"><a href="module-OSD.html">OSD</a></div><div class="sidebar-section-children"><a href="module-OSDButtonGroup.html">OSDButtonGroup</a></div><div class="sidebar-section-children"><a href="module-OptionNode.html">OptionNode</a></div><div class="sidebar-section-children"><a href="module-OptionsButton.html">OptionsButton</a></div><div class="sidebar-section-children"><a href="module-OptionsData.html">OptionsData</a></div><div class="sidebar-section-children"><a href="module-OptionsSlider.html">OptionsSlider</a></div><div class="sidebar-section-children"><a href="module-OverviewDialog.html">OverviewDialog</a></div><div class="sidebar-section-children"><a href="module-PhotoDetails.html">PhotoDetails</a></div><div class="sidebar-section-children"><a href="module-PhotoPresenter.html">PhotoPresenter</a></div><div class="sidebar-section-children"><a href="module-PlaybackDialog.html">PlaybackDialog</a></div><div class="sidebar-section-children"><a href="module-PresentationBackdrop.html">PresentationBackdrop</a></div><div class="sidebar-section-children"><a href="module-ProgramDetails.html">ProgramDetails</a></div><div class="sidebar-section-children"><a href="module-PublicUserData.html">PublicUserData</a></div><div class="sidebar-section-children"><a href="module-QueueManager.html">QueueManager</a></div><div class="sidebar-section-children"><a href="module-QuickConnect.html">QuickConnect</a></div><div class="sidebar-section-children"><a href="module-QuickConnectDialog.html">QuickConnectDialog</a></div><div class="sidebar-section-children"><a href="module-QuickConnectEnabledTask.html">QuickConnectEnabledTask</a></div><div class="sidebar-section-children"><a href="module-QuickPlayTask.html">QuickPlayTask</a></div><div class="sidebar-section-children"><a href="module-RadioDialog.html">RadioDialog</a></div><div class="sidebar-section-children"><a href="module-RecordProgramTask.html">RecordProgramTask</a></div><div class="sidebar-section-children"><a href="module-RectangleBackgroundPrimary.html">RectangleBackgroundPrimary</a></div><div class="sidebar-section-children"><a href="module-RectangleBackgroundSecondary.html">RectangleBackgroundSecondary</a></div><div class="sidebar-section-children"><a href="module-RectangleSecondary.html">RectangleSecondary</a></div><div class="sidebar-section-children"><a href="module-RefreshLiveTvMetadataTask.html">RefreshLiveTvMetadataTask</a></div><div class="sidebar-section-children"><a href="module-ResumeButton.html">ResumeButton</a></div><div class="sidebar-section-children"><a href="module-SceneManager.html">SceneManager</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLarge.html">ScrollingLabelDisabledLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLarger.html">ScrollingLabelDisabledLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLargest.html">ScrollingLabelDisabledLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledMedium.html">ScrollingLabelDisabledMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmall.html">ScrollingLabelDisabledSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmaller.html">ScrollingLabelDisabledSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmallest.html">ScrollingLabelDisabledSmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLarge.html">ScrollingLabelErrorLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLarger.html">ScrollingLabelErrorLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLargest.html">ScrollingLabelErrorLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorMedium.html">ScrollingLabelErrorMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmall.html">ScrollingLabelErrorSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmaller.html">ScrollingLabelErrorSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmallest.html">ScrollingLabelErrorSmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLarge.html">ScrollingLabelLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLarger.html">ScrollingLabelLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLargest.html">ScrollingLabelLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelMedium.html">ScrollingLabelMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLarge.html">ScrollingLabelPrimaryLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLarger.html">ScrollingLabelPrimaryLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLargest.html">ScrollingLabelPrimaryLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryMedium.html">ScrollingLabelPrimaryMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmall.html">ScrollingLabelPrimarySmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmaller.html">ScrollingLabelPrimarySmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmallest.html">ScrollingLabelPrimarySmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLarge.html">ScrollingLabelSecondaryLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLarger.html">ScrollingLabelSecondaryLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLargest.html">ScrollingLabelSecondaryLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryMedium.html">ScrollingLabelSecondaryMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmall.html">ScrollingLabelSecondarySmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmaller.html">ScrollingLabelSecondarySmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmallest.html">ScrollingLabelSecondarySmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmall.html">ScrollingLabelSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmaller.html">ScrollingLabelSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmallest.html">ScrollingLabelSmallest</a></div><div class="sidebar-section-children"><a href="module-SearchBox.html">SearchBox</a></div><div class="sidebar-section-children"><a href="module-SearchResults.html">SearchResults</a></div><div class="sidebar-section-children"><a href="module-SearchRow.html">SearchRow</a></div><div class="sidebar-section-children"><a href="module-SearchTask.html">SearchTask</a></div><div class="sidebar-section-children"><a href="module-ServerAction.html">ServerAction</a></div><div class="sidebar-section-children"><a href="module-ServerDiscoveryTask.html">ServerDiscoveryTask</a></div><div class="sidebar-section-children"><a href="module-SessionDataTransformer.html">SessionDataTransformer</a></div><div class="sidebar-section-children"><a href="module-SetServerScreen.html">SetServerScreen</a></div><div class="sidebar-section-children"><a href="module-SideEffectTask.html">SideEffectTask</a></div><div class="sidebar-section-children"><a href="module-SongItem.html">SongItem</a></div><div class="sidebar-section-children"><a href="module-Spinner.html">Spinner</a></div><div class="sidebar-section-children"><a href="module-StandardDialog.html">StandardDialog</a></div><div class="sidebar-section-children"><a href="module-SubtitleSelection.html">SubtitleSelection</a></div><div class="sidebar-section-children"><a href="module-TVShowPresenter.html">TVShowPresenter</a></div><div class="sidebar-section-children"><a href="module-TextButton.html">TextButton</a></div><div class="sidebar-section-children"><a href="module-TextSizeTask.html">TextSizeTask</a></div><div class="sidebar-section-children"><a href="module-Toast.html">Toast</a></div><div class="sidebar-section-children"><a href="module-TrackDropdown.html">TrackDropdown</a></div><div class="sidebar-section-children"><a href="module-TrackDropdownRow.html">TrackDropdownRow</a></div><div class="sidebar-section-children"><a href="module-TrickplayCarousel.html">TrickplayCarousel</a></div><div class="sidebar-section-children"><a href="module-TrickplayTileLoader.html">TrickplayTileLoader</a></div><div class="sidebar-section-children"><a href="module-UserData.html">UserData</a></div><div class="sidebar-section-children"><a href="module-UserItem.html">UserItem</a></div><div class="sidebar-section-children"><a href="module-UserRow.html">UserRow</a></div><div class="sidebar-section-children"><a href="module-UserSelect.html">UserSelect</a></div><div class="sidebar-section-children"><a href="module-VertButtonGroup.html">VertButtonGroup</a></div><div class="sidebar-section-children"><a href="module-VideoNotification.html">VideoNotification</a></div><div class="sidebar-section-children"><a href="module-VideoPlayerView.html">VideoPlayerView</a></div><div class="sidebar-section-children"><a href="module-VideoProgressBar.html">VideoProgressBar</a></div><div class="sidebar-section-children"><a href="module-ViewCreator.html">ViewCreator</a></div><div class="sidebar-section-children"><a href="module-apiPool.html">apiPool</a></div><div class="sidebar-section-children"><a href="module-backdrop.html">backdrop</a></div><div class="sidebar-section-children"><a href="module-baseRequest.html">baseRequest</a></div><div class="sidebar-section-children"><a href="module-captionTask.html">captionTask</a></div><div class="sidebar-section-children"><a href="module-chapterItems.html">chapterItems</a></div><div class="sidebar-section-children"><a href="module-conditional.html">conditional</a></div><div class="sidebar-section-children"><a href="module-config.html">config</a></div><div class="sidebar-section-children"><a href="module-deviceCapabilities.html">deviceCapabilities</a></div><div class="sidebar-section-children"><a href="module-displaySettings.html">displaySettings</a></div><div class="sidebar-section-children"><a href="module-extrasLayout.html">extrasLayout</a></div><div class="sidebar-section-children"><a href="module-image.html">image</a></div><div class="sidebar-section-children"><a href="module-imageHelpers.html">imageHelpers</a></div><div class="sidebar-section-children"><a href="module-itemImageUrl.html">itemImageUrl</a></div><div class="sidebar-section-children"><a href="module-items.html">items</a></div><div class="sidebar-section-children"><a href="module-languages.html">languages</a></div><div class="sidebar-section-children"><a href="module-libraryViewFactory.html">libraryViewFactory</a></div><div class="sidebar-section-children"><a href="module-liveTv.html">liveTv</a></div><div class="sidebar-section-children"><a href="module-main.html">main</a></div><div class="sidebar-section-children"><a href="module-mediaDisplayTitle.html">mediaDisplayTitle</a></div><div class="sidebar-section-children"><a href="module-mediaSegments.html">mediaSegments</a></div><div class="sidebar-section-children"><a href="module-migrations.html">migrations</a></div><div class="sidebar-section-children"><a href="module-misc.html">misc</a></div><div class="sidebar-section-children"><a href="module-nodeHelpers.html">nodeHelpers</a></div><div class="sidebar-section-children"><a href="module-nodeUtils.html">nodeUtils</a></div><div class="sidebar-section-children"><a href="module-placeholderImage.html">placeholderImage</a></div><div class="sidebar-section-children"><a href="module-queueBackdropHelper.html">queueBackdropHelper</a></div><div class="sidebar-section-children"><a href="module-quickplay.html">quickplay</a></div><div class="sidebar-section-children"><a href="module-rowItemImage.html">rowItemImage</a></div><div class="sidebar-section-children"><a href="module-rowItemText.html">rowItemText</a></div><div class="sidebar-section-children"><a href="module-rowListWrap.html">rowListWrap</a></div><div class="sidebar-section-children"><a href="module-schedule.html">schedule</a></div><div class="sidebar-section-children"><a href="module-sdkV1.html">sdkV1</a></div><div class="sidebar-section-children"><a href="module-sdkV2.html">sdkV2</a></div><div class="sidebar-section-children"><a href="module-section.html">section</a></div><div class="sidebar-section-children"><a href="module-sectionScroller.html">sectionScroller</a></div><div class="sidebar-section-children"><a href="module-settings.html">settings</a></div><div class="sidebar-section-children"><a href="module-showScenes.html">showScenes</a></div><div class="sidebar-section-children"><a href="module-streamSelection.html">streamSelection</a></div><div class="sidebar-section-children"><a href="module-subtitles.html">subtitles</a></div><div class="sidebar-section-children"><a href="module-textureManager.html">textureManager</a></div><div class="sidebar-section-children"><a href="module-timeouts.html">timeouts</a></div><div class="sidebar-section-children"><a href="module-trackClusterFocus.html">trackClusterFocus</a></div><div class="sidebar-section-children"><a href="module-translate.html">translate</a></div><div class="sidebar-section-children"><a href="module-translateLocale.html">translateLocale</a></div><div class="sidebar-section-children"><a href="module-trickplay.html">trickplay</a></div><div class="sidebar-section-children"><a href="module-url.html">url</a></div><div class="sidebar-section-children"><a href="module-userAuth.html">userAuth</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-classes"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-ApiClient.ApiClient.html">ApiClient</a></div><div class="sidebar-section-children"><a href="module-GenericPresenter.GenericPresenter.html">GenericPresenter</a></div><div class="sidebar-section-children"><a href="module-GridPresenterBase.GridPresenterBase.html">GridPresenterBase</a></div><div class="sidebar-section-children"><a href="module-JellyfinDataTransformer.JellyfinDataTransformer.html">JellyfinDataTransformer</a></div><div class="sidebar-section-children"><a href="module-LiveTVPresenter.LiveTVPresenter.html">LiveTVPresenter</a></div><div class="sidebar-section-children"><a href="module-MoviePresenter.MoviePresenter.html">MoviePresenter</a></div><div class="sidebar-section-children"><a href="module-MusicPresenter.MusicPresenter.html">MusicPresenter</a></div><div class="sidebar-section-children"><a href="module-PhotoPresenter.PhotoPresenter.html">PhotoPresenter</a></div><div class="sidebar-section-children"><a href="module-SessionDataTransformer.SessionDataTransformer.html">SessionDataTransformer</a></div><div class="sidebar-section-children"><a href="module-TVShowPresenter.TVShowPresenter.html">TVShowPresenter</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-namespaces"><div>Namespaces</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="extrasLayout.html">extrasLayout</a></div><div class="sidebar-section-children"><a href="nodeHelpers.html">nodeHelpers</a></div><div class="sidebar-section-children"><a href="nodeUtils.html">nodeUtils</a></div><div class="sidebar-section-children"><a href="quickplay.html">quickplay</a></div><div class="sidebar-section-children"><a href="sdkV1.html">sdkV1</a></div><div class="sidebar-section-children"><a href="sdkV1_sdkV1.html">sdkV1/sdkV1</a></div><div class="sidebar-section-children"><a href="sdkV1_sdkV1_users.html">sdkV1/sdkV1/users</a></div><div class="sidebar-section-children"><a href="sdkV2.html">sdkV2</a></div><div class="sidebar-section-children"><a href="sdkV2_sdkV2.html">sdkV2/sdkV2</a></div><div class="sidebar-section-children"><a href="sdkV2_sdkV2_users.html">sdkV2/sdkV2/users</a></div><div class="sidebar-section-children"><a href="timeouts.html">timeouts</a></div><div class="sidebar-section-children"><a href="trackClusterFocus.html">trackClusterFocus</a></div><div class="sidebar-section-children"><a href="trickplay.html">trickplay</a></div></div></div></div></div><div class="navbar-container" id="VuAckcnZhf"><nav class="navbar"><div class="navbar-left-items"><div class="external-link navbar-item"><a id="github-link" href="https://github.com/jellyrock/api-docs" target="_blank">Source</a></div><div class="external-link navbar-item"><a id="jellyfin-link" href="https://jellyfin.org/docs/" target="_blank">Jellyfin docs</a></div><div class="external-link navbar-item"><a id="jellyfin-link" href="https://api.jellyfin.org/" target="_blank">Jellyfin API docs</a></div></div><div class="navbar-right-items"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#dark-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div><nav></nav></nav></div><div class="toc-container"><div class="toc-content"><span class="bold">On this page</span><div id="eed4d2a0bfd64539bb9df78095dec881"></div></div></div><div class="body-wrapper"><div class="main-content"><div class="main-wrapper"><section id="source-page" class="source-page"><header><h1 id="title" class="has-anchor">components_ItemDetails.bs</h1></header><article><pre class="prettyprint source lang-js"><code>import "pkg:/source/api/ApiClient.bs"
 import "pkg:/source/api/apiPool.bs"
 import "pkg:/source/api/image.bs"
 import "pkg:/source/constants/extrasLayout.bs"
@@ -13,6 +13,7 @@ import "pkg:/source/utils/mediaDisplayTitle.bs"
 import "pkg:/source/utils/misc.bs"
 import "pkg:/source/utils/streamSelection.bs"
 import "pkg:/source/utils/textureManager.bs"
+import "pkg:/source/utils/trackClusterFocus.bs"
 import "pkg:/source/utils/translate.bs"
 
 ' Gap between bottom of itemInfoRows and top of extras pane when extras are open
@@ -35,10 +36,70 @@ sub init()
   m.log = new log.Logger("ItemDetails")
   m.extrasGrp = m.top.findNode("extrasGrp")
   m.extrasGrid = m.top.findNode("extrasGrid")
+  ' Hide the overhang's Options hint — track selection happens inline via the TrackDropdown
+  ' cluster above the button group, not through the overhang options popup pattern.
   m.top.isOptionsAvailable = false
 
-  m.options = m.top.findNode("itemOptions")
   m.infoGroup = m.top.findNode("infoGroup")
+
+  ' Inline track dropdowns (Video / Audio / Subtitles). trackCluster is a top-level
+  ' sibling of itemDetails statically positioned at [96, 713] — see ItemDetails.xml for
+  ' the geometry rationale. itemTracks inside itemDetails is a 62px invisible spacer
+  ' that pushes description bottom up to y=701 so the cluster sits in a 99px band
+  ' between description and buttons, with 12px pad above and 18px pad below.
+  m.trackCluster = m.top.findNode("trackCluster")
+  m.trackTitles = m.top.findNode("trackTitles")
+  m.videoTrackTitle = m.top.findNode("videoTrackTitle")
+  m.audioTrackTitle = m.top.findNode("audioTrackTitle")
+  m.subtitleTrackTitle = m.top.findNode("subtitleTrackTitle")
+
+  m.trackDropdowns = m.top.findNode("trackDropdowns")
+  m.videoDropdown = m.top.findNode("videoDropdown")
+  m.audioDropdown = m.top.findNode("audioDropdown")
+  m.subtitleDropdown = m.top.findNode("subtitleDropdown")
+  m.subtitleUserOverridden = false
+
+  ' Remembers the last TrackDropdown that held focus so returning to the track row via
+  ' UP-from-buttons restores the previous slot. Reset per-content in itemContentChanged
+  ' and when the remembered slot becomes non-interactive during repopulation.
+  m.lastFocusedDropdown = invalid
+  m.videoDropdown.observeField("focusedChild", "onTrackDropdownFocusChanged")
+  m.audioDropdown.observeField("focusedChild", "onTrackDropdownFocusChanged")
+  m.subtitleDropdown.observeField("focusedChild", "onTrackDropdownFocusChanged")
+
+  m.videoDropdown.observeField("selectedAction", "onVideoDropdownSelection")
+  m.audioDropdown.observeField("selectedAction", "onAudioDropdownSelection")
+  m.subtitleDropdown.observeField("selectedAction", "onSubtitleDropdownSelection")
+
+  m.videoDropdown.observeField("requestFocusReturn", "onDropdownRequestUp")
+  m.audioDropdown.observeField("requestFocusReturn", "onDropdownRequestUp")
+  m.subtitleDropdown.observeField("requestFocusReturn", "onDropdownRequestUp")
+
+  m.videoDropdown.observeField("requestFocusDown", "onDropdownRequestDown")
+  m.audioDropdown.observeField("requestFocusDown", "onDropdownRequestDown")
+  m.subtitleDropdown.observeField("requestFocusDown", "onDropdownRequestDown")
+
+  m.videoDropdown.observeField("requestFocusExit", "onVideoDropdownFocusExit")
+  m.audioDropdown.observeField("requestFocusExit", "onAudioDropdownFocusExit")
+  m.subtitleDropdown.observeField("requestFocusExit", "onSubtitleDropdownFocusExit")
+
+  ' Vertical gradient dimmer shown while any track dropdown has its menu open. Fades
+  ' clear → fully opaque black from y=707 to y=1080 so the menu pops against
+  ' IconButtons / chapters peek without dimming the metadata above the trackCluster.
+  ' See the dropdownDimmer comment in ItemDetails.xml for the full geometry rationale.
+  ' Colors are set here (not in XML) so theme changes can swap colorBlack if it
+  ' ever varies (today it's a fixed 0x000000 across themes).
+  m.dropdownDimmer = m.top.findNode("dropdownDimmer")
+  globalConstants = m.global.constants
+  m.dropdownDimmer.startColor = globalConstants.colorBlack + globalConstants.alpha0
+  m.dropdownDimmer.endColor = globalConstants.colorBlack + globalConstants.alpha100
+
+  ' The handler ORs the three menuOpen fields; only one menu can be open at a time
+  ' today, but the OR keeps the logic correct regardless of how openMenu/closeMenu
+  ' evolve.
+  m.videoDropdown.observeField("menuOpen", "onTrackDropdownMenuOpenChanged")
+  m.audioDropdown.observeField("menuOpen", "onTrackDropdownMenuOpenChanged")
+  m.subtitleDropdown.observeField("menuOpen", "onTrackDropdownMenuOpenChanged")
 
   m.itemDescription = m.top.findNode("itemDescription")
   m.itemDescriptionInLayout = true ' itemDescription is a static XML child, so it starts in layout
@@ -67,9 +128,17 @@ sub init()
   ' Observe renderTracking to update gradient after layout is calculated
   m.itemDetails.observeField("renderTracking", "onItemDetailsRendered")
 
-  ' itemDetails slide animation - synced with extras slider
+  ' 62px invisible spacer inside itemDetails. Pushes description bottom up to y=701
+  ' so the trackCluster sibling has 12px breathing pad above and 18px below between
+  ' description and buttons. Removed from the layout for NO_MEDIA_TRACKS item types
+  ' (Series/Season/Person/etc.) so those items' description bottom drops back to
+  ' y=775 (matching main's behavior). The extras slide animation in
+  ' updateItemDetailsAnimationTarget() reads itemInfoRows.boundingRect() at runtime
+  ' and adapts to the taller spacer automatically — no target math change needed.
   m.itemTracks = m.top.findNode("itemTracks")
-  m.itemTracksInLayout = true ' itemTracks is a static XML child, so it starts in layout
+  m.itemTracksInLayout = true
+
+  ' itemDetails slide animation - synced with extras slider
   m.itemDetailsSlider = m.top.findNode("itemDetailsSlider")
   m.itemDetailsSliderInterp = m.top.findNode("itemDetailsSliderInterp")
   m.extrasActive = false
@@ -80,7 +149,6 @@ sub init()
   m.itemInfoRows = m.top.findNode("itemInfoRows")
 
   ' Dynamic button refs — reset by setupButtons() on each content load
-  m.optionsButton = invalid
   m.shuffleButton = invalid
   m.shuffleLoadingButton = invalid
   m.resumeLoadingButton = invalid
@@ -1719,13 +1787,23 @@ sub itemContentChanged()
 
     ' Media tracks and stream options are only relevant for playable types.
     ' MusicArtist/MusicAlbum have no track info. Audio shows audio codec only.
-    ' Use reparenting instead of visible=false — invisible nodes still take up LayoutGroup space.
-    setTracksInLayout(not inArray(itemTypeOrder.NO_MEDIA_TRACKS, item.type))
+    hasMediaTracks = not inArray(itemTypeOrder.NO_MEDIA_TRACKS, item.type)
+
+    ' Keep/remove the itemTracks spacer + trackCluster visibility in one step so
+    ' NO_MEDIA_TRACKS item types render identically to main.
+    setTracksInLayout(hasMediaTracks)
+    m.trackCluster.visible = hasMediaTracks
+
+    ' Fresh content = fresh auto-selected subtitle (reset the user-override flag so the
+    ' subtitle dropdown re-seeds from findDefaultSubtitleStreamIndex).
+    m.subtitleUserOverridden = false
+
+    ' Fresh content = forget the previously-focused dropdown so the next UP-from-buttons
+    ' press picks the slot based on the current button column, not the prior item.
+    m.lastFocusedDropdown = invalid
 
     if item.type = "Audio"
-      ' Audio: show audio codec only — no video source selection or subtitle display
-      setFieldText("videoCodec", "")
-      setFieldText("subtitleCodec", "")
+      ' Audio: no video source selection, no subtitle display. Audio dropdown still applies.
       allStreams = []
       if isValid(item.mediaSourcesData) and isValidAndNotEmpty(item.mediaSourcesData.mediaSources)
         mediaSources = item.mediaSourcesData.mediaSources
@@ -1734,9 +1812,8 @@ sub itemContentChanged()
         end if
       end if
       SetDefaultAudioTrack(allStreams)
-      SetUpAudioOptions(allStreams)
-      updateOptionsButtonVisibility()
-    else if not inArray(itemTypeOrder.NO_MEDIA_TRACKS, item.type)
+      populateTrackDropdowns([], allStreams, item.type)
+    else if hasMediaTracks
       mediaSources = invalid
       if isValid(item.mediaSourcesData) and isValidAndNotEmpty(item.mediaSourcesData.mediaSources)
         mediaSources = item.mediaSourcesData.mediaSources
@@ -1750,35 +1827,14 @@ sub itemContentChanged()
         m.top.selectedVideoStreamId = item.mediaSourceId
       end if
 
-      ' Use the selected source's MediaStreams (not always mediaSources[0])
-      allStreams = []
-      if isValid(mediaSources)
-        for each source in mediaSources
-          if source.Id = m.top.selectedVideoStreamId
-            if isValid(source.MediaStreams)
-              allStreams = source.MediaStreams
-            end if
-            exit for
-          end if
-        end for
-        ' Fallback to first source if selected source not found
-        if allStreams.Count() = 0 and isValid(mediaSources[0]) and isValid(mediaSources[0].MediaStreams)
-          allStreams = mediaSources[0].MediaStreams
-        end if
-      end if
+      allStreams = getStreamsForSelectedSource(mediaSources)
 
       SetDefaultAudioTrack(allStreams)
-      SetUpVideoOptions(mediaSources ?? [])
-      SetUpAudioOptions(allStreams)
-      SetUpSubtitleDisplay(allStreams, m.top.selectedAudioStreamIndex)
-      updateOptionsButtonVisibility()
-    else
-      ' Series/Season/Person/BoxSet/MusicArtist/MusicAlbum: remove options button if left from previous load
-      if isValid(m.optionsButton)
-        m.buttonGrp.removeChild(m.optionsButton)
-        m.optionsButton = invalid
-      end if
+      populateTrackDropdowns(mediaSources ?? [], allStreams, item.type)
     end if
+    ' Series/Season/Person/BoxSet/MusicArtist/MusicAlbum: the NO_MEDIA_TRACKS branch
+    ' above already removed itemTracks from layout and hid m.trackCluster, so nothing
+    ' more to do here.
 
     populateInfoGroup()
     populateDescriptionGroup()
@@ -1851,108 +1907,174 @@ sub itemContentChanged()
   end if
 end sub
 
-sub SetUpVideoOptions(streams)
-  videos = []
-  codecDetailsSet = false
-  hasMultipleSources = streams.Count() > 1
+' ============================================
+' TRACK DROPDOWNS
+' ============================================
 
-  for i = 0 to streams.Count() - 1
-    if streams[i].VideoType = "VideoFile"
-      codec = formatVideoSourceTitle(streams[i], hasMultipleSources)
+' The track dropdown cluster is now a child of itemDetails LayoutGroup, so vertical
+' stacking and horizontal anchoring are handled by RSG's layout engine. Slot width and
+' stride are configured declaratively in ItemDetails.xml's trackDropdowns LayoutGroup
+' (slot width via TrackDropdown default, stride via itemSpacings).
 
-      if not codecDetailsSet
-        setFieldText("videoCodec", translate(translationKeys.LabelVideo) + ": " + codec)
-        codecDetailsSet = true
-      end if
-
-      videos.push({
-        "Title": codec,
-        "Description": translate(translationKeys.LabelVideo),
-        "Selected": m.top.selectedVideoStreamId = streams[i].id,
-        "StreamID": streams[i].id,
-        "videoCodec": codec
-      })
-    end if
-  end for
-
-  if streams.count() > 1
-    m.top.findnode("videoCodecCount").text = "+" + stri(streams.Count() - 1).trim()
-  end if
-
-  options = {}
-  options.videos = videos
-  m.options.options = options
-end sub
-
-sub SetUpAudioOptions(streams)
-  tracks = []
-
-  for i = 0 to streams.Count() - 1
-    if streams[i].Type = "Audio"
-      ' Use server-side stream.index for both the pre-selection check and the StreamIndex value
-      ' carried to ItemOptions. Jellyfin indices span all stream types and must match what
-      ' ItemPostPlaybackInfo expects.
-      if isValid(streams[i].index)
-        tracks.push({ "Title": formatAudioDisplayTitle(streams[i]), "Description": streams[i].Title, "Selected": m.top.selectedAudioStreamIndex = streams[i].index, "StreamIndex": streams[i].index })
-      end if
-    end if
-  end for
-
-  if tracks.count() > 1
-    m.top.findnode("audioCodecCount").text = "+" + stri(tracks.Count() - 1).trim()
-  end if
-
-  options = {}
-  if isValid(m.options.options) and isValid(m.options.options.videos)
-    options.videos = m.options.options.videos
-  end if
-  options.audios = tracks
-  m.options.options = options
-end sub
-
-' SetUpSubtitleDisplay: Display the subtitle stream that will be auto-selected during playback.
-' Uses findDefaultSubtitleStreamIndex() to match the same selection logic as playback
-' (subtitle mode, language preference, text-only preference, smart mode audio matching).
-' Shows "+N" count if multiple subtitle tracks exist.
+' populateTrackDropdowns: Build the Video/Audio/Subtitle dropdown items from the current
+' media source list and stream list for the given item type, then toggle the cluster +
+' title row visibility. Seeds m.top.selectedSubtitleStreamIndex from
+' findDefaultSubtitleStreamIndex() on first load so the initial trigger label reflects
+' what playback will actually use.
 '
-' @param {object} streams - Array of MediaStream objects (all types: video, audio, subtitle)
-' @param {integer} selectedAudioStreamIndex - Server-side index of the selected audio stream
-sub SetUpSubtitleDisplay(streams, selectedAudioStreamIndex as integer)
-  subtitleCountNode = m.top.findNode("subtitleCodecCount")
-  if isValid(subtitleCountNode) then subtitleCountNode.text = ""
+' @param {object} mediaSources - Array of MediaSource objects (may be empty)
+' @param {object} allStreams - MediaStreams from the selected source (video/audio/subs mixed)
+' @param {string} itemType - The item type string (drives which slots apply)
+sub populateTrackDropdowns(mediaSources as object, allStreams as object, itemType as string)
+  videoItems = buildVideoDropdownItems(mediaSources)
+  audioItems = buildAudioDropdownItems(allStreams)
+  subtitleItems = buildSubtitleDropdownItems(allStreams)
 
-  if not isValid(streams) then return
+  ' Seed default subtitle selection on first load / fresh content so the dropdown trigger
+  ' text reflects the subtitle stream playback would auto-pick. A subsequent user pick on
+  ' the dropdown flips m.subtitleUserOverridden so we don't re-seed on audio changes.
+  if not m.subtitleUserOverridden
+    defaultSubIdx = findDefaultSubtitleStreamIndex(allStreams, m.top.selectedAudioStreamIndex)
+    m.top.selectedSubtitleStreamIndex = defaultSubIdx
+  end if
 
-  subtitleCount = 0
-  for i = 0 to streams.count() - 1
-    if isValid(streams[i].Type) and LCase(streams[i].Type) = "subtitle"
-      subtitleCount++
-    end if
-  end for
+  ' Audio-only items get no video and no subtitle slot. Video items always show
+  ' the subtitle slot for layout consistency — buildSubtitleDropdownItems returns
+  ' a single "None" entry when no tracks exist, which applyDropdown renders as
+  ' static non-interactive text.
+  videoApplicable = itemType &lt;> "Audio" and videoItems.count() > 0
+  audioApplicable = audioItems.count() > 0
+  subtitleApplicable = itemType &lt;> "Audio" and subtitleItems.count() > 0
 
-  if subtitleCount = 0
-    setFieldText("subtitleCodec", translate(translationKeys.LabelSubtitles) + ": " + translate(translationKeys.LabelNone))
+  ' Title row: static labels above each dropdown. Always shown for applicable slots so
+  ' users see the category name even when the slot is single-option static text.
+  m.videoTrackTitle.text = translate(translationKeys.LabelVideo)
+  m.audioTrackTitle.text = translate(translationKeys.LabelAudio)
+  m.subtitleTrackTitle.text = translate(translationKeys.LabelSubtitles)
+  m.videoTrackTitle.visible = videoApplicable
+  m.audioTrackTitle.visible = audioApplicable
+  m.subtitleTrackTitle.visible = subtitleApplicable
+
+  applyDropdown(m.videoDropdown, videoItems, m.top.selectedVideoStreamId, videoApplicable)
+  applyDropdown(m.audioDropdown, audioItems, str(m.top.selectedAudioStreamIndex).trim(), audioApplicable)
+  applyDropdown(m.subtitleDropdown, subtitleItems, str(m.top.selectedSubtitleStreamIndex).trim(), subtitleApplicable)
+
+  ' Cluster visibility: shown if any slot applies. trackCluster is a top-level sibling
+  ' statically positioned in XML at [96, 713] — no runtime layout math needed here.
+  m.trackCluster.visible = videoApplicable or audioApplicable or subtitleApplicable
+end sub
+
+' applyDropdown: Push items + selection into a single TrackDropdown. Hides the slot when
+' the track type isn't applicable (keeps layout order stable for the other two slots).
+sub applyDropdown(dropdown as object, items as object, selectedId as string, applicable as boolean)
+  if not applicable
+    dropdown.visible = false
     return
   end if
 
-  selectedIndex = findDefaultSubtitleStreamIndex(streams, selectedAudioStreamIndex)
-
-  if selectedIndex >= 0
-    for i = 0 to streams.count() - 1
-      if isValid(streams[i].index) and streams[i].index = selectedIndex
-        setFieldText("subtitleCodec", translate(translationKeys.LabelSubtitles) + ": " + formatSubtitleDisplayTitle(streams[i]))
-        exit for
-      end if
-    end for
-  else
-    setFieldText("subtitleCodec", translate(translationKeys.LabelSubtitles) + ": " + translate(translationKeys.LabelOff))
-  end if
-
-  if subtitleCount > 1
-    m.top.findNode("subtitleCodecCount").text = "+" + stri(subtitleCount - 1).trim()
-  end if
+  dropdown.visible = true
+  dropdown.items = items
+  dropdown.selectedItemId = selectedId
+  dropdown.triggerText = triggerTextForSelection(items, selectedId)
+  ' Single-option slots render as static (non-focusable) text with the same geometry
+  dropdown.isInteractive = items.count() > 1
 end sub
 
+' triggerTextForSelection: Look up the currently-selected item's display title.
+function triggerTextForSelection(items as object, selectedId as string) as string
+  if not isValid(items) or items.count() = 0 then return ""
+  for each item in items
+    if isValid(item.id) and item.id = selectedId
+      return item.title
+    end if
+  end for
+  return items[0].title
+end function
+
+' buildVideoDropdownItems: Convert MediaSources into dropdown items. "Video" here is the
+' MediaSource, not a stream — it's the user-facing alternate-version selector (e.g. "1080p
+' H264" vs "4K HEVC HDR10").
+function buildVideoDropdownItems(mediaSources as object) as object
+  items = []
+  if not isValid(mediaSources) then return items
+
+  hasMultipleSources = mediaSources.count() > 1
+  for each source in mediaSources
+    if isValid(source) and source.VideoType = "VideoFile" and isValidAndNotEmpty(source.id)
+      items.push({ id: source.id, title: formatVideoSourceTitle(source, hasMultipleSources) })
+    end if
+  end for
+  return items
+end function
+
+' buildAudioDropdownItems: Convert the MediaStreams array into dropdown items for audio.
+' Item id is the stringified server-side stream index, matching the ItemDetails contract
+' that selectedAudioStreamIndex is an integer spanning all stream types.
+function buildAudioDropdownItems(streams as object) as object
+  items = []
+  if not isValid(streams) then return items
+
+  for each stream in streams
+    if isValid(stream) and isValid(stream.Type) and LCase(stream.Type) = "audio" and isValid(stream.index)
+      items.push({ id: str(stream.index).trim(), title: formatAudioDisplayTitle(stream) })
+    end if
+  end for
+  return items
+end function
+
+' buildSubtitleDropdownItems: Convert the MediaStreams array into dropdown items for
+' subtitles.
+'
+' Two shapes are returned depending on whether the item actually has subtitle streams:
+'   * No subtitle streams at all → [{ id:"-1", title:"None" }]. Rendered as a static
+'     non-interactive slot so the "Subtitles" title row still shows and the layout
+'     stays consistent across items. "None" (not "Off") because the user has no
+'     choice to make — subtitles simply don't exist on this item.
+'   * One or more subtitle streams → [{ id:"-1", title:"Off" }, ...tracks]. The
+'     "Off" entry lets the user disable subtitles when tracks ARE present. id "-1"
+'     is the SubtitleSelection.NONE sentinel used by m.top.selectedSubtitleStreamIndex.
+function buildSubtitleDropdownItems(streams as object) as object
+  tracks = []
+  if isValid(streams)
+    for each stream in streams
+      if isValid(stream) and isValid(stream.Type) and LCase(stream.Type) = "subtitle" and isValid(stream.index)
+        tracks.push({ id: str(stream.index).trim(), title: formatSubtitleDisplayTitle(stream) })
+      end if
+    end for
+  end if
+
+  if tracks.count() = 0
+    return [{ id: "-1", title: translate(translationKeys.LabelNone) }]
+  end if
+
+  items = [{ id: "-1", title: translate(translationKeys.LabelOff) }]
+  for each track in tracks
+    items.push(track)
+  end for
+  return items
+end function
+
+' getStreamsForSelectedSource: Pull the MediaStreams array from whichever media source
+' matches m.top.selectedVideoStreamId. Falls back to mediaSources[0] when the selected
+' id isn't found (e.g. first load before selection).
+function getStreamsForSelectedSource(mediaSources as object) as object
+  if not isValid(mediaSources) then return []
+
+  for each source in mediaSources
+    if source.Id = m.top.selectedVideoStreamId and isValid(source.MediaStreams)
+      return source.MediaStreams
+    end if
+  end for
+
+  if isValid(mediaSources[0]) and isValid(mediaSources[0].MediaStreams)
+    return mediaSources[0].MediaStreams
+  end if
+  return []
+end function
+
+' SetDefaultAudioTrack: Auto-select the best audio stream based on user language prefs,
+' storing the result on m.top.selectedAudioStreamIndex. The dropdown trigger label is
+' refreshed separately by applyDropdown() using the same index.
 sub SetDefaultAudioTrack(mediaStreams as object)
   if not isValid(mediaStreams) then return
 
@@ -1960,19 +2082,7 @@ sub SetDefaultAudioTrack(mediaStreams as object)
   playDefault = resolvePlayDefaultAudioTrack(localUser.settings, localUser.config)
   selectedIndex = findBestAudioStreamIndex(mediaStreams, playDefault, resolveAudioLanguagePreference(localUser.settings, localUser.config))
 
-  defaultAudioStream = invalid
-  for each stream in mediaStreams
-    if LCase(stream.Type) = "audio" and isValid(stream.index) and stream.index = selectedIndex
-      defaultAudioStream = stream
-      exit for
-    end if
-  end for
-
   m.top.selectedAudioStreamIndex = selectedIndex
-
-  if isValid(defaultAudioStream)
-    setFieldText("audioCodec", translate(translationKeys.LabelAudio) + ": " + formatAudioDisplayTitle(defaultAudioStream))
-  end if
 end sub
 
 sub setFieldText(field, value)
@@ -2254,8 +2364,9 @@ function anchorDateLabel() as integer
 end function
 
 ' onButtonGrpRendered: Fires after the render thread settles the button group layout.
-' Re-anchors the date label and repositions the logo (if already loaded) so both
-' elements reflect the true button group height.
+' Re-anchors the date label and repositions the logo. The track dropdown cluster lives
+' inside itemDetails LayoutGroup and is positioned automatically by the layout engine,
+' so it doesn't need to be re-placed here.
 sub onButtonGrpRendered()
   if m.buttonGrp.renderTracking = "none" then return
 
@@ -2369,60 +2480,6 @@ sub updateTextGradient()
   end if
 end sub
 
-' updateOptionsButtonVisibility: Create/remove options button based on available tracks.
-' Creates button if there are multiple video or audio tracks to choose from.
-' Removes button if there is 1 or fewer video tracks AND 1 or fewer audio tracks.
-sub updateOptionsButtonVisibility()
-  videoCount = 0
-  audioCount = 0
-
-  if isValid(m.options.options) and isValid(m.options.options.videos)
-    videoCount = m.options.options.videos.count()
-  end if
-
-  if isValid(m.options.options) and isValid(m.options.options.audios)
-    audioCount = m.options.options.audios.count()
-  end if
-
-  shouldShowOptions = videoCount > 1 or audioCount > 1
-  buttonExists = isValid(m.optionsButton)
-
-  if shouldShowOptions and not buttonExists
-    currentFocusIndex = m.buttonGrp.buttonFocused
-
-    m.optionsButton = CreateObject("roSGNode", "IconButton")
-    m.optionsButton.id = "optionsButton"
-    m.optionsButton.icon = "pkg:/images/icons/settings.png"
-    m.optionsButton.text = translate(translationKeys.LabelOptions)
-
-    playButtonIndex = getButtonIndex("playButton")
-    if playButtonIndex >= 0
-      insertIndex = playButtonIndex + 1
-      m.buttonGrp.insertChild(m.optionsButton, insertIndex)
-
-      if isValid(currentFocusIndex) and currentFocusIndex >= insertIndex
-        m.buttonGrp.buttonFocused = currentFocusIndex + 1
-      end if
-    else
-      m.log.warn("playButton not found in button group; appending optionsButton to end")
-      m.buttonGrp.appendChild(m.optionsButton)
-    end if
-  else if not shouldShowOptions and buttonExists
-    currentFocusIndex = m.buttonGrp.buttonFocused
-    optionsButtonIndex = getButtonIndex("optionsButton")
-
-    m.buttonGrp.removeChild(m.optionsButton)
-    m.optionsButton = invalid
-
-    if isValid(currentFocusIndex) and isValid(optionsButtonIndex) and currentFocusIndex > optionsButtonIndex
-      focusIndex = currentFocusIndex - 1
-      if focusIndex &lt; 0 then focusIndex = 0
-      m.buttonGrp.buttonFocused = focusIndex
-    end if
-    focusButtonGroupChild()
-  end if
-end sub
-
 ' getButtonIndex: Find the index of a button by ID in the button group
 ' @param {string} buttonId - The id of the button to find
 ' @return {integer} The index of the button, or -1 if not found
@@ -2480,9 +2537,13 @@ sub setDescriptionInLayout(shouldShow as boolean)
   m.itemDescriptionInLayout = shouldShow
 end sub
 
-' setTracksInLayout: Add or remove itemTracks from the itemDetails LayoutGroup.
-' Invisible nodes still take up space in RSG LayoutGroups, so reparenting is required
-' to truly eliminate spacing when tracks are not applicable (e.g. Series type).
+' setTracksInLayout: Add or remove the 62px itemTracks spacer from the itemDetails
+' LayoutGroup. When a track cluster is applicable to the current item, the spacer
+' stays in the layout and pushes description bottom up to y=701 so the trackCluster
+' sibling can sit at y=713 with 12px breathing pad above and 18px below between the
+' description and the button group. For item types without any media tracks
+' (Series/Person/etc.), the spacer is removed and description bottom drops back to
+' y=775 (matching main's behavior — no cluster, no padding, no regression).
 sub setTracksInLayout(shouldShow as boolean)
   if shouldShow = m.itemTracksInLayout then return
   if shouldShow
@@ -2529,7 +2590,6 @@ sub setupButtons(item as object)
   end while
 
   ' Reset dynamic refs that were pointing into the now-cleared button group
-  m.optionsButton = invalid
   m.shuffleButton = invalid
 
   itemType = item.type
@@ -2989,41 +3049,226 @@ function round(f as float) as integer
   end if
 end function
 
-' audioOptionsClosed: Sync audio stream selection back from ItemOptions popup
-sub audioOptionsClosed()
-  if m.options.audioStreamIndex &lt;> m.top.selectedAudioStreamIndex
-    m.top.selectedAudioStreamIndex = m.options.audioStreamIndex
-    for each stream in m.top.itemContent.audioStreams
-      if stream.index = m.top.selectedAudioStreamIndex
-        setFieldText("audioCodec", translate(translationKeys.LabelAudio) + ": " + formatAudioDisplayTitle(stream))
-        exit for
-      end if
-    end for
+' ============================================
+' TRACK DROPDOWN EVENT HANDLERS
+' ============================================
+
+' Video dropdown selection fires when the user picks a different MediaSource (alternate
+' version). We swap in the new source's streams, re-run audio auto-select, and rebuild
+' the audio/subtitle dropdowns against the new source. Focus stays on the video dropdown.
+sub onVideoDropdownSelection()
+  newStreamId = m.videoDropdown.selectedAction
+  if not isValidAndNotEmpty(newStreamId) then return
+  if newStreamId = m.top.selectedVideoStreamId then return
+
+  m.top.selectedVideoStreamId = newStreamId
+
+  item = m.top.itemContent
+  if not isValid(item) or not isValid(item.mediaSourcesData) then return
+
+  mediaSources = item.mediaSourcesData.mediaSources
+  allStreams = getStreamsForSelectedSource(mediaSources)
+
+  SetDefaultAudioTrack(allStreams)
+  m.subtitleUserOverridden = false
+  populateTrackDropdowns(mediaSources ?? [], allStreams, item.type)
+end sub
+
+' Audio dropdown selection: updates selectedAudioStreamIndex and re-seeds the subtitle
+' auto-selection (Smart mode depends on which audio is playing). If the user has already
+' manually overridden the subtitle, we leave it alone.
+sub onAudioDropdownSelection()
+  action = m.audioDropdown.selectedAction
+  if not isValidAndNotEmpty(action) then return
+
+  newIndex = action.toInt()
+  if newIndex = m.top.selectedAudioStreamIndex then return
+  m.top.selectedAudioStreamIndex = newIndex
+
+  if m.subtitleUserOverridden then return
+
+  item = m.top.itemContent
+  if not isValid(item) or not isValid(item.mediaSourcesData) then return
+  allStreams = getStreamsForSelectedSource(item.mediaSourcesData.mediaSources)
+
+  defaultSubIdx = findDefaultSubtitleStreamIndex(allStreams, newIndex)
+  m.top.selectedSubtitleStreamIndex = defaultSubIdx
+
+  ' Refresh the subtitle dropdown's selection highlight + trigger text
+  items = m.subtitleDropdown.items
+  if isValid(items)
+    newId = str(defaultSubIdx).trim()
+    m.subtitleDropdown.selectedItemId = newId
+    m.subtitleDropdown.triggerText = triggerTextForSelection(items, newId)
   end if
+end sub
+
+' Subtitle dropdown selection: marks user override so subsequent audio changes don't
+' clobber the pick, then stores the new index. Action "-1" = Off.
+sub onSubtitleDropdownSelection()
+  action = m.subtitleDropdown.selectedAction
+  if not isValidAndNotEmpty(action) then return
+
+  m.top.selectedSubtitleStreamIndex = action.toInt()
+  m.subtitleUserOverridden = true
+end sub
+
+' Dropdown navigation: UP from any dropdown goes to description when in layout, else
+' is consumed (no-op). parent-level UP handling reused so we don't have three identical
+' handlers.
+sub onDropdownRequestUp()
+  if m.itemDescriptionInLayout
+    m.top.lastFocus = m.itemDescription
+    m.itemDescription.setFocus(true)
+  end if
+end sub
+
+' DOWN from any dropdown returns focus to the button group.
+sub onDropdownRequestDown()
+  m.top.lastFocus = m.buttonGrp
   m.buttonGrp.setFocus(true)
 end sub
 
-' videoOptionsClosed: Sync video stream selection back from ItemOptions popup;
-' reload audio/subtitle options for the newly selected source
-sub videoOptionsClosed()
-  if m.options.videoStreamId &lt;> m.top.selectedVideoStreamId
-    m.top.selectedVideoStreamId = m.options.videoStreamId
-    setFieldText("videoCodec", translate(translationKeys.LabelVideo) + ": " + m.options.videoCodec)
-    m.top.unobserveField("itemContent")
-    mediaSources = m.top.itemContent.mediaSourcesData.mediaSources
-    for each mediaSource in mediaSources
-      if mediaSource.id = m.top.selectedVideoStreamId
-        streams = mediaSource.MediaStreams ?? []
-        SetDefaultAudioTrack(streams)
-        SetUpAudioOptions(streams)
-        SetUpSubtitleDisplay(streams, m.top.selectedAudioStreamIndex)
-        exit for
-      end if
-    end for
-    m.top.observeField("itemContent", "itemContentChanged")
+' LEFT/RIGHT between dropdowns — each dropdown has its own exit handler so we know which
+' slot we came from and can target the correct neighbor, skipping non-interactive slots.
+sub onVideoDropdownFocusExit()
+  dir = m.videoDropdown.requestFocusExit
+  if dir = "left"
+    focusInteractiveDropdown([m.subtitleDropdown, m.audioDropdown, m.videoDropdown])
+  else if dir = "right"
+    focusInteractiveDropdown([m.audioDropdown, m.subtitleDropdown, m.videoDropdown])
   end if
-  m.buttonGrp.setFocus(true)
 end sub
+
+sub onAudioDropdownFocusExit()
+  dir = m.audioDropdown.requestFocusExit
+  if dir = "left"
+    focusInteractiveDropdown([m.videoDropdown, m.subtitleDropdown, m.audioDropdown])
+  else if dir = "right"
+    focusInteractiveDropdown([m.subtitleDropdown, m.videoDropdown, m.audioDropdown])
+  end if
+end sub
+
+sub onSubtitleDropdownFocusExit()
+  dir = m.subtitleDropdown.requestFocusExit
+  if dir = "left"
+    focusInteractiveDropdown([m.audioDropdown, m.videoDropdown, m.subtitleDropdown])
+  else if dir = "right"
+    focusInteractiveDropdown([m.videoDropdown, m.audioDropdown, m.subtitleDropdown])
+  end if
+end sub
+
+' focusInteractiveDropdown: Walks the given candidate list and focuses the first dropdown
+' that is interactive AND visible. The candidate order encodes both direction and wrap
+' behavior; the currently-focused dropdown is always last so the nav falls back to it if
+' nothing else is interactive (effectively: stay put).
+sub focusInteractiveDropdown(candidates as object)
+  for each candidate in candidates
+    if isValid(candidate) and candidate.visible and candidate.isInteractive
+      m.top.lastFocus = candidate
+      candidate.setFocus(true)
+      return
+    end if
+  end for
+end sub
+
+' firstInteractiveDropdown: Returns the first visible, interactive TrackDropdown in
+' left-to-right order, or invalid if none exist.
+function firstInteractiveDropdown() as object
+  candidates = [m.videoDropdown, m.audioDropdown, m.subtitleDropdown]
+  for each candidate in candidates
+    if isValid(candidate) and candidate.visible and candidate.isInteractive
+      return candidate
+    end if
+  end for
+  return invalid
+end function
+
+' onTrackDropdownFocusChanged: Observer wired to each TrackDropdown's focusedChild.
+' Remembers the last dropdown that held focus so the UP-from-buttons handler can
+' restore the previous slot on re-entry instead of always defaulting to video.
+sub onTrackDropdownFocusChanged()
+  if isValid(m.videoDropdown) and m.videoDropdown.isInFocusChain()
+    m.lastFocusedDropdown = m.videoDropdown
+  else if isValid(m.audioDropdown) and m.audioDropdown.isInFocusChain()
+    m.lastFocusedDropdown = m.audioDropdown
+  else if isValid(m.subtitleDropdown) and m.subtitleDropdown.isInFocusChain()
+    m.lastFocusedDropdown = m.subtitleDropdown
+  end if
+end sub
+
+' onTrackDropdownMenuOpenChanged: Observer wired to each TrackDropdown's menuOpen.
+' Toggles the full-screen dimmer iff ANY dropdown's menu is currently open. The
+' trackCluster (titles + triggers + the open menu itself) renders ABOVE the dimmer
+' in XML sibling order, so only the screen content BEHIND the cluster dims —
+' category titles and trigger labels stay full-brightness as the user's "you are
+' here" cue while picking a track.
+sub onTrackDropdownMenuOpenChanged()
+  anyOpen = false
+  if isValid(m.videoDropdown) and m.videoDropdown.menuOpen then anyOpen = true
+  if isValid(m.audioDropdown) and m.audioDropdown.menuOpen then anyOpen = true
+  if isValid(m.subtitleDropdown) and m.subtitleDropdown.menuOpen then anyOpen = true
+  if isValid(m.dropdownDimmer)
+    m.dropdownDimmer.visible = anyOpen
+  end if
+end sub
+
+' pickTrackDropdownFromButtons: Chooses which TrackDropdown to focus when UP is pressed
+' from the button group. Ignores m.lastFocusedDropdown by design — UP-from-buttons
+' should ALWAYS land on the dropdown visually above the currently focused button, not
+' on wherever the user was last time. Each slot spans 2 buttons: slot 1 sits above
+' buttons [0,1], slot 2 above [2,3], slot 3 above [4,5,...]. Widens outward to the
+' nearest interactive slot if the preferred one is static/hidden.
+'
+' CRITICAL: guards on m.trackCluster.visible — when the item type has no media tracks
+' (Series/Person/BoxSet/etc.), the cluster is hidden but the individual dropdown nodes
+' may still carry stale visible=true / isInteractive=true from a previously-loaded
+' item. Without this guard, focus would move to an invisible stale dropdown when the
+' user presses UP on those item types.
+function pickTrackDropdownFromButtons() as object
+  if not isValid(m.trackCluster) or not m.trackCluster.visible then return invalid
+
+  slots = [m.videoDropdown, m.audioDropdown, m.subtitleDropdown]
+
+  buttonIdx = m.buttonGrp.buttonFocused
+  if not isValid(buttonIdx) or buttonIdx &lt; 0 then buttonIdx = 0
+  preferredSlot = 0
+  if buttonIdx >= 4
+    preferredSlot = 2
+  else if buttonIdx >= 2
+    preferredSlot = 1
+  end if
+
+  order = trackClusterFocus.buildSearchOrder(preferredSlot)
+  for each idx in order
+    candidate = slots[idx]
+    if isValid(candidate) and candidate.visible and candidate.isInteractive
+      return candidate
+    end if
+  end for
+  return invalid
+end function
+
+' pickTrackDropdownFromDescription: Chooses which TrackDropdown to focus when DOWN is
+' pressed from the description. Restores m.lastFocusedDropdown if still usable so the
+' user returns to wherever they were before moving up. Falls back to the leftmost
+' interactive dropdown (video → audio → subtitles) for the first-ever entry.
+' Also guards on m.trackCluster.visible to match pickTrackDropdownFromButtons above.
+function pickTrackDropdownFromDescription() as object
+  if not isValid(m.trackCluster) or not m.trackCluster.visible then return invalid
+
+  if isValid(m.lastFocusedDropdown) and m.lastFocusedDropdown.visible and m.lastFocusedDropdown.isInteractive
+    return m.lastFocusedDropdown
+  end if
+
+  slots = [m.videoDropdown, m.audioDropdown, m.subtitleDropdown]
+  for each candidate in slots
+    if isValid(candidate) and candidate.visible and candidate.isInteractive
+      return candidate
+    end if
+  end for
+  return invalid
+end function
 
 ' onSeasonSeriesDataLoaded: Update Season info rows and logo with parent series metadata
 sub onSeasonSeriesDataLoaded()
@@ -3122,13 +3367,6 @@ sub onFirstEpisodeLoaded()
 end sub
 
 function onKeyEvent(key as string, press as boolean) as boolean
-  ' Options popup: intercept OK release on optionsButton
-  if key = "OK" and isValid(m.optionsButton) and m.optionsButton.isInFocusChain()
-    m.options.visible = true
-    m.options.setFocus(true)
-    return true
-  end if
-
   if not press then return false
 
   item = m.top.itemContent
@@ -3155,10 +3393,19 @@ function onKeyEvent(key as string, press as boolean) as boolean
     end if
   end if
 
-  ' DOWN: itemDescription -> buttonGrp
+  ' DOWN: itemDescription -> track row dropdown (if any interactive), else buttonGrp.
+  ' Uses the "remember last focused" picker so returning to the row after coming back
+  ' from buttons/extras lands the user on the same slot. Falls through to the button
+  ' group only when no interactive dropdown exists. The track row is NEVER skipped.
   if key = "down" and m.itemDescription.isInFocusChain()
-    m.top.lastFocus = m.buttonGrp
-    m.buttonGrp.setFocus(true)
+    target = pickTrackDropdownFromDescription()
+    if isValid(target)
+      m.top.lastFocus = target
+      target.setFocus(true)
+    else
+      m.top.lastFocus = m.buttonGrp
+      m.buttonGrp.setFocus(true)
+    end if
     return true
   end if
 
@@ -3175,9 +3422,11 @@ function onKeyEvent(key as string, press as boolean) as boolean
     updateItemDetailsAnimationTarget()
     activateExtras()
 
-    ' Hide description and tracks before sliding up so they don't show during the transition
+    ' Hide description and the entire track cluster before sliding up so they don't
+    ' show during the transition. trackCluster wraps both rows so a single opacity
+    ' toggle is sufficient.
     m.itemDescription.opacity = 0
-    m.itemTracks.opacity = 0
+    m.trackCluster.opacity = 0
 
     ' Animate itemDetails to top (synced with extras slider)
     m.itemDetailsSliderInterp.reverse = false
@@ -3200,9 +3449,9 @@ function onKeyEvent(key as string, press as boolean) as boolean
 
       deactivateExtras()
 
-      ' Restore description and tracks before sliding back down
+      ' Restore description and track cluster before sliding back down
       m.itemDescription.opacity = 1
-      m.itemTracks.opacity = 1
+      m.trackCluster.opacity = 1
 
       ' Animate itemDetails back to rest position (synced with extras slider)
       m.itemDetailsSliderInterp.reverse = true
@@ -3219,23 +3468,24 @@ function onKeyEvent(key as string, press as boolean) as boolean
     end if
   end if
 
-  ' UP: buttonGrp -> itemDescription (if in layout, i.e. has content)
+  ' UP: buttonGrp -> track dropdown picked from the button column (ignoring any
+  ' remembered slot — by design, UP-from-buttons ALWAYS targets the slot visually
+  ' above the currently focused button). If no dropdowns are interactive, fall through
+  ' to itemDescription. Navigation ladder: buttons &lt;-> track row &lt;-> description.
   if key = "up" and m.buttonGrp.isInFocusChain()
-    if m.itemDescriptionInLayout
+    target = pickTrackDropdownFromButtons()
+    if isValid(target)
+      m.top.lastFocus = target
+      target.setFocus(true)
+      return true
+    else if m.itemDescriptionInLayout
       m.top.lastFocus = m.itemDescription
       m.itemDescription.setFocus(true)
       return true
     end if
   end if
 
-  if key = "back"
-    if m.options.visible = true
-      m.options.visible = false
-      videoOptionsClosed()
-      audioOptionsClosed()
-      return true
-    end if
-  else if key = "play" and m.extrasGrid.hasFocus()
+  if key = "play" and m.extrasGrid.hasFocus()
     if isValid(m.extrasGrid.focusedItem)
       m.top.quickPlayNode = m.extrasGrid.focusedItem
       m.top.quickPlayNode = invalid
@@ -3278,6 +3528,38 @@ sub destroy()
   m.extrasGrid.unobserveField("personHasMedia")
   m.extrasGrid.unobserveField("playlistContentKind")
   m.extrasGrid.unobserveField("targetTranslationY")
+
+  ' Unobserve TrackDropdown output fields + focusedChild memory observers
+  if isValid(m.videoDropdown)
+    m.videoDropdown.unobserveField("selectedAction")
+    m.videoDropdown.unobserveField("requestFocusReturn")
+    m.videoDropdown.unobserveField("requestFocusDown")
+    m.videoDropdown.unobserveField("requestFocusExit")
+    m.videoDropdown.unobserveField("focusedChild")
+    m.videoDropdown.unobserveField("menuOpen")
+    m.videoDropdown.callFunc("destroy")
+  end if
+  if isValid(m.audioDropdown)
+    m.audioDropdown.unobserveField("selectedAction")
+    m.audioDropdown.unobserveField("requestFocusReturn")
+    m.audioDropdown.unobserveField("requestFocusDown")
+    m.audioDropdown.unobserveField("requestFocusExit")
+    m.audioDropdown.unobserveField("focusedChild")
+    m.audioDropdown.unobserveField("menuOpen")
+    m.audioDropdown.callFunc("destroy")
+  end if
+  if isValid(m.subtitleDropdown)
+    m.subtitleDropdown.unobserveField("selectedAction")
+    m.subtitleDropdown.unobserveField("requestFocusReturn")
+    m.subtitleDropdown.unobserveField("requestFocusDown")
+    m.subtitleDropdown.unobserveField("requestFocusExit")
+    m.subtitleDropdown.unobserveField("focusedChild")
+    m.subtitleDropdown.unobserveField("menuOpen")
+    m.subtitleDropdown.callFunc("destroy")
+  end if
+  m.lastFocusedDropdown = invalid
+  m.dropdownDimmer = invalid
+
   if isValid(m.clock)
     m.clock.unobserveField("minutes")
     m.clock = invalid
@@ -3314,7 +3596,6 @@ sub destroy()
   m.extrasGrid = invalid
   m.gridAnime = invalid
   m.gridTranslationInterp = invalid
-  m.options = invalid
   m.infoGroup = invalid
   m.itemDescription = invalid
   m.buttonGrp = invalid
@@ -3322,12 +3603,20 @@ sub destroy()
   m.dateCreatedLabel = invalid
   m.itemTextGradient = invalid
   m.itemDetails = invalid
-  m.itemTracks = invalid
   m.itemDetailsSlider = invalid
   m.itemDetailsSliderInterp = invalid
   m.itemInfoRows = invalid
   m.directorGenreGroup = invalid
-  m.optionsButton = invalid
+  m.itemTracks = invalid
+  m.trackCluster = invalid
+  m.trackTitles = invalid
+  m.videoTrackTitle = invalid
+  m.audioTrackTitle = invalid
+  m.subtitleTrackTitle = invalid
+  m.trackDropdowns = invalid
+  m.videoDropdown = invalid
+  m.audioDropdown = invalid
+  m.subtitleDropdown = invalid
   m.shuffleButton = invalid
   m.shuffleLoadingButton = invalid
   m.resumeLoadingButton = invalid
@@ -3337,4 +3626,4 @@ sub destroy()
   m.seasonSeriesCache = invalid
   m.seasonSeriesData = invalid
 end sub
-</code></pre></article></section><footer class="footer" id="PeOAagUepe"><div class="wrapper"><span class="jsdoc-message">Automatically generated using <a href="https://github.com/jsdoc/jsdoc" target="_blank">JSDoc</a> and the <a href="https://github.com/ankitskvmdam/clean-jsdoc-theme" target="_blank">clean-jsdoc-theme</a>.</span><script defer="defer" src="https://analytics.jellyrock.app/script.js" data-website-id="07139597-641c-42e6-8f5a-cbb0d9182a20"></script></div></footer></div></div></div><div class="search-container" id="PkfLWpAbet" style="display:none"><div class="wrapper" id="iCxFxjkHbP"><button class="icon-button search-close-button" id="VjLlGakifb" aria-label="close search"><svg><use xlink:href="#close-icon"></use></svg></button><div class="search-box-c"><svg><use xlink:href="#search-icon"></use></svg> <input type="text" id="vpcKVYIppa" class="search-input" placeholder="Search..." autofocus></div><div class="search-result-c" id="fWwVHRuDuN"><span class="search-result-c-text">Type anything to view search result</span></div></div></div><div class="mobile-menu-icon-container"><button class="icon-button" id="mobile-menu" data-isopen="false" aria-label="menu"><svg><use xlink:href="#menu-icon"></use></svg></button></div><div id="mobile-sidebar" class="mobile-sidebar-container"><div class="mobile-sidebar-wrapper"><a href="/" class="sidebar-title sidebar-title-anchor">JellyRock Code Documentation</a><div class="mobile-nav-links"><div class="external-link navbar-item"><a id="github-link-mobile" href="https://github.com/jellyrock/api-docs" target="_blank">Source</a></div><div class="external-link navbar-item"><a id="jellyfin-link-mobile" href="https://jellyfin.org/docs/" target="_blank">Jellyfin docs</a></div><div class="external-link navbar-item"><a id="jellyfin-link-mobile" href="https://api.jellyfin.org/" target="_blank">Jellyfin API docs</a></div></div><div class="mobile-sidebar-items-c"><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-modules"><div>Modules</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-AlbumTrackList.html">AlbumTrackList</a></div><div class="sidebar-section-children"><a href="module-Alpha.html">Alpha</a></div><div class="sidebar-section-children"><a href="module-AlphaKeyboard.html">AlphaKeyboard</a></div><div class="sidebar-section-children"><a href="module-ApiClient.html">ApiClient</a></div><div class="sidebar-section-children"><a href="module-ApiQueueTask.html">ApiQueueTask</a></div><div class="sidebar-section-children"><a href="module-ApiTask.html">ApiTask</a></div><div class="sidebar-section-children"><a href="module-AudioPlayer.html">AudioPlayer</a></div><div class="sidebar-section-children"><a href="module-AudioPlayerView.html">AudioPlayerView</a></div><div class="sidebar-section-children"><a href="module-AudioTrackListItem.html">AudioTrackListItem</a></div><div class="sidebar-section-children"><a href="module-BackdropFader.html">BackdropFader</a></div><div class="sidebar-section-children"><a href="module-BaseGridView.html">BaseGridView</a></div><div class="sidebar-section-children"><a href="module-BrandingConfigTask.html">BrandingConfigTask</a></div><div class="sidebar-section-children"><a href="module-BrowseRowItem.html">BrowseRowItem</a></div><div class="sidebar-section-children"><a href="module-Clock.html">Clock</a></div><div class="sidebar-section-children"><a href="module-CommunityRating.html">CommunityRating</a></div><div class="sidebar-section-children"><a href="module-ConfigData.html">ConfigData</a></div><div class="sidebar-section-children"><a href="module-ConfigItem.html">ConfigItem</a></div><div class="sidebar-section-children"><a href="module-ConfigList.html">ConfigList</a></div><div class="sidebar-section-children"><a href="module-CriticRating.html">CriticRating</a></div><div class="sidebar-section-children"><a href="module-ExtrasRowList.html">ExtrasRowList</a></div><div class="sidebar-section-children"><a href="module-ExtrasSlider.html">ExtrasSlider</a></div><div class="sidebar-section-children"><a href="module-FavoritesRows.html">FavoritesRows</a></div><div class="sidebar-section-children"><a href="module-FocusableOverview.html">FocusableOverview</a></div><div class="sidebar-section-children"><a href="module-FontDownloadTask.html">FontDownloadTask</a></div><div class="sidebar-section-children"><a href="module-FontScalingTask.html">FontScalingTask</a></div><div class="sidebar-section-children"><a href="module-GenericPresenter.html">GenericPresenter</a></div><div class="sidebar-section-children"><a href="module-GetFiltersTask.html">GetFiltersTask</a></div><div class="sidebar-section-children"><a href="module-GetNextEpisodeTask.html">GetNextEpisodeTask</a></div><div class="sidebar-section-children"><a href="module-GetPlaybackInfoTask.html">GetPlaybackInfoTask</a></div><div class="sidebar-section-children"><a href="module-GetShuffleItemsTask.html">GetShuffleItemsTask</a></div><div class="sidebar-section-children"><a href="module-Gradient.html">Gradient</a></div><div class="sidebar-section-children"><a href="module-GridItem.html">GridItem</a></div><div class="sidebar-section-children"><a href="module-GridItemSmall.html">GridItemSmall</a></div><div class="sidebar-section-children"><a href="module-GridPresenterBase.html">GridPresenterBase</a></div><div class="sidebar-section-children"><a href="module-HexKeyboard.html">HexKeyboard</a></div><div class="sidebar-section-children"><a href="module-Home.html">Home</a></div><div class="sidebar-section-children"><a href="module-HomeAction.html">HomeAction</a></div><div class="sidebar-section-children"><a href="module-HomeRows.html">HomeRows</a></div><div class="sidebar-section-children"><a href="module-IconButton.html">IconButton</a></div><div class="sidebar-section-children"><a href="module-IntegerKeyboard.html">IntegerKeyboard</a></div><div class="sidebar-section-children"><a href="module-ItemDetails.html">ItemDetails</a></div><div class="sidebar-section-children"><a href="module-ItemGridOptions.html">ItemGridOptions</a></div><div class="sidebar-section-children"><a href="module-ItemOptions.html">ItemOptions</a></div><div class="sidebar-section-children"><a href="module-JRButtonGroup.html">JRButtonGroup</a></div><div class="sidebar-section-children"><a href="module-JRButtons.html">JRButtons</a></div><div class="sidebar-section-children"><a href="module-JRDropdown.html">JRDropdown</a></div><div class="sidebar-section-children"><a href="module-JRDropdownItem.html">JRDropdownItem</a></div><div class="sidebar-section-children"><a href="module-JRLabel.html">JRLabel</a></div><div class="sidebar-section-children"><a href="module-JRLabelList.html">JRLabelList</a></div><div class="sidebar-section-children"><a href="module-JRMarkupGrid.html">JRMarkupGrid</a></div><div class="sidebar-section-children"><a href="module-JRMessageDialog.html">JRMessageDialog</a></div><div class="sidebar-section-children"><a href="module-JROverhang.html">JROverhang</a></div><div class="sidebar-section-children"><a href="module-JROverhangIcon.html">JROverhangIcon</a></div><div class="sidebar-section-children"><a href="module-JRPoster.html">JRPoster</a></div><div class="sidebar-section-children"><a href="module-JRPosterGrid.html">JRPosterGrid</a></div><div class="sidebar-section-children"><a href="module-JRRowItem.html">JRRowItem</a></div><div class="sidebar-section-children"><a href="module-JRRowList.html">JRRowList</a></div><div class="sidebar-section-children"><a href="module-JRScene.html">JRScene</a></div><div class="sidebar-section-children"><a href="module-JRScreen.html">JRScreen</a></div><div class="sidebar-section-children"><a href="module-JRScrollingLabel.html">JRScrollingLabel</a></div><div class="sidebar-section-children"><a href="module-JRServer.html">JRServer</a></div><div class="sidebar-section-children"><a href="module-JRTab.html">JRTab</a></div><div class="sidebar-section-children"><a href="module-JRTabBar.html">JRTabBar</a></div><div class="sidebar-section-children"><a href="module-JRTimeGrid.html">JRTimeGrid</a></div><div class="sidebar-section-children"><a href="module-JellyfinDataTransformer.html">JellyfinDataTransformer</a></div><div class="sidebar-section-children"><a href="module-JellyfinUserSettings.html">JellyfinUserSettings</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLarge.html">LabelDisabledLarge</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLarger.html">LabelDisabledLarger</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLargest.html">LabelDisabledLargest</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledMedium.html">LabelDisabledMedium</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmall.html">LabelDisabledSmall</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmaller.html">LabelDisabledSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmallest.html">LabelDisabledSmallest</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLarge.html">LabelErrorLarge</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLarger.html">LabelErrorLarger</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLargest.html">LabelErrorLargest</a></div><div class="sidebar-section-children"><a href="module-LabelErrorMedium.html">LabelErrorMedium</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmall.html">LabelErrorSmall</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmaller.html">LabelErrorSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmallest.html">LabelErrorSmallest</a></div><div class="sidebar-section-children"><a href="module-LabelLarge.html">LabelLarge</a></div><div class="sidebar-section-children"><a href="module-LabelLarger.html">LabelLarger</a></div><div class="sidebar-section-children"><a href="module-LabelLargest.html">LabelLargest</a></div><div class="sidebar-section-children"><a href="module-LabelMedium.html">LabelMedium</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLarge.html">LabelPrimaryLarge</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLarger.html">LabelPrimaryLarger</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLargest.html">LabelPrimaryLargest</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryMedium.html">LabelPrimaryMedium</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmall.html">LabelPrimarySmall</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmaller.html">LabelPrimarySmaller</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmallest.html">LabelPrimarySmallest</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLarge.html">LabelSecondaryLarge</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLarger.html">LabelSecondaryLarger</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLargest.html">LabelSecondaryLargest</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryMedium.html">LabelSecondaryMedium</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmall.html">LabelSecondarySmall</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmaller.html">LabelSecondarySmaller</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmallest.html">LabelSecondarySmallest</a></div><div class="sidebar-section-children"><a href="module-LabelSmall.html">LabelSmall</a></div><div class="sidebar-section-children"><a href="module-LabelSmaller.html">LabelSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelSmallest.html">LabelSmallest</a></div><div class="sidebar-section-children"><a href="module-LanguagePicker.html">LanguagePicker</a></div><div class="sidebar-section-children"><a href="module-LiveTVPresenter.html">LiveTVPresenter</a></div><div class="sidebar-section-children"><a href="module-LoadChannelListForQueueTask.html">LoadChannelListForQueueTask</a></div><div class="sidebar-section-children"><a href="module-LoadChannelsTask.html">LoadChannelsTask</a></div><div class="sidebar-section-children"><a href="module-LoadItemsTask.html">LoadItemsTask</a></div><div class="sidebar-section-children"><a href="module-LoadItemsTask2.html">LoadItemsTask2</a></div><div class="sidebar-section-children"><a href="module-LoadPhotoTask.html">LoadPhotoTask</a></div><div class="sidebar-section-children"><a href="module-LoadProgramDetailsTask.html">LoadProgramDetailsTask</a></div><div class="sidebar-section-children"><a href="module-LoadScreenSaverTimeoutTask.html">LoadScreenSaverTimeoutTask</a></div><div class="sidebar-section-children"><a href="module-LoadSheduleTask.html">LoadSheduleTask</a></div><div class="sidebar-section-children"><a href="module-LoadVideoContentTask.html">LoadVideoContentTask</a></div><div class="sidebar-section-children"><a href="module-LoginScene.html">LoginScene</a></div><div class="sidebar-section-children"><a href="module-MediaSegmentAction.html">MediaSegmentAction</a></div><div class="sidebar-section-children"><a href="module-MediaSegmentType.html">MediaSegmentType</a></div><div class="sidebar-section-children"><a href="module-MockSceneManager.html">MockSceneManager</a></div><div class="sidebar-section-children"><a href="module-MoviePresenter.html">MoviePresenter</a></div><div class="sidebar-section-children"><a href="module-MusicArtistGridItem.html">MusicArtistGridItem</a></div><div class="sidebar-section-children"><a href="module-MusicPresenter.html">MusicPresenter</a></div><div class="sidebar-section-children"><a href="module-OSD.html">OSD</a></div><div class="sidebar-section-children"><a href="module-OSDButtonGroup.html">OSDButtonGroup</a></div><div class="sidebar-section-children"><a href="module-OptionNode.html">OptionNode</a></div><div class="sidebar-section-children"><a href="module-OptionsButton.html">OptionsButton</a></div><div class="sidebar-section-children"><a href="module-OptionsData.html">OptionsData</a></div><div class="sidebar-section-children"><a href="module-OptionsSlider.html">OptionsSlider</a></div><div class="sidebar-section-children"><a href="module-OverviewDialog.html">OverviewDialog</a></div><div class="sidebar-section-children"><a href="module-PhotoDetails.html">PhotoDetails</a></div><div class="sidebar-section-children"><a href="module-PhotoPresenter.html">PhotoPresenter</a></div><div class="sidebar-section-children"><a href="module-PlaybackDialog.html">PlaybackDialog</a></div><div class="sidebar-section-children"><a href="module-PresentationBackdrop.html">PresentationBackdrop</a></div><div class="sidebar-section-children"><a href="module-ProgramDetails.html">ProgramDetails</a></div><div class="sidebar-section-children"><a href="module-PublicUserData.html">PublicUserData</a></div><div class="sidebar-section-children"><a href="module-QueueManager.html">QueueManager</a></div><div class="sidebar-section-children"><a href="module-QuickConnect.html">QuickConnect</a></div><div class="sidebar-section-children"><a href="module-QuickConnectDialog.html">QuickConnectDialog</a></div><div class="sidebar-section-children"><a href="module-QuickConnectEnabledTask.html">QuickConnectEnabledTask</a></div><div class="sidebar-section-children"><a href="module-QuickPlayTask.html">QuickPlayTask</a></div><div class="sidebar-section-children"><a href="module-RadioDialog.html">RadioDialog</a></div><div class="sidebar-section-children"><a href="module-RecordProgramTask.html">RecordProgramTask</a></div><div class="sidebar-section-children"><a href="module-RectangleBackgroundPrimary.html">RectangleBackgroundPrimary</a></div><div class="sidebar-section-children"><a href="module-RectangleBackgroundSecondary.html">RectangleBackgroundSecondary</a></div><div class="sidebar-section-children"><a href="module-RectangleSecondary.html">RectangleSecondary</a></div><div class="sidebar-section-children"><a href="module-RefreshLiveTvMetadataTask.html">RefreshLiveTvMetadataTask</a></div><div class="sidebar-section-children"><a href="module-ResumeButton.html">ResumeButton</a></div><div class="sidebar-section-children"><a href="module-SceneManager.html">SceneManager</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLarge.html">ScrollingLabelDisabledLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLarger.html">ScrollingLabelDisabledLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLargest.html">ScrollingLabelDisabledLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledMedium.html">ScrollingLabelDisabledMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmall.html">ScrollingLabelDisabledSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmaller.html">ScrollingLabelDisabledSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmallest.html">ScrollingLabelDisabledSmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLarge.html">ScrollingLabelErrorLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLarger.html">ScrollingLabelErrorLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLargest.html">ScrollingLabelErrorLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorMedium.html">ScrollingLabelErrorMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmall.html">ScrollingLabelErrorSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmaller.html">ScrollingLabelErrorSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmallest.html">ScrollingLabelErrorSmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLarge.html">ScrollingLabelLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLarger.html">ScrollingLabelLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLargest.html">ScrollingLabelLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelMedium.html">ScrollingLabelMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLarge.html">ScrollingLabelPrimaryLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLarger.html">ScrollingLabelPrimaryLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLargest.html">ScrollingLabelPrimaryLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryMedium.html">ScrollingLabelPrimaryMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmall.html">ScrollingLabelPrimarySmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmaller.html">ScrollingLabelPrimarySmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmallest.html">ScrollingLabelPrimarySmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLarge.html">ScrollingLabelSecondaryLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLarger.html">ScrollingLabelSecondaryLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLargest.html">ScrollingLabelSecondaryLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryMedium.html">ScrollingLabelSecondaryMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmall.html">ScrollingLabelSecondarySmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmaller.html">ScrollingLabelSecondarySmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmallest.html">ScrollingLabelSecondarySmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmall.html">ScrollingLabelSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmaller.html">ScrollingLabelSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmallest.html">ScrollingLabelSmallest</a></div><div class="sidebar-section-children"><a href="module-SearchBox.html">SearchBox</a></div><div class="sidebar-section-children"><a href="module-SearchResults.html">SearchResults</a></div><div class="sidebar-section-children"><a href="module-SearchRow.html">SearchRow</a></div><div class="sidebar-section-children"><a href="module-SearchTask.html">SearchTask</a></div><div class="sidebar-section-children"><a href="module-ServerAction.html">ServerAction</a></div><div class="sidebar-section-children"><a href="module-ServerDiscoveryTask.html">ServerDiscoveryTask</a></div><div class="sidebar-section-children"><a href="module-SessionDataTransformer.html">SessionDataTransformer</a></div><div class="sidebar-section-children"><a href="module-SetServerScreen.html">SetServerScreen</a></div><div class="sidebar-section-children"><a href="module-SideEffectTask.html">SideEffectTask</a></div><div class="sidebar-section-children"><a href="module-SongItem.html">SongItem</a></div><div class="sidebar-section-children"><a href="module-Spinner.html">Spinner</a></div><div class="sidebar-section-children"><a href="module-StandardDialog.html">StandardDialog</a></div><div class="sidebar-section-children"><a href="module-SubtitleSelection.html">SubtitleSelection</a></div><div class="sidebar-section-children"><a href="module-TVShowPresenter.html">TVShowPresenter</a></div><div class="sidebar-section-children"><a href="module-TextButton.html">TextButton</a></div><div class="sidebar-section-children"><a href="module-TextSizeTask.html">TextSizeTask</a></div><div class="sidebar-section-children"><a href="module-Toast.html">Toast</a></div><div class="sidebar-section-children"><a href="module-TrickplayCarousel.html">TrickplayCarousel</a></div><div class="sidebar-section-children"><a href="module-TrickplayTileLoader.html">TrickplayTileLoader</a></div><div class="sidebar-section-children"><a href="module-UserData.html">UserData</a></div><div class="sidebar-section-children"><a href="module-UserItem.html">UserItem</a></div><div class="sidebar-section-children"><a href="module-UserRow.html">UserRow</a></div><div class="sidebar-section-children"><a href="module-UserSelect.html">UserSelect</a></div><div class="sidebar-section-children"><a href="module-VertButtonGroup.html">VertButtonGroup</a></div><div class="sidebar-section-children"><a href="module-VideoNotification.html">VideoNotification</a></div><div class="sidebar-section-children"><a href="module-VideoPlayerView.html">VideoPlayerView</a></div><div class="sidebar-section-children"><a href="module-VideoProgressBar.html">VideoProgressBar</a></div><div class="sidebar-section-children"><a href="module-VideoTrackListItem.html">VideoTrackListItem</a></div><div class="sidebar-section-children"><a href="module-ViewCreator.html">ViewCreator</a></div><div class="sidebar-section-children"><a href="module-apiPool.html">apiPool</a></div><div class="sidebar-section-children"><a href="module-backdrop.html">backdrop</a></div><div class="sidebar-section-children"><a href="module-baseRequest.html">baseRequest</a></div><div class="sidebar-section-children"><a href="module-captionTask.html">captionTask</a></div><div class="sidebar-section-children"><a href="module-chapterItems.html">chapterItems</a></div><div class="sidebar-section-children"><a href="module-conditional.html">conditional</a></div><div class="sidebar-section-children"><a href="module-config.html">config</a></div><div class="sidebar-section-children"><a href="module-deviceCapabilities.html">deviceCapabilities</a></div><div class="sidebar-section-children"><a href="module-displaySettings.html">displaySettings</a></div><div class="sidebar-section-children"><a href="module-extrasLayout.html">extrasLayout</a></div><div class="sidebar-section-children"><a href="module-image.html">image</a></div><div class="sidebar-section-children"><a href="module-imageHelpers.html">imageHelpers</a></div><div class="sidebar-section-children"><a href="module-itemImageUrl.html">itemImageUrl</a></div><div class="sidebar-section-children"><a href="module-items.html">items</a></div><div class="sidebar-section-children"><a href="module-languages.html">languages</a></div><div class="sidebar-section-children"><a href="module-libraryViewFactory.html">libraryViewFactory</a></div><div class="sidebar-section-children"><a href="module-liveTv.html">liveTv</a></div><div class="sidebar-section-children"><a href="module-main.html">main</a></div><div class="sidebar-section-children"><a href="module-mediaDisplayTitle.html">mediaDisplayTitle</a></div><div class="sidebar-section-children"><a href="module-mediaSegments.html">mediaSegments</a></div><div class="sidebar-section-children"><a href="module-migrations.html">migrations</a></div><div class="sidebar-section-children"><a href="module-misc.html">misc</a></div><div class="sidebar-section-children"><a href="module-nodeHelpers.html">nodeHelpers</a></div><div class="sidebar-section-children"><a href="module-nodeUtils.html">nodeUtils</a></div><div class="sidebar-section-children"><a href="module-placeholderImage.html">placeholderImage</a></div><div class="sidebar-section-children"><a href="module-queueBackdropHelper.html">queueBackdropHelper</a></div><div class="sidebar-section-children"><a href="module-quickplay.html">quickplay</a></div><div class="sidebar-section-children"><a href="module-rowItemImage.html">rowItemImage</a></div><div class="sidebar-section-children"><a href="module-rowItemText.html">rowItemText</a></div><div class="sidebar-section-children"><a href="module-rowListWrap.html">rowListWrap</a></div><div class="sidebar-section-children"><a href="module-schedule.html">schedule</a></div><div class="sidebar-section-children"><a href="module-sdkV1.html">sdkV1</a></div><div class="sidebar-section-children"><a href="module-sdkV2.html">sdkV2</a></div><div class="sidebar-section-children"><a href="module-section.html">section</a></div><div class="sidebar-section-children"><a href="module-sectionScroller.html">sectionScroller</a></div><div class="sidebar-section-children"><a href="module-settings.html">settings</a></div><div class="sidebar-section-children"><a href="module-showScenes.html">showScenes</a></div><div class="sidebar-section-children"><a href="module-streamSelection.html">streamSelection</a></div><div class="sidebar-section-children"><a href="module-subtitles.html">subtitles</a></div><div class="sidebar-section-children"><a href="module-textureManager.html">textureManager</a></div><div class="sidebar-section-children"><a href="module-timeouts.html">timeouts</a></div><div class="sidebar-section-children"><a href="module-translate.html">translate</a></div><div class="sidebar-section-children"><a href="module-translateLocale.html">translateLocale</a></div><div class="sidebar-section-children"><a href="module-trickplay.html">trickplay</a></div><div class="sidebar-section-children"><a href="module-url.html">url</a></div><div class="sidebar-section-children"><a href="module-userAuth.html">userAuth</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-classes"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-ApiClient.ApiClient.html">ApiClient</a></div><div class="sidebar-section-children"><a href="module-GenericPresenter.GenericPresenter.html">GenericPresenter</a></div><div class="sidebar-section-children"><a href="module-GridPresenterBase.GridPresenterBase.html">GridPresenterBase</a></div><div class="sidebar-section-children"><a href="module-JellyfinDataTransformer.JellyfinDataTransformer.html">JellyfinDataTransformer</a></div><div class="sidebar-section-children"><a href="module-LiveTVPresenter.LiveTVPresenter.html">LiveTVPresenter</a></div><div class="sidebar-section-children"><a href="module-MoviePresenter.MoviePresenter.html">MoviePresenter</a></div><div class="sidebar-section-children"><a href="module-MusicPresenter.MusicPresenter.html">MusicPresenter</a></div><div class="sidebar-section-children"><a href="module-PhotoPresenter.PhotoPresenter.html">PhotoPresenter</a></div><div class="sidebar-section-children"><a href="module-SessionDataTransformer.SessionDataTransformer.html">SessionDataTransformer</a></div><div class="sidebar-section-children"><a href="module-TVShowPresenter.TVShowPresenter.html">TVShowPresenter</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-namespaces"><div>Namespaces</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="extrasLayout.html">extrasLayout</a></div><div class="sidebar-section-children"><a href="nodeHelpers.html">nodeHelpers</a></div><div class="sidebar-section-children"><a href="nodeUtils.html">nodeUtils</a></div><div class="sidebar-section-children"><a href="quickplay.html">quickplay</a></div><div class="sidebar-section-children"><a href="sdkV1.html">sdkV1</a></div><div class="sidebar-section-children"><a href="sdkV1_sdkV1.html">sdkV1/sdkV1</a></div><div class="sidebar-section-children"><a href="sdkV1_sdkV1_users.html">sdkV1/sdkV1/users</a></div><div class="sidebar-section-children"><a href="sdkV2.html">sdkV2</a></div><div class="sidebar-section-children"><a href="sdkV2_sdkV2.html">sdkV2/sdkV2</a></div><div class="sidebar-section-children"><a href="sdkV2_sdkV2_users.html">sdkV2/sdkV2/users</a></div><div class="sidebar-section-children"><a href="timeouts.html">timeouts</a></div><div class="sidebar-section-children"><a href="trickplay.html">trickplay</a></div></div></div><div class="mobile-navbar-actions"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#dark-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div></div></div><script type="text/javascript" src="scripts/core.min.js"></script><script src="scripts/search.min.js" defer="defer"></script><script src="scripts/third-party/fuse.js" defer="defer"></script><script type="text/javascript">var tocbotInstance=tocbot.init({tocSelector:"#eed4d2a0bfd64539bb9df78095dec881",contentSelector:".main-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0,scrollContainer:".main-content",headingsOffset:130,onClick:bringLinkToView})</script></body></html>
+</code></pre></article></section><footer class="footer" id="PeOAagUepe"><div class="wrapper"><span class="jsdoc-message">Automatically generated using <a href="https://github.com/jsdoc/jsdoc" target="_blank">JSDoc</a> and the <a href="https://github.com/ankitskvmdam/clean-jsdoc-theme" target="_blank">clean-jsdoc-theme</a>.</span><script defer="defer" src="https://analytics.jellyrock.app/script.js" data-website-id="07139597-641c-42e6-8f5a-cbb0d9182a20"></script></div></footer></div></div></div><div class="search-container" id="PkfLWpAbet" style="display:none"><div class="wrapper" id="iCxFxjkHbP"><button class="icon-button search-close-button" id="VjLlGakifb" aria-label="close search"><svg><use xlink:href="#close-icon"></use></svg></button><div class="search-box-c"><svg><use xlink:href="#search-icon"></use></svg> <input type="text" id="vpcKVYIppa" class="search-input" placeholder="Search..." autofocus></div><div class="search-result-c" id="fWwVHRuDuN"><span class="search-result-c-text">Type anything to view search result</span></div></div></div><div class="mobile-menu-icon-container"><button class="icon-button" id="mobile-menu" data-isopen="false" aria-label="menu"><svg><use xlink:href="#menu-icon"></use></svg></button></div><div id="mobile-sidebar" class="mobile-sidebar-container"><div class="mobile-sidebar-wrapper"><a href="/" class="sidebar-title sidebar-title-anchor">JellyRock Code Documentation</a><div class="mobile-nav-links"><div class="external-link navbar-item"><a id="github-link-mobile" href="https://github.com/jellyrock/api-docs" target="_blank">Source</a></div><div class="external-link navbar-item"><a id="jellyfin-link-mobile" href="https://jellyfin.org/docs/" target="_blank">Jellyfin docs</a></div><div class="external-link navbar-item"><a id="jellyfin-link-mobile" href="https://api.jellyfin.org/" target="_blank">Jellyfin API docs</a></div></div><div class="mobile-sidebar-items-c"><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-modules"><div>Modules</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-AlbumTrackList.html">AlbumTrackList</a></div><div class="sidebar-section-children"><a href="module-Alpha.html">Alpha</a></div><div class="sidebar-section-children"><a href="module-AlphaKeyboard.html">AlphaKeyboard</a></div><div class="sidebar-section-children"><a href="module-ApiClient.html">ApiClient</a></div><div class="sidebar-section-children"><a href="module-ApiQueueTask.html">ApiQueueTask</a></div><div class="sidebar-section-children"><a href="module-ApiTask.html">ApiTask</a></div><div class="sidebar-section-children"><a href="module-AudioPlayer.html">AudioPlayer</a></div><div class="sidebar-section-children"><a href="module-AudioPlayerView.html">AudioPlayerView</a></div><div class="sidebar-section-children"><a href="module-BackdropFader.html">BackdropFader</a></div><div class="sidebar-section-children"><a href="module-BaseGridView.html">BaseGridView</a></div><div class="sidebar-section-children"><a href="module-BrandingConfigTask.html">BrandingConfigTask</a></div><div class="sidebar-section-children"><a href="module-BrowseRowItem.html">BrowseRowItem</a></div><div class="sidebar-section-children"><a href="module-Clock.html">Clock</a></div><div class="sidebar-section-children"><a href="module-CommunityRating.html">CommunityRating</a></div><div class="sidebar-section-children"><a href="module-ConfigData.html">ConfigData</a></div><div class="sidebar-section-children"><a href="module-ConfigItem.html">ConfigItem</a></div><div class="sidebar-section-children"><a href="module-ConfigList.html">ConfigList</a></div><div class="sidebar-section-children"><a href="module-CriticRating.html">CriticRating</a></div><div class="sidebar-section-children"><a href="module-ExtrasRowList.html">ExtrasRowList</a></div><div class="sidebar-section-children"><a href="module-ExtrasSlider.html">ExtrasSlider</a></div><div class="sidebar-section-children"><a href="module-FavoritesRows.html">FavoritesRows</a></div><div class="sidebar-section-children"><a href="module-FocusableOverview.html">FocusableOverview</a></div><div class="sidebar-section-children"><a href="module-FontDownloadTask.html">FontDownloadTask</a></div><div class="sidebar-section-children"><a href="module-FontScalingTask.html">FontScalingTask</a></div><div class="sidebar-section-children"><a href="module-GenericPresenter.html">GenericPresenter</a></div><div class="sidebar-section-children"><a href="module-GetFiltersTask.html">GetFiltersTask</a></div><div class="sidebar-section-children"><a href="module-GetNextEpisodeTask.html">GetNextEpisodeTask</a></div><div class="sidebar-section-children"><a href="module-GetPlaybackInfoTask.html">GetPlaybackInfoTask</a></div><div class="sidebar-section-children"><a href="module-GetShuffleItemsTask.html">GetShuffleItemsTask</a></div><div class="sidebar-section-children"><a href="module-Gradient.html">Gradient</a></div><div class="sidebar-section-children"><a href="module-GridItem.html">GridItem</a></div><div class="sidebar-section-children"><a href="module-GridItemSmall.html">GridItemSmall</a></div><div class="sidebar-section-children"><a href="module-GridPresenterBase.html">GridPresenterBase</a></div><div class="sidebar-section-children"><a href="module-HexKeyboard.html">HexKeyboard</a></div><div class="sidebar-section-children"><a href="module-Home.html">Home</a></div><div class="sidebar-section-children"><a href="module-HomeAction.html">HomeAction</a></div><div class="sidebar-section-children"><a href="module-HomeRows.html">HomeRows</a></div><div class="sidebar-section-children"><a href="module-IconButton.html">IconButton</a></div><div class="sidebar-section-children"><a href="module-IntegerKeyboard.html">IntegerKeyboard</a></div><div class="sidebar-section-children"><a href="module-ItemDetails.html">ItemDetails</a></div><div class="sidebar-section-children"><a href="module-ItemGridOptions.html">ItemGridOptions</a></div><div class="sidebar-section-children"><a href="module-JRButtonGroup.html">JRButtonGroup</a></div><div class="sidebar-section-children"><a href="module-JRButtons.html">JRButtons</a></div><div class="sidebar-section-children"><a href="module-JRDropdown.html">JRDropdown</a></div><div class="sidebar-section-children"><a href="module-JRDropdownItem.html">JRDropdownItem</a></div><div class="sidebar-section-children"><a href="module-JRLabel.html">JRLabel</a></div><div class="sidebar-section-children"><a href="module-JRLabelList.html">JRLabelList</a></div><div class="sidebar-section-children"><a href="module-JRMarkupGrid.html">JRMarkupGrid</a></div><div class="sidebar-section-children"><a href="module-JRMessageDialog.html">JRMessageDialog</a></div><div class="sidebar-section-children"><a href="module-JROverhang.html">JROverhang</a></div><div class="sidebar-section-children"><a href="module-JROverhangIcon.html">JROverhangIcon</a></div><div class="sidebar-section-children"><a href="module-JRPoster.html">JRPoster</a></div><div class="sidebar-section-children"><a href="module-JRPosterGrid.html">JRPosterGrid</a></div><div class="sidebar-section-children"><a href="module-JRRowItem.html">JRRowItem</a></div><div class="sidebar-section-children"><a href="module-JRRowList.html">JRRowList</a></div><div class="sidebar-section-children"><a href="module-JRScene.html">JRScene</a></div><div class="sidebar-section-children"><a href="module-JRScreen.html">JRScreen</a></div><div class="sidebar-section-children"><a href="module-JRScrollingLabel.html">JRScrollingLabel</a></div><div class="sidebar-section-children"><a href="module-JRServer.html">JRServer</a></div><div class="sidebar-section-children"><a href="module-JRTab.html">JRTab</a></div><div class="sidebar-section-children"><a href="module-JRTabBar.html">JRTabBar</a></div><div class="sidebar-section-children"><a href="module-JRTimeGrid.html">JRTimeGrid</a></div><div class="sidebar-section-children"><a href="module-JellyfinDataTransformer.html">JellyfinDataTransformer</a></div><div class="sidebar-section-children"><a href="module-JellyfinUserSettings.html">JellyfinUserSettings</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLarge.html">LabelDisabledLarge</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLarger.html">LabelDisabledLarger</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLargest.html">LabelDisabledLargest</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledMedium.html">LabelDisabledMedium</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmall.html">LabelDisabledSmall</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmaller.html">LabelDisabledSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmallest.html">LabelDisabledSmallest</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLarge.html">LabelErrorLarge</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLarger.html">LabelErrorLarger</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLargest.html">LabelErrorLargest</a></div><div class="sidebar-section-children"><a href="module-LabelErrorMedium.html">LabelErrorMedium</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmall.html">LabelErrorSmall</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmaller.html">LabelErrorSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmallest.html">LabelErrorSmallest</a></div><div class="sidebar-section-children"><a href="module-LabelLarge.html">LabelLarge</a></div><div class="sidebar-section-children"><a href="module-LabelLarger.html">LabelLarger</a></div><div class="sidebar-section-children"><a href="module-LabelLargest.html">LabelLargest</a></div><div class="sidebar-section-children"><a href="module-LabelMedium.html">LabelMedium</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLarge.html">LabelPrimaryLarge</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLarger.html">LabelPrimaryLarger</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLargest.html">LabelPrimaryLargest</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryMedium.html">LabelPrimaryMedium</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmall.html">LabelPrimarySmall</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmaller.html">LabelPrimarySmaller</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmallest.html">LabelPrimarySmallest</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLarge.html">LabelSecondaryLarge</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLarger.html">LabelSecondaryLarger</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLargest.html">LabelSecondaryLargest</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryMedium.html">LabelSecondaryMedium</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmall.html">LabelSecondarySmall</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmaller.html">LabelSecondarySmaller</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmallest.html">LabelSecondarySmallest</a></div><div class="sidebar-section-children"><a href="module-LabelSmall.html">LabelSmall</a></div><div class="sidebar-section-children"><a href="module-LabelSmaller.html">LabelSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelSmallest.html">LabelSmallest</a></div><div class="sidebar-section-children"><a href="module-LanguagePicker.html">LanguagePicker</a></div><div class="sidebar-section-children"><a href="module-LiveTVPresenter.html">LiveTVPresenter</a></div><div class="sidebar-section-children"><a href="module-LoadChannelListForQueueTask.html">LoadChannelListForQueueTask</a></div><div class="sidebar-section-children"><a href="module-LoadChannelsTask.html">LoadChannelsTask</a></div><div class="sidebar-section-children"><a href="module-LoadItemsTask.html">LoadItemsTask</a></div><div class="sidebar-section-children"><a href="module-LoadItemsTask2.html">LoadItemsTask2</a></div><div class="sidebar-section-children"><a href="module-LoadPhotoTask.html">LoadPhotoTask</a></div><div class="sidebar-section-children"><a href="module-LoadProgramDetailsTask.html">LoadProgramDetailsTask</a></div><div class="sidebar-section-children"><a href="module-LoadScreenSaverTimeoutTask.html">LoadScreenSaverTimeoutTask</a></div><div class="sidebar-section-children"><a href="module-LoadSheduleTask.html">LoadSheduleTask</a></div><div class="sidebar-section-children"><a href="module-LoadVideoContentTask.html">LoadVideoContentTask</a></div><div class="sidebar-section-children"><a href="module-LoginScene.html">LoginScene</a></div><div class="sidebar-section-children"><a href="module-MediaSegmentAction.html">MediaSegmentAction</a></div><div class="sidebar-section-children"><a href="module-MediaSegmentType.html">MediaSegmentType</a></div><div class="sidebar-section-children"><a href="module-MockSceneManager.html">MockSceneManager</a></div><div class="sidebar-section-children"><a href="module-MoviePresenter.html">MoviePresenter</a></div><div class="sidebar-section-children"><a href="module-MusicArtistGridItem.html">MusicArtistGridItem</a></div><div class="sidebar-section-children"><a href="module-MusicPresenter.html">MusicPresenter</a></div><div class="sidebar-section-children"><a href="module-OSD.html">OSD</a></div><div class="sidebar-section-children"><a href="module-OSDButtonGroup.html">OSDButtonGroup</a></div><div class="sidebar-section-children"><a href="module-OptionNode.html">OptionNode</a></div><div class="sidebar-section-children"><a href="module-OptionsButton.html">OptionsButton</a></div><div class="sidebar-section-children"><a href="module-OptionsData.html">OptionsData</a></div><div class="sidebar-section-children"><a href="module-OptionsSlider.html">OptionsSlider</a></div><div class="sidebar-section-children"><a href="module-OverviewDialog.html">OverviewDialog</a></div><div class="sidebar-section-children"><a href="module-PhotoDetails.html">PhotoDetails</a></div><div class="sidebar-section-children"><a href="module-PhotoPresenter.html">PhotoPresenter</a></div><div class="sidebar-section-children"><a href="module-PlaybackDialog.html">PlaybackDialog</a></div><div class="sidebar-section-children"><a href="module-PresentationBackdrop.html">PresentationBackdrop</a></div><div class="sidebar-section-children"><a href="module-ProgramDetails.html">ProgramDetails</a></div><div class="sidebar-section-children"><a href="module-PublicUserData.html">PublicUserData</a></div><div class="sidebar-section-children"><a href="module-QueueManager.html">QueueManager</a></div><div class="sidebar-section-children"><a href="module-QuickConnect.html">QuickConnect</a></div><div class="sidebar-section-children"><a href="module-QuickConnectDialog.html">QuickConnectDialog</a></div><div class="sidebar-section-children"><a href="module-QuickConnectEnabledTask.html">QuickConnectEnabledTask</a></div><div class="sidebar-section-children"><a href="module-QuickPlayTask.html">QuickPlayTask</a></div><div class="sidebar-section-children"><a href="module-RadioDialog.html">RadioDialog</a></div><div class="sidebar-section-children"><a href="module-RecordProgramTask.html">RecordProgramTask</a></div><div class="sidebar-section-children"><a href="module-RectangleBackgroundPrimary.html">RectangleBackgroundPrimary</a></div><div class="sidebar-section-children"><a href="module-RectangleBackgroundSecondary.html">RectangleBackgroundSecondary</a></div><div class="sidebar-section-children"><a href="module-RectangleSecondary.html">RectangleSecondary</a></div><div class="sidebar-section-children"><a href="module-RefreshLiveTvMetadataTask.html">RefreshLiveTvMetadataTask</a></div><div class="sidebar-section-children"><a href="module-ResumeButton.html">ResumeButton</a></div><div class="sidebar-section-children"><a href="module-SceneManager.html">SceneManager</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLarge.html">ScrollingLabelDisabledLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLarger.html">ScrollingLabelDisabledLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLargest.html">ScrollingLabelDisabledLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledMedium.html">ScrollingLabelDisabledMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmall.html">ScrollingLabelDisabledSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmaller.html">ScrollingLabelDisabledSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmallest.html">ScrollingLabelDisabledSmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLarge.html">ScrollingLabelErrorLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLarger.html">ScrollingLabelErrorLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLargest.html">ScrollingLabelErrorLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorMedium.html">ScrollingLabelErrorMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmall.html">ScrollingLabelErrorSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmaller.html">ScrollingLabelErrorSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmallest.html">ScrollingLabelErrorSmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLarge.html">ScrollingLabelLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLarger.html">ScrollingLabelLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLargest.html">ScrollingLabelLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelMedium.html">ScrollingLabelMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLarge.html">ScrollingLabelPrimaryLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLarger.html">ScrollingLabelPrimaryLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLargest.html">ScrollingLabelPrimaryLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryMedium.html">ScrollingLabelPrimaryMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmall.html">ScrollingLabelPrimarySmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmaller.html">ScrollingLabelPrimarySmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmallest.html">ScrollingLabelPrimarySmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLarge.html">ScrollingLabelSecondaryLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLarger.html">ScrollingLabelSecondaryLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLargest.html">ScrollingLabelSecondaryLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryMedium.html">ScrollingLabelSecondaryMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmall.html">ScrollingLabelSecondarySmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmaller.html">ScrollingLabelSecondarySmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmallest.html">ScrollingLabelSecondarySmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmall.html">ScrollingLabelSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmaller.html">ScrollingLabelSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmallest.html">ScrollingLabelSmallest</a></div><div class="sidebar-section-children"><a href="module-SearchBox.html">SearchBox</a></div><div class="sidebar-section-children"><a href="module-SearchResults.html">SearchResults</a></div><div class="sidebar-section-children"><a href="module-SearchRow.html">SearchRow</a></div><div class="sidebar-section-children"><a href="module-SearchTask.html">SearchTask</a></div><div class="sidebar-section-children"><a href="module-ServerAction.html">ServerAction</a></div><div class="sidebar-section-children"><a href="module-ServerDiscoveryTask.html">ServerDiscoveryTask</a></div><div class="sidebar-section-children"><a href="module-SessionDataTransformer.html">SessionDataTransformer</a></div><div class="sidebar-section-children"><a href="module-SetServerScreen.html">SetServerScreen</a></div><div class="sidebar-section-children"><a href="module-SideEffectTask.html">SideEffectTask</a></div><div class="sidebar-section-children"><a href="module-SongItem.html">SongItem</a></div><div class="sidebar-section-children"><a href="module-Spinner.html">Spinner</a></div><div class="sidebar-section-children"><a href="module-StandardDialog.html">StandardDialog</a></div><div class="sidebar-section-children"><a href="module-SubtitleSelection.html">SubtitleSelection</a></div><div class="sidebar-section-children"><a href="module-TVShowPresenter.html">TVShowPresenter</a></div><div class="sidebar-section-children"><a href="module-TextButton.html">TextButton</a></div><div class="sidebar-section-children"><a href="module-TextSizeTask.html">TextSizeTask</a></div><div class="sidebar-section-children"><a href="module-Toast.html">Toast</a></div><div class="sidebar-section-children"><a href="module-TrackDropdown.html">TrackDropdown</a></div><div class="sidebar-section-children"><a href="module-TrackDropdownRow.html">TrackDropdownRow</a></div><div class="sidebar-section-children"><a href="module-TrickplayCarousel.html">TrickplayCarousel</a></div><div class="sidebar-section-children"><a href="module-TrickplayTileLoader.html">TrickplayTileLoader</a></div><div class="sidebar-section-children"><a href="module-UserData.html">UserData</a></div><div class="sidebar-section-children"><a href="module-UserItem.html">UserItem</a></div><div class="sidebar-section-children"><a href="module-UserRow.html">UserRow</a></div><div class="sidebar-section-children"><a href="module-UserSelect.html">UserSelect</a></div><div class="sidebar-section-children"><a href="module-VertButtonGroup.html">VertButtonGroup</a></div><div class="sidebar-section-children"><a href="module-VideoNotification.html">VideoNotification</a></div><div class="sidebar-section-children"><a href="module-VideoPlayerView.html">VideoPlayerView</a></div><div class="sidebar-section-children"><a href="module-VideoProgressBar.html">VideoProgressBar</a></div><div class="sidebar-section-children"><a href="module-ViewCreator.html">ViewCreator</a></div><div class="sidebar-section-children"><a href="module-apiPool.html">apiPool</a></div><div class="sidebar-section-children"><a href="module-backdrop.html">backdrop</a></div><div class="sidebar-section-children"><a href="module-baseRequest.html">baseRequest</a></div><div class="sidebar-section-children"><a href="module-captionTask.html">captionTask</a></div><div class="sidebar-section-children"><a href="module-chapterItems.html">chapterItems</a></div><div class="sidebar-section-children"><a href="module-conditional.html">conditional</a></div><div class="sidebar-section-children"><a href="module-config.html">config</a></div><div class="sidebar-section-children"><a href="module-deviceCapabilities.html">deviceCapabilities</a></div><div class="sidebar-section-children"><a href="module-displaySettings.html">displaySettings</a></div><div class="sidebar-section-children"><a href="module-extrasLayout.html">extrasLayout</a></div><div class="sidebar-section-children"><a href="module-image.html">image</a></div><div class="sidebar-section-children"><a href="module-imageHelpers.html">imageHelpers</a></div><div class="sidebar-section-children"><a href="module-itemImageUrl.html">itemImageUrl</a></div><div class="sidebar-section-children"><a href="module-items.html">items</a></div><div class="sidebar-section-children"><a href="module-languages.html">languages</a></div><div class="sidebar-section-children"><a href="module-libraryViewFactory.html">libraryViewFactory</a></div><div class="sidebar-section-children"><a href="module-liveTv.html">liveTv</a></div><div class="sidebar-section-children"><a href="module-main.html">main</a></div><div class="sidebar-section-children"><a href="module-mediaDisplayTitle.html">mediaDisplayTitle</a></div><div class="sidebar-section-children"><a href="module-mediaSegments.html">mediaSegments</a></div><div class="sidebar-section-children"><a href="module-migrations.html">migrations</a></div><div class="sidebar-section-children"><a href="module-misc.html">misc</a></div><div class="sidebar-section-children"><a href="module-nodeHelpers.html">nodeHelpers</a></div><div class="sidebar-section-children"><a href="module-nodeUtils.html">nodeUtils</a></div><div class="sidebar-section-children"><a href="module-placeholderImage.html">placeholderImage</a></div><div class="sidebar-section-children"><a href="module-queueBackdropHelper.html">queueBackdropHelper</a></div><div class="sidebar-section-children"><a href="module-quickplay.html">quickplay</a></div><div class="sidebar-section-children"><a href="module-rowItemImage.html">rowItemImage</a></div><div class="sidebar-section-children"><a href="module-rowItemText.html">rowItemText</a></div><div class="sidebar-section-children"><a href="module-rowListWrap.html">rowListWrap</a></div><div class="sidebar-section-children"><a href="module-schedule.html">schedule</a></div><div class="sidebar-section-children"><a href="module-sdkV1.html">sdkV1</a></div><div class="sidebar-section-children"><a href="module-sdkV2.html">sdkV2</a></div><div class="sidebar-section-children"><a href="module-section.html">section</a></div><div class="sidebar-section-children"><a href="module-sectionScroller.html">sectionScroller</a></div><div class="sidebar-section-children"><a href="module-settings.html">settings</a></div><div class="sidebar-section-children"><a href="module-showScenes.html">showScenes</a></div><div class="sidebar-section-children"><a href="module-streamSelection.html">streamSelection</a></div><div class="sidebar-section-children"><a href="module-subtitles.html">subtitles</a></div><div class="sidebar-section-children"><a href="module-textureManager.html">textureManager</a></div><div class="sidebar-section-children"><a href="module-timeouts.html">timeouts</a></div><div class="sidebar-section-children"><a href="module-trackClusterFocus.html">trackClusterFocus</a></div><div class="sidebar-section-children"><a href="module-translate.html">translate</a></div><div class="sidebar-section-children"><a href="module-translateLocale.html">translateLocale</a></div><div class="sidebar-section-children"><a href="module-trickplay.html">trickplay</a></div><div class="sidebar-section-children"><a href="module-url.html">url</a></div><div class="sidebar-section-children"><a href="module-userAuth.html">userAuth</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-classes"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-ApiClient.ApiClient.html">ApiClient</a></div><div class="sidebar-section-children"><a href="module-GenericPresenter.GenericPresenter.html">GenericPresenter</a></div><div class="sidebar-section-children"><a href="module-GridPresenterBase.GridPresenterBase.html">GridPresenterBase</a></div><div class="sidebar-section-children"><a href="module-JellyfinDataTransformer.JellyfinDataTransformer.html">JellyfinDataTransformer</a></div><div class="sidebar-section-children"><a href="module-LiveTVPresenter.LiveTVPresenter.html">LiveTVPresenter</a></div><div class="sidebar-section-children"><a href="module-MoviePresenter.MoviePresenter.html">MoviePresenter</a></div><div class="sidebar-section-children"><a href="module-MusicPresenter.MusicPresenter.html">MusicPresenter</a></div><div class="sidebar-section-children"><a href="module-PhotoPresenter.PhotoPresenter.html">PhotoPresenter</a></div><div class="sidebar-section-children"><a href="module-SessionDataTransformer.SessionDataTransformer.html">SessionDataTransformer</a></div><div class="sidebar-section-children"><a href="module-TVShowPresenter.TVShowPresenter.html">TVShowPresenter</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-namespaces"><div>Namespaces</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="extrasLayout.html">extrasLayout</a></div><div class="sidebar-section-children"><a href="nodeHelpers.html">nodeHelpers</a></div><div class="sidebar-section-children"><a href="nodeUtils.html">nodeUtils</a></div><div class="sidebar-section-children"><a href="quickplay.html">quickplay</a></div><div class="sidebar-section-children"><a href="sdkV1.html">sdkV1</a></div><div class="sidebar-section-children"><a href="sdkV1_sdkV1.html">sdkV1/sdkV1</a></div><div class="sidebar-section-children"><a href="sdkV1_sdkV1_users.html">sdkV1/sdkV1/users</a></div><div class="sidebar-section-children"><a href="sdkV2.html">sdkV2</a></div><div class="sidebar-section-children"><a href="sdkV2_sdkV2.html">sdkV2/sdkV2</a></div><div class="sidebar-section-children"><a href="sdkV2_sdkV2_users.html">sdkV2/sdkV2/users</a></div><div class="sidebar-section-children"><a href="timeouts.html">timeouts</a></div><div class="sidebar-section-children"><a href="trackClusterFocus.html">trackClusterFocus</a></div><div class="sidebar-section-children"><a href="trickplay.html">trickplay</a></div></div></div><div class="mobile-navbar-actions"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#dark-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div></div></div><script type="text/javascript" src="scripts/core.min.js"></script><script src="scripts/search.min.js" defer="defer"></script><script src="scripts/third-party/fuse.js" defer="defer"></script><script type="text/javascript">var tocbotInstance=tocbot.init({tocSelector:"#eed4d2a0bfd64539bb9df78095dec881",contentSelector:".main-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0,scrollContainer:".main-content",headingsOffset:130,onClick:bringLinkToView})</script></body></html>
