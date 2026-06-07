@@ -49,7 +49,7 @@
           "id": "jellyfin-link"
         }
       ],
-      "footer": "<span class=\"jsdoc-message\">Automatically generated using <a href=\"https://github.com/jsdoc/jsdoc\" target=\"_blank\">JSDoc</a> and the <a href=\"https://github.com/ankitskvmdam/clean-jsdoc-theme\" target=\"_blank\">clean-jsdoc-theme</a>.</span><script defer src=\"https://analytics.jellyrock.app/script.js\" data-website-id=\"07139597-641c-42e6-8f5a-cbb0d9182a20\"></script>"
+      "footer": "<span class=\"jsdoc-message\">Automatically generated using <a href=\"https://github.com/jsdoc/jsdoc\" target=\"_blank\">JSDoc</a> and the <a href=\"https://github.com/ankitskvmdam/clean-jsdoc-theme\" target=\"_blank\">clean-jsdoc-theme</a>.</span><script defer src=\"/_a/script.js\" data-website-id=\"07139597-641c-42e6-8f5a-cbb0d9182a20\" data-host-url=\"https://api.jellyrock.app/_a\"></script>"
     }
   },
   "markdown": {
