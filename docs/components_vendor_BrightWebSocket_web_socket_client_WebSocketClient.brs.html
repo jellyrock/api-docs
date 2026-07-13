@@ -1,0 +1,793 @@
+<!DOCTYPE html><html lang="en" style="font-size:16px"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Source: components/vendor/BrightWebSocket/web_socket_client/WebSocketClient.brs</title><!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--><script src="scripts/third-party/hljs.js" defer="defer"></script><script src="scripts/third-party/hljs-line-num.js" defer="defer"></script><script src="scripts/third-party/popper.js" defer="defer"></script><script src="scripts/third-party/tippy.js" defer="defer"></script><script src="scripts/third-party/tocbot.min.js"></script><script>var baseURL="/",locationPathname="";baseURL=(baseURL=(baseURL="https://api.jellyrock.app/").replace(/https?:\/\//i,"")).substr(baseURL.indexOf("/"))</script><link rel="stylesheet" href="styles/clean-jsdoc-theme.min.css"><svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none"><defs><symbol id="copy-icon" viewbox="0 0 488.3 488.3"><g><path d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124    C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124    c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z"/><path d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227    c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6    V38.6C439.65,17.3,422.35,0,401.05,0z"/></g></symbol><symbol id="search-icon" viewBox="0 0 512 512"><g><g><path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474    c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323    c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848    S326.847,409.323,225.474,409.323z"/></g></g><g><g><path d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328    c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z"/></g></g></symbol><symbol id="font-size-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.246 15H4.754l-2 5H.6L7 4h2l6.4 16h-2.154l-2-5zm-.8-2L8 6.885 5.554 13h4.892zM21 12.535V12h2v8h-2v-.535a4 4 0 1 1 0-6.93zM19 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol><symbol id="add-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></symbol><symbol id="minus-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M5 11h14v2H5z"/></symbol><symbol id="dark-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol><symbol id="light-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol><symbol id="reset-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795z"/></symbol><symbol id="down-icon" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></symbol><symbol id="codepen-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.5 13.202L13 15.535v3.596L19.197 15 16.5 13.202zM14.697 12L12 10.202 9.303 12 12 13.798 14.697 12zM20 10.869L18.303 12 20 13.131V10.87zM19.197 9L13 4.869v3.596l3.5 2.333L19.197 9zM7.5 10.798L11 8.465V4.869L4.803 9 7.5 10.798zM4.803 15L11 19.131v-3.596l-3.5-2.333L4.803 15zM4 13.131L5.697 12 4 10.869v2.262zM2 9a1 1 0 0 1 .445-.832l9-6a1 1 0 0 1 1.11 0l9 6A1 1 0 0 1 22 9v6a1 1 0 0 1-.445.832l-9 6a1 1 0 0 1-1.11 0l-9-6A1 1 0 0 1 2 15V9z"/></symbol><symbol id="close-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></symbol><symbol id="menu-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></symbol></defs></svg></head><body data-theme="fallback-dark"><div class="sidebar-container"><div class="sidebar" id="sidebar"><a href="/" class="sidebar-title sidebar-title-anchor">JellyRock Code Documentation</a><div class="sidebar-items-container"><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-modules"><div>Modules</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-AlbumTrackList.html">AlbumTrackList</a></div><div class="sidebar-section-children"><a href="module-Alpha.html">Alpha</a></div><div class="sidebar-section-children"><a href="module-AlphaKeyboard.html">AlphaKeyboard</a></div><div class="sidebar-section-children"><a href="module-ApiClient.html">ApiClient</a></div><div class="sidebar-section-children"><a href="module-ApiQueueTask.html">ApiQueueTask</a></div><div class="sidebar-section-children"><a href="module-ApiTask.html">ApiTask</a></div><div class="sidebar-section-children"><a href="module-AudioPlayer.html">AudioPlayer</a></div><div class="sidebar-section-children"><a href="module-AudioPlayerView.html">AudioPlayerView</a></div><div class="sidebar-section-children"><a href="module-AuthManager.html">AuthManager</a></div><div class="sidebar-section-children"><a href="module-BackdropFader.html">BackdropFader</a></div><div class="sidebar-section-children"><a href="module-BaseGridView.html">BaseGridView</a></div><div class="sidebar-section-children"><a href="module-BrowseRowItem.html">BrowseRowItem</a></div><div class="sidebar-section-children"><a href="module-ByteUtil.html">ByteUtil</a></div><div class="sidebar-section-children"><a href="module-Clock.html">Clock</a></div><div class="sidebar-section-children"><a href="module-CommunityRating.html">CommunityRating</a></div><div class="sidebar-section-children"><a href="module-ConfigData.html">ConfigData</a></div><div class="sidebar-section-children"><a href="module-ConfigItem.html">ConfigItem</a></div><div class="sidebar-section-children"><a href="module-ConfigList.html">ConfigList</a></div><div class="sidebar-section-children"><a href="module-CriticRating.html">CriticRating</a></div><div class="sidebar-section-children"><a href="module-ExtrasRowList.html">ExtrasRowList</a></div><div class="sidebar-section-children"><a href="module-ExtrasSlider.html">ExtrasSlider</a></div><div class="sidebar-section-children"><a href="module-FavoritesRows.html">FavoritesRows</a></div><div class="sidebar-section-children"><a href="module-FocusableOverview.html">FocusableOverview</a></div><div class="sidebar-section-children"><a href="module-FontDownloadTask.html">FontDownloadTask</a></div><div class="sidebar-section-children"><a href="module-FontScalingTask.html">FontScalingTask</a></div><div class="sidebar-section-children"><a href="module-GenericPresenter.html">GenericPresenter</a></div><div class="sidebar-section-children"><a href="module-GetPlaybackInfoTask.html">GetPlaybackInfoTask</a></div><div class="sidebar-section-children"><a href="module-GetShuffleItemsTask.html">GetShuffleItemsTask</a></div><div class="sidebar-section-children"><a href="module-Gradient.html">Gradient</a></div><div class="sidebar-section-children"><a href="module-GridItem.html">GridItem</a></div><div class="sidebar-section-children"><a href="module-GridPresenterBase.html">GridPresenterBase</a></div><div class="sidebar-section-children"><a href="module-HexKeyboard.html">HexKeyboard</a></div><div class="sidebar-section-children"><a href="module-Home.html">Home</a></div><div class="sidebar-section-children"><a href="module-HomeAction.html">HomeAction</a></div><div class="sidebar-section-children"><a href="module-HomeRows.html">HomeRows</a></div><div class="sidebar-section-children"><a href="module-IconButton.html">IconButton</a></div><div class="sidebar-section-children"><a href="module-IntegerKeyboard.html">IntegerKeyboard</a></div><div class="sidebar-section-children"><a href="module-ItemDetails.html">ItemDetails</a></div><div class="sidebar-section-children"><a href="module-ItemGridOptions.html">ItemGridOptions</a></div><div class="sidebar-section-children"><a href="module-JRButtonGroup.html">JRButtonGroup</a></div><div class="sidebar-section-children"><a href="module-JRButtons.html">JRButtons</a></div><div class="sidebar-section-children"><a href="module-JRDropdown.html">JRDropdown</a></div><div class="sidebar-section-children"><a href="module-JRDropdownItem.html">JRDropdownItem</a></div><div class="sidebar-section-children"><a href="module-JRGroup.html">JRGroup</a></div><div class="sidebar-section-children"><a href="module-JRLabel.html">JRLabel</a></div><div class="sidebar-section-children"><a href="module-JRLabelList.html">JRLabelList</a></div><div class="sidebar-section-children"><a href="module-JRMarkupGrid.html">JRMarkupGrid</a></div><div class="sidebar-section-children"><a href="module-JRMessageDialog.html">JRMessageDialog</a></div><div class="sidebar-section-children"><a href="module-JROverhang.html">JROverhang</a></div><div class="sidebar-section-children"><a href="module-JROverhangIcon.html">JROverhangIcon</a></div><div class="sidebar-section-children"><a href="module-JRPlaceholder.html">JRPlaceholder</a></div><div class="sidebar-section-children"><a href="module-JRPoster.html">JRPoster</a></div><div class="sidebar-section-children"><a href="module-JRPosterGrid.html">JRPosterGrid</a></div><div class="sidebar-section-children"><a href="module-JRRowItem.html">JRRowItem</a></div><div class="sidebar-section-children"><a href="module-JRRowList.html">JRRowList</a></div><div class="sidebar-section-children"><a href="module-JRScene.html">JRScene</a></div><div class="sidebar-section-children"><a href="module-JRScreen.html">JRScreen</a></div><div class="sidebar-section-children"><a href="module-JRScrollingLabel.html">JRScrollingLabel</a></div><div class="sidebar-section-children"><a href="module-JRServer.html">JRServer</a></div><div class="sidebar-section-children"><a href="module-JRTab.html">JRTab</a></div><div class="sidebar-section-children"><a href="module-JRTabBar.html">JRTabBar</a></div><div class="sidebar-section-children"><a href="module-JRTimeGrid.html">JRTimeGrid</a></div><div class="sidebar-section-children"><a href="module-JellyfinDataTransformer.html">JellyfinDataTransformer</a></div><div class="sidebar-section-children"><a href="module-JellyfinUserSettings.html">JellyfinUserSettings</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLarge.html">LabelDisabledLarge</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLarger.html">LabelDisabledLarger</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLargest.html">LabelDisabledLargest</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledMedium.html">LabelDisabledMedium</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmall.html">LabelDisabledSmall</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmaller.html">LabelDisabledSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmallest.html">LabelDisabledSmallest</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLarge.html">LabelErrorLarge</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLarger.html">LabelErrorLarger</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLargest.html">LabelErrorLargest</a></div><div class="sidebar-section-children"><a href="module-LabelErrorMedium.html">LabelErrorMedium</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmall.html">LabelErrorSmall</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmaller.html">LabelErrorSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmallest.html">LabelErrorSmallest</a></div><div class="sidebar-section-children"><a href="module-LabelLarge.html">LabelLarge</a></div><div class="sidebar-section-children"><a href="module-LabelLarger.html">LabelLarger</a></div><div class="sidebar-section-children"><a href="module-LabelLargest.html">LabelLargest</a></div><div class="sidebar-section-children"><a href="module-LabelMedium.html">LabelMedium</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLarge.html">LabelPrimaryLarge</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLarger.html">LabelPrimaryLarger</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLargest.html">LabelPrimaryLargest</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryMedium.html">LabelPrimaryMedium</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmall.html">LabelPrimarySmall</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmaller.html">LabelPrimarySmaller</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmallest.html">LabelPrimarySmallest</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLarge.html">LabelSecondaryLarge</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLarger.html">LabelSecondaryLarger</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLargest.html">LabelSecondaryLargest</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryMedium.html">LabelSecondaryMedium</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmall.html">LabelSecondarySmall</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmaller.html">LabelSecondarySmaller</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmallest.html">LabelSecondarySmallest</a></div><div class="sidebar-section-children"><a href="module-LabelSmall.html">LabelSmall</a></div><div class="sidebar-section-children"><a href="module-LabelSmaller.html">LabelSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelSmallest.html">LabelSmallest</a></div><div class="sidebar-section-children"><a href="module-LanguagePicker.html">LanguagePicker</a></div><div class="sidebar-section-children"><a href="module-LiveTVPresenter.html">LiveTVPresenter</a></div><div class="sidebar-section-children"><a href="module-LoadChannelsTask.html">LoadChannelsTask</a></div><div class="sidebar-section-children"><a href="module-LoadItemsTask.html">LoadItemsTask</a></div><div class="sidebar-section-children"><a href="module-LoadItemsTask2.html">LoadItemsTask2</a></div><div class="sidebar-section-children"><a href="module-LoadPhotoTask.html">LoadPhotoTask</a></div><div class="sidebar-section-children"><a href="module-LoadScreenSaverTimeoutTask.html">LoadScreenSaverTimeoutTask</a></div><div class="sidebar-section-children"><a href="module-LoadSheduleTask.html">LoadSheduleTask</a></div><div class="sidebar-section-children"><a href="module-LoadVideoContentTask.html">LoadVideoContentTask</a></div><div class="sidebar-section-children"><a href="module-Logger.html">Logger</a></div><div class="sidebar-section-children"><a href="module-LoginScene.html">LoginScene</a></div><div class="sidebar-section-children"><a href="module-MediaSegmentAction.html">MediaSegmentAction</a></div><div class="sidebar-section-children"><a href="module-MediaSegmentType.html">MediaSegmentType</a></div><div class="sidebar-section-children"><a href="module-MockSceneManager.html">MockSceneManager</a></div><div class="sidebar-section-children"><a href="module-MoviePresenter.html">MoviePresenter</a></div><div class="sidebar-section-children"><a href="module-MusicArtistGridItem.html">MusicArtistGridItem</a></div><div class="sidebar-section-children"><a href="module-MusicPresenter.html">MusicPresenter</a></div><div class="sidebar-section-children"><a href="module-OSD.html">OSD</a></div><div class="sidebar-section-children"><a href="module-OSDButtonGroup.html">OSDButtonGroup</a></div><div class="sidebar-section-children"><a href="module-OptionNode.html">OptionNode</a></div><div class="sidebar-section-children"><a href="module-OptionsButton.html">OptionsButton</a></div><div class="sidebar-section-children"><a href="module-OptionsData.html">OptionsData</a></div><div class="sidebar-section-children"><a href="module-OptionsSlider.html">OptionsSlider</a></div><div class="sidebar-section-children"><a href="module-OverviewDialog.html">OverviewDialog</a></div><div class="sidebar-section-children"><a href="module-PhotoDetails.html">PhotoDetails</a></div><div class="sidebar-section-children"><a href="module-PhotoPresenter.html">PhotoPresenter</a></div><div class="sidebar-section-children"><a href="module-PlaybackDialog.html">PlaybackDialog</a></div><div class="sidebar-section-children"><a href="module-PlayerHostView.html">PlayerHostView</a></div><div class="sidebar-section-children"><a href="module-PresentationBackdrop.html">PresentationBackdrop</a></div><div class="sidebar-section-children"><a href="module-ProgramDetails.html">ProgramDetails</a></div><div class="sidebar-section-children"><a href="module-PublicUserData.html">PublicUserData</a></div><div class="sidebar-section-children"><a href="module-QueueManager.html">QueueManager</a></div><div class="sidebar-section-children"><a href="module-QuickConnect.html">QuickConnect</a></div><div class="sidebar-section-children"><a href="module-QuickConnectDialog.html">QuickConnectDialog</a></div><div class="sidebar-section-children"><a href="module-QuickPlayTask.html">QuickPlayTask</a></div><div class="sidebar-section-children"><a href="module-RadioDialog.html">RadioDialog</a></div><div class="sidebar-section-children"><a href="module-RecordProgramTask.html">RecordProgramTask</a></div><div class="sidebar-section-children"><a href="module-RectangleBackgroundPrimary.html">RectangleBackgroundPrimary</a></div><div class="sidebar-section-children"><a href="module-RectangleBackgroundSecondary.html">RectangleBackgroundSecondary</a></div><div class="sidebar-section-children"><a href="module-RectangleSecondary.html">RectangleSecondary</a></div><div class="sidebar-section-children"><a href="module-RefreshLiveTvMetadataTask.html">RefreshLiveTvMetadataTask</a></div><div class="sidebar-section-children"><a href="module-RemoteControlTask.html">RemoteControlTask</a></div><div class="sidebar-section-children"><a href="module-ResumeButton.html">ResumeButton</a></div><div class="sidebar-section-children"><a href="module-SceneManager.html">SceneManager</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLarge.html">ScrollingLabelDisabledLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLarger.html">ScrollingLabelDisabledLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLargest.html">ScrollingLabelDisabledLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledMedium.html">ScrollingLabelDisabledMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmall.html">ScrollingLabelDisabledSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmaller.html">ScrollingLabelDisabledSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmallest.html">ScrollingLabelDisabledSmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLarge.html">ScrollingLabelErrorLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLarger.html">ScrollingLabelErrorLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLargest.html">ScrollingLabelErrorLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorMedium.html">ScrollingLabelErrorMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmall.html">ScrollingLabelErrorSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmaller.html">ScrollingLabelErrorSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmallest.html">ScrollingLabelErrorSmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLarge.html">ScrollingLabelLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLarger.html">ScrollingLabelLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLargest.html">ScrollingLabelLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelMedium.html">ScrollingLabelMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLarge.html">ScrollingLabelPrimaryLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLarger.html">ScrollingLabelPrimaryLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLargest.html">ScrollingLabelPrimaryLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryMedium.html">ScrollingLabelPrimaryMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmall.html">ScrollingLabelPrimarySmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmaller.html">ScrollingLabelPrimarySmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmallest.html">ScrollingLabelPrimarySmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLarge.html">ScrollingLabelSecondaryLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLarger.html">ScrollingLabelSecondaryLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLargest.html">ScrollingLabelSecondaryLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryMedium.html">ScrollingLabelSecondaryMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmall.html">ScrollingLabelSecondarySmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmaller.html">ScrollingLabelSecondarySmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmallest.html">ScrollingLabelSecondarySmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmall.html">ScrollingLabelSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmaller.html">ScrollingLabelSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmallest.html">ScrollingLabelSmallest</a></div><div class="sidebar-section-children"><a href="module-SearchBox.html">SearchBox</a></div><div class="sidebar-section-children"><a href="module-SearchResults.html">SearchResults</a></div><div class="sidebar-section-children"><a href="module-SearchRow.html">SearchRow</a></div><div class="sidebar-section-children"><a href="module-SearchTask.html">SearchTask</a></div><div class="sidebar-section-children"><a href="module-ServerAction.html">ServerAction</a></div><div class="sidebar-section-children"><a href="module-ServerDiscoveryTask.html">ServerDiscoveryTask</a></div><div class="sidebar-section-children"><a href="module-ServerReachableTask.html">ServerReachableTask</a></div><div class="sidebar-section-children"><a href="module-SessionDataTransformer.html">SessionDataTransformer</a></div><div class="sidebar-section-children"><a href="module-SetServerScreen.html">SetServerScreen</a></div><div class="sidebar-section-children"><a href="module-SideEffectTask.html">SideEffectTask</a></div><div class="sidebar-section-children"><a href="module-SongItem.html">SongItem</a></div><div class="sidebar-section-children"><a href="module-Spinner.html">Spinner</a></div><div class="sidebar-section-children"><a href="module-StandardDialog.html">StandardDialog</a></div><div class="sidebar-section-children"><a href="module-SubtitleSelection.html">SubtitleSelection</a></div><div class="sidebar-section-children"><a href="module-TVShowPresenter.html">TVShowPresenter</a></div><div class="sidebar-section-children"><a href="module-TextButton.html">TextButton</a></div><div class="sidebar-section-children"><a href="module-TextSizeTask.html">TextSizeTask</a></div><div class="sidebar-section-children"><a href="module-Toast.html">Toast</a></div><div class="sidebar-section-children"><a href="module-TrackDropdown.html">TrackDropdown</a></div><div class="sidebar-section-children"><a href="module-TrackDropdownRow.html">TrackDropdownRow</a></div><div class="sidebar-section-children"><a href="module-TrickplayCarousel.html">TrickplayCarousel</a></div><div class="sidebar-section-children"><a href="module-TrickplayTileLoader.html">TrickplayTileLoader</a></div><div class="sidebar-section-children"><a href="module-UserData.html">UserData</a></div><div class="sidebar-section-children"><a href="module-UserItem.html">UserItem</a></div><div class="sidebar-section-children"><a href="module-UserRow.html">UserRow</a></div><div class="sidebar-section-children"><a href="module-UserSelect.html">UserSelect</a></div><div class="sidebar-section-children"><a href="module-VertButtonGroup.html">VertButtonGroup</a></div><div class="sidebar-section-children"><a href="module-VideoNotification.html">VideoNotification</a></div><div class="sidebar-section-children"><a href="module-VideoPlayerView.html">VideoPlayerView</a></div><div class="sidebar-section-children"><a href="module-VideoProgressBar.html">VideoProgressBar</a></div><div class="sidebar-section-children"><a href="module-WebSocketClient.html">WebSocketClient</a></div><div class="sidebar-section-children"><a href="module-WebSocketClientTask.html">WebSocketClientTask</a></div><div class="sidebar-section-children"><a href="module-apiPool.html">apiPool</a></div><div class="sidebar-section-children"><a href="module-apiPromise.html">apiPromise</a></div><div class="sidebar-section-children"><a href="module-backdrop.html">backdrop</a></div><div class="sidebar-section-children"><a href="module-baseRequest.html">baseRequest</a></div><div class="sidebar-section-children"><a href="module-captionTask.html">captionTask</a></div><div class="sidebar-section-children"><a href="module-chapterItems.html">chapterItems</a></div><div class="sidebar-section-children"><a href="module-conditional.html">conditional</a></div><div class="sidebar-section-children"><a href="module-config.html">config</a></div><div class="sidebar-section-children"><a href="module-deepLink.html">deepLink</a></div><div class="sidebar-section-children"><a href="module-deviceCapabilities.html">deviceCapabilities</a></div><div class="sidebar-section-children"><a href="module-displaySettings.html">displaySettings</a></div><div class="sidebar-section-children"><a href="module-extrasLayout.html">extrasLayout</a></div><div class="sidebar-section-children"><a href="module-image.html">image</a></div><div class="sidebar-section-children"><a href="module-imageHelpers.html">imageHelpers</a></div><div class="sidebar-section-children"><a href="module-itemImageUrl.html">itemImageUrl</a></div><div class="sidebar-section-children"><a href="module-items.html">items</a></div><div class="sidebar-section-children"><a href="module-languages.html">languages</a></div><div class="sidebar-section-children"><a href="module-libraryViewFactory.html">libraryViewFactory</a></div><div class="sidebar-section-children"><a href="module-liveTv.html">liveTv</a></div><div class="sidebar-section-children"><a href="module-loginRouter.html">loginRouter</a></div><div class="sidebar-section-children"><a href="module-main.html">main</a></div><div class="sidebar-section-children"><a href="module-mediaDisplayTitle.html">mediaDisplayTitle</a></div><div class="sidebar-section-children"><a href="module-mediaSegments.html">mediaSegments</a></div><div class="sidebar-section-children"><a href="module-migrations.html">migrations</a></div><div class="sidebar-section-children"><a href="module-misc.html">misc</a></div><div class="sidebar-section-children"><a href="module-nodeHelpers.html">nodeHelpers</a></div><div class="sidebar-section-children"><a href="module-nodeUtils.html">nodeUtils</a></div><div class="sidebar-section-children"><a href="module-placeholderImage.html">placeholderImage</a></div><div class="sidebar-section-children"><a href="module-queueBackdropHelper.html">queueBackdropHelper</a></div><div class="sidebar-section-children"><a href="module-quickplay.html">quickplay</a></div><div class="sidebar-section-children"><a href="module-remoteDispatch.html">remoteDispatch</a></div><div class="sidebar-section-children"><a href="module-remoteProtocol.html">remoteProtocol</a></div><div class="sidebar-section-children"><a href="module-replayRoute.html">replayRoute</a></div><div class="sidebar-section-children"><a href="module-rowItemImage.html">rowItemImage</a></div><div class="sidebar-section-children"><a href="module-rowItemText.html">rowItemText</a></div><div class="sidebar-section-children"><a href="module-rowListWrap.html">rowListWrap</a></div><div class="sidebar-section-children"><a href="module-schedule.html">schedule</a></div><div class="sidebar-section-children"><a href="module-sdkV1.html">sdkV1</a></div><div class="sidebar-section-children"><a href="module-sdkV2.html">sdkV2</a></div><div class="sidebar-section-children"><a href="module-section.html">section</a></div><div class="sidebar-section-children"><a href="module-sectionScroller.html">sectionScroller</a></div><div class="sidebar-section-children"><a href="module-settings.html">settings</a></div><div class="sidebar-section-children"><a href="module-showScenes.html">showScenes</a></div><div class="sidebar-section-children"><a href="module-streamSelection.html">streamSelection</a></div><div class="sidebar-section-children"><a href="module-subtitles.html">subtitles</a></div><div class="sidebar-section-children"><a href="module-textureManager.html">textureManager</a></div><div class="sidebar-section-children"><a href="module-timeouts.html">timeouts</a></div><div class="sidebar-section-children"><a href="module-trackClusterFocus.html">trackClusterFocus</a></div><div class="sidebar-section-children"><a href="module-translate.html">translate</a></div><div class="sidebar-section-children"><a href="module-translateLocale.html">translateLocale</a></div><div class="sidebar-section-children"><a href="module-trickplay.html">trickplay</a></div><div class="sidebar-section-children"><a href="module-url.html">url</a></div><div class="sidebar-section-children"><a href="module-userAuth.html">userAuth</a></div><div class="sidebar-section-children"><a href="module-voiceTransport.html">voiceTransport</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-classes"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-ApiClient.ApiClient.html">ApiClient</a></div><div class="sidebar-section-children"><a href="module-GenericPresenter.GenericPresenter.html">GenericPresenter</a></div><div class="sidebar-section-children"><a href="module-GridPresenterBase.GridPresenterBase.html">GridPresenterBase</a></div><div class="sidebar-section-children"><a href="module-JellyfinDataTransformer.JellyfinDataTransformer.html">JellyfinDataTransformer</a></div><div class="sidebar-section-children"><a href="module-LiveTVPresenter.LiveTVPresenter.html">LiveTVPresenter</a></div><div class="sidebar-section-children"><a href="module-MoviePresenter.MoviePresenter.html">MoviePresenter</a></div><div class="sidebar-section-children"><a href="module-MusicPresenter.MusicPresenter.html">MusicPresenter</a></div><div class="sidebar-section-children"><a href="module-PhotoPresenter.PhotoPresenter.html">PhotoPresenter</a></div><div class="sidebar-section-children"><a href="module-SessionDataTransformer.SessionDataTransformer.html">SessionDataTransformer</a></div><div class="sidebar-section-children"><a href="module-TVShowPresenter.TVShowPresenter.html">TVShowPresenter</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-namespaces"><div>Namespaces</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="extrasLayout.html">extrasLayout</a></div><div class="sidebar-section-children"><a href="nodeHelpers.html">nodeHelpers</a></div><div class="sidebar-section-children"><a href="nodeUtils.html">nodeUtils</a></div><div class="sidebar-section-children"><a href="quickplay.html">quickplay</a></div><div class="sidebar-section-children"><a href="remoteDispatch.html">remoteDispatch</a></div><div class="sidebar-section-children"><a href="remoteProtocol.html">remoteProtocol</a></div><div class="sidebar-section-children"><a href="sdkV1.html">sdkV1</a></div><div class="sidebar-section-children"><a href="sdkV1_sdkV1.html">sdkV1/sdkV1</a></div><div class="sidebar-section-children"><a href="sdkV1_sdkV1_users.html">sdkV1/sdkV1/users</a></div><div class="sidebar-section-children"><a href="sdkV2.html">sdkV2</a></div><div class="sidebar-section-children"><a href="sdkV2_sdkV2.html">sdkV2/sdkV2</a></div><div class="sidebar-section-children"><a href="sdkV2_sdkV2_users.html">sdkV2/sdkV2/users</a></div><div class="sidebar-section-children"><a href="timeouts.html">timeouts</a></div><div class="sidebar-section-children"><a href="trackClusterFocus.html">trackClusterFocus</a></div><div class="sidebar-section-children"><a href="trickplay.html">trickplay</a></div><div class="sidebar-section-children"><a href="voiceTransport.html">voiceTransport</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-interfaces"><div>Interfaces</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="nodeHelpers.QueueItem.html">QueueItem</a></div></div></div></div></div><div class="navbar-container" id="VuAckcnZhf"><nav class="navbar"><div class="navbar-left-items"><div class="external-link navbar-item"><a id="github-link" href="https://github.com/jellyrock/api-docs" target="_blank">Source</a></div><div class="external-link navbar-item"><a id="jellyfin-link" href="https://jellyfin.org/docs/" target="_blank">Jellyfin docs</a></div><div class="external-link navbar-item"><a id="jellyfin-link" href="https://api.jellyfin.org/" target="_blank">Jellyfin API docs</a></div></div><div class="navbar-right-items"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#dark-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div><nav></nav></nav></div><div class="toc-container"><div class="toc-content"><span class="bold">On this page</span><div id="eed4d2a0bfd64539bb9df78095dec881"></div></div></div><div class="body-wrapper"><div class="main-content"><div class="main-wrapper"><section id="source-page" class="source-page"><header><h1 id="title" class="has-anchor">components_vendor_BrightWebSocket_web_socket_client_WebSocketClient.brs</h1></header><article><pre class="prettyprint source lang-js"><code>' WebSocketClient.brs
+' Copyright (C) 2018 Rolando Islas
+' Released under the MIT license
+'
+' BrightScript web socket client (RFC 6455)
+'
+' JellyRock modifications (vendored — see ../../README.md; diff vs the pinned upstream SHA):
+'   - Removed all TLS/wss:// support (TlsUtil.brs, ByteUtil.rsa_encrypt, m._secure/m._tls
+'     branches). Upstream's TLS was an unimplemented skeleton (stubbed asymmetric crypto,
+'     no cert validation) and Roku cannot do socket TLS regardless — JellyRock is ws:// only.
+
+' Create a new WebSocketClient instance
+function WebSocketClient() as object
+  ws = {}
+  ' Constants
+  ws.STATE = {
+    CONNECTING: 0,
+    OPEN: 1,
+    CLOSING: 2,
+    CLOSED: 3
+  }
+  ws.OPCODE = {
+    CONTINUATION: 0,
+    TEXT: 1,
+    BINARY: 2,
+    CLOSE: 8,
+    PING: 9,
+    PONG: 10
+  }
+  ws._REGEX_URL = createObject("roRegex", "(\w+):\/\/([^/:]+)(?::(\d+))?(.*)?", "")
+  ws._CHARS = "0123456789abcdefghijklmnopqrstuvwxyz".split("")
+  ws._NL = chr(13) + chr(10)
+  ws._HTTP_STATUS_LINE_REGEX = createObject("roRegex", "(HTTP\/\d+(?:.\d)?)\s(\d{3})\s(.*)", "")
+  ws._HTTP_HEADER_REGEX = createObject("roRegex", "(\w+):\s?(.*)", "")
+  ws._WS_ACCEPT_GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
+  ws._FRAME_SIZE = 1024
+  ws._CLOSING_DELAY = 30
+  ws._BUFFER_SOCKET_SIZE = 4096 ' we allow 4times higher amount in buffer as max limit without waiting to clear it, figured out the last amount of buffer is about 13000 before it overload
+  ws._BUFFER_SLEEP = 10
+  ws._BUFFER_LOOP_LIMIT = 5000 / ws._BUFFER_SLEEP ' max waiting time till try to push another value into buffer, _BUFFER_SLEEP * _BUFFER_LOOP_LIMIT
+  ' Variables
+  ws._logger = Logger()
+  ws._ready_state = ws.state.CLOSED
+  ws._protocols = []
+  ws._headers = []
+  ws._socket = invalid
+  ws._sec_ws_key = invalid
+  ws._handshake = invalid
+  ws._sent_handshake = false
+  ws._has_received_handshake = false
+  ws._buffer_size = cint(1024 * 1024 * 0.5)
+  ws._data = createObject("roByteArray")
+  ws._data[ws._buffer_size] = 0
+  ws._data_size = 0
+  ws._frame_data = createObject("roByteArray")
+  ws._started_closing = 0
+  ws._hostname = ""
+  ws._ws_port = createObject("roMessagePort")
+  ws._message_port = invalid
+
+  ' ========== Getters ==========
+
+  ' Get web socket ready state
+  ' @see WebSocketClient.STATE for values
+  ' @param self WebSocketClient
+  ' @return integer ready state
+  ws.get_ready_state = function() as integer
+    return m._ready_state
+  end function
+
+  ' Get web socket protocols sent on initial handshake
+  ' @param self WebSocketClient
+  ' @return roArray web socket protocols
+  ws.get_protocols = function() as object
+    return m._protocols
+  end function
+
+  ' Get HTTP headers sent on initial HTTP request
+  ' @param self WebSocketClient
+  ' @return roArray HTTP headers - even indices are the header keys, the odd
+  '         indices are the header values
+  ws.get_headers = function() as object
+    return m._headers
+  end function
+
+  ' Get the maximum buffer size for data sent to the websocket
+  ' @param self WebSocketClient
+  ' @return integer max buffer size in bytes
+  ws.get_buffer_size = function() as integer
+    return m._buffer_size
+  end function
+
+  ' ========== Setters ==========
+
+  ' Set the web socket protocols to request from the web socket server
+  ' @param self WebSocketClient
+  ' @param roArray of protocol strings
+  ws.set_protocols = sub(protocols as object)
+    m._protocols = protocols
+    m._post_message("protocols", m._protocols)
+  end sub
+
+  ' Set the headers to send on the initial HTTP request for a web socket
+  ' @param self WebSocketClient
+  ' @param roArray of header strings - The even indices should be the header
+  '        keys and the odd are the header values
+  ws.set_headers = sub(headers as object)
+    m._headers = headers
+    m._post_message("headers", m._headers)
+  end sub
+
+  ' Set the buffer size for web socket data
+  ' @param self WebSocketClient
+  ' @param size integer max size of buffer in bytes
+  ws.set_buffer_size = sub(size as integer)
+    if m._ready_state &lt;> m.STATE.CLOSED
+      m._logger.printl(m.WARN, "WebSocketClient: Cannot resize buffer on a socket that is not closed")
+      return
+    else if size &lt; m._FRAME_SIZE
+      m._logger.printl(m.WARN, "WebSocketClient: Cannot set buffer to a size smaller than " + m._FRAME_SIZE.toStr() + " bytes")
+      return
+    end if
+    m._buffer_size = size
+    m._buffer = createObject("roByteArray")
+    m._buffer[m._buffer_size] = 0
+    m._data_size = 0
+    m._post_message("buffer_size", m._buffer_size)
+  end sub
+
+  ' Set the message port that should be used to relay web socket events and
+  ' field change updates
+  ' @param self WebSocketClient
+  ' @param port roMessagePort
+  ws.set_message_port = sub(port as object)
+    m._message_port = port
+  end sub
+
+  ' Set the log level
+  ws.set_log_level = sub(log_level as string)
+    m._logger.set_log_level(log_level)
+  end sub
+
+  ' ========== Main ==========
+
+  ' Parses one websocket frame or HTTP message, if one is available
+  ' @param self WebSocketClient
+  ws.run = sub()
+    msg = wait(200, m._ws_port)
+    ' Socket event
+    if type(msg) = "roSocketEvent"
+      m._send_handshake()
+      m._read_socket_data()
+    end if
+    m._try_force_close()
+  end sub
+
+  ' Force close a connection after the close frame has been sent and no
+  ' response was given, after a timeout
+  ' @param self WebSocketClient
+  ws._try_force_close = sub()
+    if m._ready_state = m.STATE.CLOSING and uptime(0) - m._started_closing >= m._CLOSING_DELAY
+      m._close()
+    end if
+  end sub
+
+  ' Sends data through the socket
+  ' @param self WebSocketClient
+  ' @param message array - should contain one element of type roString or roArray
+  '                        cannot exceed 125 bytes if the the specified opcode
+  '                        is for a control frame
+  ' @param _opcode int - define a **control** opcode data opcodes are determined
+  '                      by the type of the passed message
+  ' @param silent boolean - does not send on_error event
+  ' @param do_close boolean - if true, a close frame will be sent on errors
+  ' @return integer amount of bytes sent
+  ws.send = function(message as dynamic, _opcode = -1 as integer, silent = false as boolean, do_close = true as boolean) as integer
+    if m._socket = invalid or not m._socket.isWritable()
+      m._logger.printl(m._logger.DEBUG, "WebSocketClient: Failed to send data: socket is closed")
+      return -1
+    end if
+    if m._ready_state &lt;> m.STATE.OPEN
+      m._logger.printl(m._logger.DEBUG, "WebSocketClient: Failed to send data: connection not open")
+      return -1
+    end if
+    if type(message) = "roString" or type(message) = "String" or type(message) = "roByteArray"
+      message = [message]
+    end if
+    if message.count() &lt;> 1
+      m._logger.printl(m._logger.DEBUG, "WebSocketClient: Failed to send data: too many parameters")
+      return -1
+    end if
+    bytes = createObject("roByteArray")
+    opcode = 0
+    if type(message[0]) = "roString" or type(message[0]) = "String"
+      bytes.fromAsciiString(message[0])
+      opcode = m.OPCODE.TEXT
+    else if type(message[0]) = "roArray" or type(message[0]) = "roByteArray"
+      for each byte in message[0]
+        bytes.push(byte)
+      end for
+      opcode = m.OPCODE.BINARY
+    else
+      m._logger.printl(m._logger.DEBUG, "WebSocketClient: Failed to send data: invalid parameter type")
+      return -1
+    end if
+    if _opcode > -1 and (_opcode >> 3) &lt;> 1
+      m._logger.printl(m._logger.DEBUG, "WebSocketClient: Failed to send data: specified opcode was not a control opcode")
+      return -1
+    else if _opcode > -1
+      if bytes.count() > 125
+        m._logger.printl(m._logger.DEBUG, "WebSocketClient: Failed to send data: control frames cannot have a payload larger than 125 bytes")
+        return -1
+      end if
+      opcode = _opcode
+    end if
+    ' Frame message
+    frame_count = bytes.count() \ m._FRAME_SIZE
+    if bytes.count() mod m._FRAME_SIZE &lt;> 0 or frame_count = 0
+      frame_count++
+    end if
+    total_sent = 0
+    for frame_index = 0 to frame_count - 1
+      ' Get sub array of payload bytes
+      payload = createObject("roByteArray")
+      max = bytes.count() - 1
+      if (frame_index + 1) * m._FRAME_SIZE - 1 &lt; max
+        max = (frame_index + 1) * m._FRAME_SIZE - 1
+      end if
+      for byte_index = frame_index * m._FRAME_SIZE to max
+        payload.push(bytes[byte_index])
+      end for
+      ' Construct frame
+      frame = createObject("roByteArray")
+      ' FIN(1) RSV1(1) RSV2(1) RSV3(1) opcode(4)
+      final = 0
+      if frame_index = frame_count - 1
+        final = &amp;h80
+      end if
+      opcode_frame = m.OPCODE.CONTINUATION
+      if frame_index = 0
+        opcode_frame = opcode
+      end if
+      frame.push(final or opcode_frame)
+      ' mask(1) payload_length(7)
+      length_7 = payload.count()
+      if payload.count() > &amp;hffff
+        length_7 = 127
+      else if payload.count() > 125
+        length_7 = 126
+      end if
+      frame.push(&amp;h80 or length_7)
+      ' payload_length_continuation(64)
+      ' 16 bit uint
+      if length_7 = 126
+        frame.append(short_to_bytes(payload.count()))
+        ' 64 bit uint
+      else if length_7 = 127
+        frame.append(long_to_bytes(payload.count()))
+      end if
+      ' masking key(32)
+      mask = rnd(&amp;hffff)
+      mask_bytes = int_to_bytes(mask)
+      frame.append(mask_bytes)
+      ' Mask payload
+      masked_payload = createObject("roByteArray")
+      for byte_index = 0 to payload.count() - 1
+        masking_key = mask_bytes[byte_index mod 4]
+        byte = payload[byte_index]
+        masked_byte = xor(byte, masking_key)
+        masked_payload.push(masked_byte)
+      end for
+      frame.append(masked_payload)
+      ' Send frame
+      if _opcode &lt;> m.OPCODE.PING
+        m._logger.printl(m._logger.VERBOSE, "WebSocketClient: Sending frame: " + frame.toHexString())
+      end if
+      sent = m._socket.send(frame, 0, frame.count())
+      if _opcode &lt;> m.OPCODE.PING
+        m._logger.printl(m._logger.VERBOSE, "WebSocketClient: Sent " + sent.toStr() + " bytes")
+        loop_wait = 0
+        while m._socket.GetCountSendBuf() > m._BUFFER_SOCKET_SIZE
+          m._logger.printl(m._logger.VERBOSE, "WebSocketClient: Sleeping " + m._BUFFER_SLEEP.toStr() + "ms to reduce buffer")
+          sleep(m._BUFFER_SLEEP)
+          if loop_wait > m._BUFFER_LOOP_LIMIT
+            exit while
+          end if
+          loop_wait++
+        end while
+      end if
+      total_sent += sent
+      if sent &lt;> frame.count()
+        if do_close
+          m._close()
+        end if
+        if not silent
+          m._error(14, "Failed to send data")
+        end if
+        return total_sent
+      end if
+    end for
+    return total_sent
+  end function
+
+  ' Send the initial websocket handshake if it has not been sent
+  ' @param self WebSocketClient
+  ws._send_handshake = sub()
+    if m._socket = invalid or not m._socket.isWritable() or m._sent_handshake or m._handshake = invalid
+      return
+    end if
+    m._logger.printl(m._logger.VERBOSE, m._handshake)
+    sent = m._socket.sendStr(m._handshake)
+    m._logger.printl(m._logger.VERBOSE, "WebSocketClient: Sent " + sent.toStr() + " bytes")
+    if sent = -1
+      m._close()
+      m._error(4, "Failed to send data: " + m._socket.status().toStr())
+      return
+    end if
+    m._sent_handshake = true
+  end sub
+
+  ' Read socket data
+  ' @param self WebSocketClient
+  ws._read_socket_data = sub()
+    if m._socket = invalid or m._ready_state = m.STATE.CLOSED
+      return
+    end if
+    buffer = createObject("roByteArray")
+    buffer[1024] = 0
+    bytes_received = 0
+    if m._socket.isReadable() and m._socket.getCountRcvBuf() > 0
+      bytes_received = m._socket.receive(buffer, 0, 1024)
+    end if
+    if bytes_received &lt; 0
+      m._close()
+      m._error(15, "Failed to read from socket")
+      return
+    end if
+    buffer_index = 0
+    for byte_index = m._data_size to m._data_size + bytes_received - 1
+      m._data[byte_index] = buffer[buffer_index]
+      buffer_index++
+    end for
+    m._data_size += bytes_received
+    m._data[m._data_size] = 0
+    ' WebSocket frames
+    if m._has_received_handshake
+      ' Wait for at least the payload 7-bit size
+      if m._data_size &lt; 2
+        return
+      end if
+      final = (m._data[0] >> 7) = 1
+      opcode = (m._data[0] and &amp;hf)
+      control = (opcode >> 3) = 1
+      masked = (m._data[1] >> 7) = 1
+      payload_size_7 = m._data[1] and &amp;h7f
+      payload_size = payload_size_7
+      payload_index = 2
+      if payload_size_7 = 126
+        ' Wait for the 16-bit payload size
+        if m._data_size &lt; 4
+          return
+        end if
+        payload_size = bytes_to_short(m._data[2], m._data[3])
+        payload_index += 2
+      else if payload_size_7 = 127
+        ' Wait for the 64-bit payload size
+        if m._data_size &lt; 10
+          return
+        end if
+        payload_size = bytes_to_long(m._data[2], m._data[3], m._data[4], m._data[5], m._data[6], m._data[7], m._data[8], m._data[9])
+        payload_index += 8
+      end if
+      ' JellyRock hardening: bound the server-declared payload size before buffering it, so a
+      ' malicious/MITM frame on the cleartext ws:// LAN can't grow m._data unbounded (OOM/crash).
+      ' Jellyfin command frames are a few KB at most; _buffer_size is the ceiling.
+      if payload_size &lt; 0 or payload_size > m._buffer_size
+        m._close()
+        m._error(18, "Frame payload exceeds max size")
+        return
+      end if
+      if masked
+        ' Wait for mask int
+        if m._data_size &lt; payload_index
+          return
+        end if
+        ' JellyRock: skip the 4 mask-key bytes. Server->client frames are never masked (RFC 6455),
+        ' so we don't unmask — upstream read the key into a variable it never used (removed).
+        payload_index += 4
+      end if
+      ' Wait for payload
+      if m._data_size &lt; payload_index + payload_size
+        return
+      end if
+      payload = createObject("roByteArray")
+      for byte_index = payload_index to payload_index + payload_size - 1
+        payload.push(m._data[byte_index])
+      end for
+      ' Handle control frame
+      if control
+        m._handle_frame(opcode, payload)
+        ' Handle data frame
+      else if final
+        full_payload = createObject("roByteArray")
+        full_payload.append(m._frame_data)
+        full_payload.append(payload)
+        m._handle_frame(opcode, full_payload)
+        m._frame_data.clear()
+        ' Check for continuation frame
+      else
+        m._frame_data.append(payload)
+      end if
+      ' Save start of next frame
+      if m._data_size > payload_index + payload_size
+        data = createObject("roByteArray")
+        data.append(m._data)
+        m._data.clear()
+        for byte_index = payload_index + payload_size to m._data_size - 1
+          m._data.push(data[byte_index])
+        end for
+      else
+        m._data.clear()
+      end if
+      ' HTTP/Handshake
+    else
+      data = m._data.toAsciiString()
+      http_delimiter = m._NL + m._NL
+      if data.len() &lt;> data.replace(http_delimiter, "").len()
+        split = data.split(http_delimiter)
+        message = split[0]
+        data = ""
+        for split_index = 1 to split.count() - 1
+          data += split[split_index]
+          if split_index &lt; split.count() - 1 or split[split_index].right(4) = m._NL + m._NL
+            data += m._NL + m._NL
+          end if
+        end for
+        ' Handle the message
+        m._logger.printl(m._logger.VERBOSE, "WebSocketClient: Message: " + message)
+        m._handle_handshake_response(message)
+      end if
+      m._data.fromAsciiString(data)
+    end if
+    m._data_size = m._data.count()
+    m._data[m._buffer_size] = 0
+  end sub
+
+  ' Handle the handshake message or die trying
+  ' @param self WebSocketClient
+  ' @param string http response header
+  ws._handle_handshake_response = sub(message as string)
+    lines = message.split(m._NL)
+    if lines.count() = 0
+      m._close()
+      m._error(5, "Invalid handshake: Missing status line")
+      return
+    end if
+    ' Check status line
+    if not m._HTTP_STATUS_LINE_REGEX.isMatch(lines[0])
+      m._close()
+      m._error(6, "Invalid handshake: Status line malformed")
+      return
+    end if
+    status_line = m._HTTP_STATUS_LINE_REGEX.match(lines[0])
+    if status_line[1] &lt;> "HTTP/1.1"
+      m._close()
+      m._error(7, "Invalid handshake: Response version mismatch.  Expected HTTP/1.1, got " + status_line[0])
+      return
+    end if
+    if status_line[2] &lt;> "101"
+      m._close()
+      m._error(8, "Invalid handshake: HTTP status code is not 101: Received " + status_line[2])
+      return
+    end if
+    ' Search headers
+    protocol = ""
+    for header_line_index = 1 to lines.count() - 1:
+      if m._HTTP_HEADER_REGEX.isMatch(lines[header_line_index])
+        header = m._HTTP_HEADER_REGEX.match(lines[header_line_index])
+        ' Upgrade
+        if ucase(header[1]) = "UPGRADE" and ucase(header[2]) &lt;> "WEBSOCKET"
+          m._close()
+          m._error(9, "Invalid handshake: invalid upgrade header: " + header[2])
+          return
+          ' Connection
+        else if ucase(header[1]) = "CONNECTION" and ucase(header[2]) &lt;> "UPGRADE"
+          m._close()
+          m._error(10, "Invalid handshake: invalid connection header: " + header[2])
+          return
+          ' Sec-WebSocket-Accept
+        else if ucase(header[1]) = "SEC-WEBSOCKET-ACCEPT"
+          expected_array = createObject("roByteArray")
+          expected_array.fromAsciiString(m._sec_ws_key + m._WS_ACCEPT_GUID)
+          digest = createObject("roEVPDigest")
+          digest.setup("sha1")
+          expected = digest.process(expected_array)
+          if expected &lt;> header[2].trim()
+            m._close()
+            m._error(11, "Invalid handshake: Sec-WebSocket-Accept value is invalid: " + header[2])
+            return
+          end if
+          ' Sec-WebSocket-Extensions
+        else if ucase(header[1]) = "SEC-WEBSOCKET-EXTENSIONS" and header[2] &lt;> ""
+          m._close()
+          m._error(12, "Invalid handshake: Sec-WebSocket-Extensions value is invalid: " + header[2])
+          return
+          ' Sec-WebSocket-Protocol
+        else if ucase(header[1]) = "SEC-WEBSOCKET-PROTOCOL"
+          p = header[2].trim()
+          was_requested = false
+          for each requested_protocol in m._protocols
+            if requested_protocol = p
+              was_requested = true
+            end if
+          end for
+          if not was_requested
+            m._close()
+            m._error(13, "Invalid handshake: Sec-WebSocket-Protocol contains a protocol that was not requested: " + p)
+            return
+          end if
+          protocol = p
+        end if
+      end if
+    end for
+    m._has_received_handshake = true
+    m._state(m.STATE.OPEN)
+    m._post_message("on_open", {
+      protocol: protocol
+    })
+  end sub
+
+  ' Post a message to the message port
+  ' @param self WebSocketClient
+  ' @param id string message event id
+  ' @param data dynamic message data
+  ws._post_message = sub(id as string, data as dynamic)
+    if m._message_port &lt;> invalid
+      m._message_port.postMessage({
+        id: id,
+        data: data
+      })
+    end if
+  end sub
+
+  ' Handle a web socket frame
+  ' @param self WebSocketClient
+  ' @param opcode int opcode
+  ' @param payload roByteArray payload data
+  ws._handle_frame = sub(opcode as integer, payload as object)
+    if opcode &lt;> m.OPCODE.PONG
+      frame_print = "WebSocketClient: " + "Received frame:" + m._NL
+      frame_print += "  Opcode: " + opcode.toStr() + m._NL
+      frame_print += "  Payload: " + payload.toHexString()
+      m._logger.printl(m._logger.VERBOSE, frame_print)
+    end if
+    ' Close
+    if opcode = m.OPCODE.CLOSE
+      m._close()
+      return
+      ' Ping
+    else if opcode = m.OPCODE.PING
+      m.send("", m.OPCODE.PONG)
+      return
+      ' Text
+    else if opcode = m.OPCODE.TEXT
+      m._post_message("on_message", {
+        type: 0,
+        message: payload.toAsciiString()
+      })
+      return
+      ' Data
+    else if opcode = m.OPCODE.BINARY
+      payload_array = []
+      for each byte in payload
+        payload_array.push(byte)
+      end for
+      m._post_message("on_message", {
+        type: 1,
+        message: payload_array
+      })
+      return
+    end if
+  end sub
+
+  ' Generate a 16 character [A-Za-z0-9] random string and base64 encode it
+  ' @link https://tools.ietf.org/html/rfc6455#section-4.1
+  ' @param self WebSocketClient
+  ' @return string random 16 character base64 encoded string
+  ws._generate_sec_ws_key = function() as string
+    sec_ws_key = ""
+    for char_index = 0 to 15
+      char = m._CHARS[rnd(m._CHARS.count()) - 1]
+      if rnd(2) = 1
+        char = ucase(char)
+      end if
+      sec_ws_key += char
+    end for
+    ba = createObject("roByteArray")
+    ba.fromAsciiString(sec_ws_key)
+    return ba.toBase64String()
+  end function
+
+  ' Connect to the specified URL
+  ' @param self WebSocketClient
+  ' @param url_string web socket url to connect
+  '                   Format: ws://example.org:80/
+  '                   If the port is not specified the port will be assumed
+  '                   from the protocol (ws: 80, wss: 443).
+  ws.open = sub(url as string)
+    if m._ready_state &lt;> m.STATE.CLOSED
+      m._logger.printl(m._logger.DEBUG, "WebSocketClient: Tried to open a web socket that was already open")
+      return
+    end if
+    if m._REGEX_URL.isMatch(url)
+      match = m._REGEX_URL.match(url)
+      ws_type = lcase(match[1])
+      host = lcase(match[2])
+      port = match[3]
+      path = match[4]
+      m._hostname = host
+      ' Port
+      if port &lt;> ""
+        port = val(port, 10)
+      else if ws_type = "wss"
+        m._close()
+        m._error(1, "wss:// is not supported (Roku cannot do socket TLS); use ws://")
+        return
+      else if ws_type = "ws"
+        port = 80
+      else
+        m._close()
+        m._error(0, "Invalid web socket type specified: " + ws_type)
+        return
+      end if
+      ' Path
+      if path = ""
+        path = "/"
+      end if
+      ' Construct handshake
+      m._sec_ws_key = m._generate_sec_ws_key()
+      protocols = ""
+      for each proto in m._protocols
+        protocols += proto + ", "
+      end for
+      if protocols &lt;> ""
+        protocols = protocols.left(len(protocols) - 2)
+      end if
+      handshake = "GET " + path + " HTTP/1.1" + m._NL
+      handshake += "Host: " + host + ":" + port.toStr() + m._NL
+      handshake += "Upgrade: websocket" + m._NL
+      handshake += "Connection: Upgrade" + m._NL
+      handshake += "Sec-WebSocket-Key: " + m._sec_ws_key + m._NL
+      if protocols &lt;> ""
+        handshake += "Sec-WebSocket-Protocol: " + protocols + m._NL
+      end if
+      ' handshake += "Sec-WebSocket-Extensions: " + m._NL
+      handshake += "Sec-WebSocket-Version: 13" + m._NL
+      handshake += m._get_parsed_user_headers()
+      handshake += m._NL
+      m._handshake = handshake
+      ' Create socket
+      m._state(m.STATE.CONNECTING)
+      address = createObject("roSocketAddress")
+      address.setHostName(host)
+      address.setPort(port)
+      if not address.isAddressValid()
+        m._close()
+        m._error(2, "Invalid hostname")
+        return
+      end if
+      m._data_size = 0
+      m._socket = createObject("roStreamSocket")
+      m._socket.notifyReadable(true)
+      m._socket.notifyWritable(true)
+      m._socket.notifyException(true)
+      ' set up segmentation on 576 which is lowest value of MTU speed up
+      ' transmition around 15%-22%, tested on 4660X - Roku Ultra and
+      ' 3500EU - Roku Stick
+      m._socket.setMaxSeg(576)
+      m._socket.setMessagePort(m._ws_port)
+      m._socket.setSendToAddress(address)
+      m._sent_handshake = false
+      m._has_received_handshake = false
+      if not m._socket.connect()
+        m._close()
+        m._error(3, "Socket failed to connect: " + m._socket.status().toStr())
+        return
+      end if
+    else
+      m._close()
+      m._error(1, "Invalid URL specified")
+    end if
+  end sub
+
+  ' Parse header array and return a string of headers delimited by CRLF
+  ' @param self WebSocketClient
+  ws._get_parsed_user_headers = function() as string
+    if m._headers = invalid or m._headers.count() = 0 or (m._headers.count() mod 2) = 1
+      return ""
+    end if
+    header_string = ""
+    for header_index = 0 to m._headers.count() - 1 step 2
+      header = m._headers[header_index]
+      value = m._headers[header_index + 1]
+      header_string += header + ": " + value + m._NL
+    end for
+    return header_string
+  end function
+
+  ' Set ready state
+  ' @param self WebSocketClient
+  ' @param state
+  ws._state = sub(_state as integer)
+    m._ready_state = _state
+    m._post_message("ready_state", _state)
+  end sub
+
+  ' Send an error event
+  ' Posts an on_error message to the message port
+  ' @param self WebSocketClient
+  ' @param code integer error code
+  ' @param message string error message
+  ws._error = sub(code as integer, message as string)
+    m._logger.printl(m._logger.EXTRA, "WebSocketClient: Error: " + message)
+    m._post_message("on_error", {
+      code: code,
+      message: message
+    })
+  end sub
+
+  ' Close the socket
+  ' @param WebSocketClient
+  ' @param code integer -  status code
+  ' @param reason roByteArray - reason
+  ws._close = sub(code = 1000 as integer, reason = invalid as object)
+    if m._socket &lt;> invalid
+      ' Send the closing frame
+      if m._ready_state = m.STATE.OPEN
+        m._send_close_frame(code, reason)
+        m._started_closing = uptime(0)
+        m._state(m.STATE.CLOSING)
+      else
+        m._state(m.STATE.CLOSED)
+        m._post_message("on_close", "")
+        m._socket.close()
+      end if
+    else if m._ready_state &lt;> m.STATE.CLOSED
+      m._state(m.STATE.CLOSED)
+    end if
+  end sub
+
+  ' Send a close frame to the server to initiate a close
+  ' @param self WebSocketClient
+  ' @param code integer -  status code
+  ' @param reason roByteArray - reason
+  ws._send_close_frame = sub(code as integer, reason as dynamic)
+    message = createObject("roByteArray")
+    message.push(code >> 8)
+    message.push(code)
+    if reason &lt;> invalid
+      message.append(reason)
+    end if
+    m.send(message, m.OPCODE.CLOSE, true, false)
+  end sub
+
+  ' Close the socket
+  ' @self WebSocketClient
+  ' @param reason array - array [code as integer, message as roString]
+  ws.close = sub(params as object)
+    code = 1000
+    reason = createObject("roByteArray")
+    if params.count() > 0
+      code = params[0]
+      if type(code) &lt;> "Integer" or code > &amp;hffff
+        m._logger.printl(m._logger.DEBUG, "WebSocketClient: close expects value at array index 0 to be a 16-bit integer")
+      end if
+    end if
+    if params.count() > 1
+      message = params[1]
+      if type(message) &lt;> "roString" or type(message) &lt;> "String"
+        reason.fromAsciiString(message)
+      else
+        m._logger.printl(m._logger.DEBUG, "WebSocketClient: close expects value at array index 1 to be a string")
+      end if
+    end if
+    m._close(code, reason)
+  end sub
+
+  ' Return constructed instance
+  return ws
+end function
+</code></pre></article></section><footer class="footer" id="PeOAagUepe"><div class="wrapper"><span class="jsdoc-message">Automatically generated using <a href="https://github.com/jsdoc/jsdoc" target="_blank">JSDoc</a> and the <a href="https://github.com/ankitskvmdam/clean-jsdoc-theme" target="_blank">clean-jsdoc-theme</a>.</span><script defer="defer" src="/_a/script.js" data-website-id="07139597-641c-42e6-8f5a-cbb0d9182a20" data-host-url="https://api.jellyrock.app/_a"></script></div></footer></div></div></div><div class="search-container" id="PkfLWpAbet" style="display:none"><div class="wrapper" id="iCxFxjkHbP"><button class="icon-button search-close-button" id="VjLlGakifb" aria-label="close search"><svg><use xlink:href="#close-icon"></use></svg></button><div class="search-box-c"><svg><use xlink:href="#search-icon"></use></svg> <input type="text" id="vpcKVYIppa" class="search-input" placeholder="Search..." autofocus></div><div class="search-result-c" id="fWwVHRuDuN"><span class="search-result-c-text">Type anything to view search result</span></div></div></div><div class="mobile-menu-icon-container"><button class="icon-button" id="mobile-menu" data-isopen="false" aria-label="menu"><svg><use xlink:href="#menu-icon"></use></svg></button></div><div id="mobile-sidebar" class="mobile-sidebar-container"><div class="mobile-sidebar-wrapper"><a href="/" class="sidebar-title sidebar-title-anchor">JellyRock Code Documentation</a><div class="mobile-nav-links"><div class="external-link navbar-item"><a id="github-link-mobile" href="https://github.com/jellyrock/api-docs" target="_blank">Source</a></div><div class="external-link navbar-item"><a id="jellyfin-link-mobile" href="https://jellyfin.org/docs/" target="_blank">Jellyfin docs</a></div><div class="external-link navbar-item"><a id="jellyfin-link-mobile" href="https://api.jellyfin.org/" target="_blank">Jellyfin API docs</a></div></div><div class="mobile-sidebar-items-c"><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-modules"><div>Modules</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-AlbumTrackList.html">AlbumTrackList</a></div><div class="sidebar-section-children"><a href="module-Alpha.html">Alpha</a></div><div class="sidebar-section-children"><a href="module-AlphaKeyboard.html">AlphaKeyboard</a></div><div class="sidebar-section-children"><a href="module-ApiClient.html">ApiClient</a></div><div class="sidebar-section-children"><a href="module-ApiQueueTask.html">ApiQueueTask</a></div><div class="sidebar-section-children"><a href="module-ApiTask.html">ApiTask</a></div><div class="sidebar-section-children"><a href="module-AudioPlayer.html">AudioPlayer</a></div><div class="sidebar-section-children"><a href="module-AudioPlayerView.html">AudioPlayerView</a></div><div class="sidebar-section-children"><a href="module-AuthManager.html">AuthManager</a></div><div class="sidebar-section-children"><a href="module-BackdropFader.html">BackdropFader</a></div><div class="sidebar-section-children"><a href="module-BaseGridView.html">BaseGridView</a></div><div class="sidebar-section-children"><a href="module-BrowseRowItem.html">BrowseRowItem</a></div><div class="sidebar-section-children"><a href="module-ByteUtil.html">ByteUtil</a></div><div class="sidebar-section-children"><a href="module-Clock.html">Clock</a></div><div class="sidebar-section-children"><a href="module-CommunityRating.html">CommunityRating</a></div><div class="sidebar-section-children"><a href="module-ConfigData.html">ConfigData</a></div><div class="sidebar-section-children"><a href="module-ConfigItem.html">ConfigItem</a></div><div class="sidebar-section-children"><a href="module-ConfigList.html">ConfigList</a></div><div class="sidebar-section-children"><a href="module-CriticRating.html">CriticRating</a></div><div class="sidebar-section-children"><a href="module-ExtrasRowList.html">ExtrasRowList</a></div><div class="sidebar-section-children"><a href="module-ExtrasSlider.html">ExtrasSlider</a></div><div class="sidebar-section-children"><a href="module-FavoritesRows.html">FavoritesRows</a></div><div class="sidebar-section-children"><a href="module-FocusableOverview.html">FocusableOverview</a></div><div class="sidebar-section-children"><a href="module-FontDownloadTask.html">FontDownloadTask</a></div><div class="sidebar-section-children"><a href="module-FontScalingTask.html">FontScalingTask</a></div><div class="sidebar-section-children"><a href="module-GenericPresenter.html">GenericPresenter</a></div><div class="sidebar-section-children"><a href="module-GetPlaybackInfoTask.html">GetPlaybackInfoTask</a></div><div class="sidebar-section-children"><a href="module-GetShuffleItemsTask.html">GetShuffleItemsTask</a></div><div class="sidebar-section-children"><a href="module-Gradient.html">Gradient</a></div><div class="sidebar-section-children"><a href="module-GridItem.html">GridItem</a></div><div class="sidebar-section-children"><a href="module-GridPresenterBase.html">GridPresenterBase</a></div><div class="sidebar-section-children"><a href="module-HexKeyboard.html">HexKeyboard</a></div><div class="sidebar-section-children"><a href="module-Home.html">Home</a></div><div class="sidebar-section-children"><a href="module-HomeAction.html">HomeAction</a></div><div class="sidebar-section-children"><a href="module-HomeRows.html">HomeRows</a></div><div class="sidebar-section-children"><a href="module-IconButton.html">IconButton</a></div><div class="sidebar-section-children"><a href="module-IntegerKeyboard.html">IntegerKeyboard</a></div><div class="sidebar-section-children"><a href="module-ItemDetails.html">ItemDetails</a></div><div class="sidebar-section-children"><a href="module-ItemGridOptions.html">ItemGridOptions</a></div><div class="sidebar-section-children"><a href="module-JRButtonGroup.html">JRButtonGroup</a></div><div class="sidebar-section-children"><a href="module-JRButtons.html">JRButtons</a></div><div class="sidebar-section-children"><a href="module-JRDropdown.html">JRDropdown</a></div><div class="sidebar-section-children"><a href="module-JRDropdownItem.html">JRDropdownItem</a></div><div class="sidebar-section-children"><a href="module-JRGroup.html">JRGroup</a></div><div class="sidebar-section-children"><a href="module-JRLabel.html">JRLabel</a></div><div class="sidebar-section-children"><a href="module-JRLabelList.html">JRLabelList</a></div><div class="sidebar-section-children"><a href="module-JRMarkupGrid.html">JRMarkupGrid</a></div><div class="sidebar-section-children"><a href="module-JRMessageDialog.html">JRMessageDialog</a></div><div class="sidebar-section-children"><a href="module-JROverhang.html">JROverhang</a></div><div class="sidebar-section-children"><a href="module-JROverhangIcon.html">JROverhangIcon</a></div><div class="sidebar-section-children"><a href="module-JRPlaceholder.html">JRPlaceholder</a></div><div class="sidebar-section-children"><a href="module-JRPoster.html">JRPoster</a></div><div class="sidebar-section-children"><a href="module-JRPosterGrid.html">JRPosterGrid</a></div><div class="sidebar-section-children"><a href="module-JRRowItem.html">JRRowItem</a></div><div class="sidebar-section-children"><a href="module-JRRowList.html">JRRowList</a></div><div class="sidebar-section-children"><a href="module-JRScene.html">JRScene</a></div><div class="sidebar-section-children"><a href="module-JRScreen.html">JRScreen</a></div><div class="sidebar-section-children"><a href="module-JRScrollingLabel.html">JRScrollingLabel</a></div><div class="sidebar-section-children"><a href="module-JRServer.html">JRServer</a></div><div class="sidebar-section-children"><a href="module-JRTab.html">JRTab</a></div><div class="sidebar-section-children"><a href="module-JRTabBar.html">JRTabBar</a></div><div class="sidebar-section-children"><a href="module-JRTimeGrid.html">JRTimeGrid</a></div><div class="sidebar-section-children"><a href="module-JellyfinDataTransformer.html">JellyfinDataTransformer</a></div><div class="sidebar-section-children"><a href="module-JellyfinUserSettings.html">JellyfinUserSettings</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLarge.html">LabelDisabledLarge</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLarger.html">LabelDisabledLarger</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledLargest.html">LabelDisabledLargest</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledMedium.html">LabelDisabledMedium</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmall.html">LabelDisabledSmall</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmaller.html">LabelDisabledSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelDisabledSmallest.html">LabelDisabledSmallest</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLarge.html">LabelErrorLarge</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLarger.html">LabelErrorLarger</a></div><div class="sidebar-section-children"><a href="module-LabelErrorLargest.html">LabelErrorLargest</a></div><div class="sidebar-section-children"><a href="module-LabelErrorMedium.html">LabelErrorMedium</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmall.html">LabelErrorSmall</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmaller.html">LabelErrorSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelErrorSmallest.html">LabelErrorSmallest</a></div><div class="sidebar-section-children"><a href="module-LabelLarge.html">LabelLarge</a></div><div class="sidebar-section-children"><a href="module-LabelLarger.html">LabelLarger</a></div><div class="sidebar-section-children"><a href="module-LabelLargest.html">LabelLargest</a></div><div class="sidebar-section-children"><a href="module-LabelMedium.html">LabelMedium</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLarge.html">LabelPrimaryLarge</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLarger.html">LabelPrimaryLarger</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryLargest.html">LabelPrimaryLargest</a></div><div class="sidebar-section-children"><a href="module-LabelPrimaryMedium.html">LabelPrimaryMedium</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmall.html">LabelPrimarySmall</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmaller.html">LabelPrimarySmaller</a></div><div class="sidebar-section-children"><a href="module-LabelPrimarySmallest.html">LabelPrimarySmallest</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLarge.html">LabelSecondaryLarge</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLarger.html">LabelSecondaryLarger</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryLargest.html">LabelSecondaryLargest</a></div><div class="sidebar-section-children"><a href="module-LabelSecondaryMedium.html">LabelSecondaryMedium</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmall.html">LabelSecondarySmall</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmaller.html">LabelSecondarySmaller</a></div><div class="sidebar-section-children"><a href="module-LabelSecondarySmallest.html">LabelSecondarySmallest</a></div><div class="sidebar-section-children"><a href="module-LabelSmall.html">LabelSmall</a></div><div class="sidebar-section-children"><a href="module-LabelSmaller.html">LabelSmaller</a></div><div class="sidebar-section-children"><a href="module-LabelSmallest.html">LabelSmallest</a></div><div class="sidebar-section-children"><a href="module-LanguagePicker.html">LanguagePicker</a></div><div class="sidebar-section-children"><a href="module-LiveTVPresenter.html">LiveTVPresenter</a></div><div class="sidebar-section-children"><a href="module-LoadChannelsTask.html">LoadChannelsTask</a></div><div class="sidebar-section-children"><a href="module-LoadItemsTask.html">LoadItemsTask</a></div><div class="sidebar-section-children"><a href="module-LoadItemsTask2.html">LoadItemsTask2</a></div><div class="sidebar-section-children"><a href="module-LoadPhotoTask.html">LoadPhotoTask</a></div><div class="sidebar-section-children"><a href="module-LoadScreenSaverTimeoutTask.html">LoadScreenSaverTimeoutTask</a></div><div class="sidebar-section-children"><a href="module-LoadSheduleTask.html">LoadSheduleTask</a></div><div class="sidebar-section-children"><a href="module-LoadVideoContentTask.html">LoadVideoContentTask</a></div><div class="sidebar-section-children"><a href="module-Logger.html">Logger</a></div><div class="sidebar-section-children"><a href="module-LoginScene.html">LoginScene</a></div><div class="sidebar-section-children"><a href="module-MediaSegmentAction.html">MediaSegmentAction</a></div><div class="sidebar-section-children"><a href="module-MediaSegmentType.html">MediaSegmentType</a></div><div class="sidebar-section-children"><a href="module-MockSceneManager.html">MockSceneManager</a></div><div class="sidebar-section-children"><a href="module-MoviePresenter.html">MoviePresenter</a></div><div class="sidebar-section-children"><a href="module-MusicArtistGridItem.html">MusicArtistGridItem</a></div><div class="sidebar-section-children"><a href="module-MusicPresenter.html">MusicPresenter</a></div><div class="sidebar-section-children"><a href="module-OSD.html">OSD</a></div><div class="sidebar-section-children"><a href="module-OSDButtonGroup.html">OSDButtonGroup</a></div><div class="sidebar-section-children"><a href="module-OptionNode.html">OptionNode</a></div><div class="sidebar-section-children"><a href="module-OptionsButton.html">OptionsButton</a></div><div class="sidebar-section-children"><a href="module-OptionsData.html">OptionsData</a></div><div class="sidebar-section-children"><a href="module-OptionsSlider.html">OptionsSlider</a></div><div class="sidebar-section-children"><a href="module-OverviewDialog.html">OverviewDialog</a></div><div class="sidebar-section-children"><a href="module-PhotoDetails.html">PhotoDetails</a></div><div class="sidebar-section-children"><a href="module-PhotoPresenter.html">PhotoPresenter</a></div><div class="sidebar-section-children"><a href="module-PlaybackDialog.html">PlaybackDialog</a></div><div class="sidebar-section-children"><a href="module-PlayerHostView.html">PlayerHostView</a></div><div class="sidebar-section-children"><a href="module-PresentationBackdrop.html">PresentationBackdrop</a></div><div class="sidebar-section-children"><a href="module-ProgramDetails.html">ProgramDetails</a></div><div class="sidebar-section-children"><a href="module-PublicUserData.html">PublicUserData</a></div><div class="sidebar-section-children"><a href="module-QueueManager.html">QueueManager</a></div><div class="sidebar-section-children"><a href="module-QuickConnect.html">QuickConnect</a></div><div class="sidebar-section-children"><a href="module-QuickConnectDialog.html">QuickConnectDialog</a></div><div class="sidebar-section-children"><a href="module-QuickPlayTask.html">QuickPlayTask</a></div><div class="sidebar-section-children"><a href="module-RadioDialog.html">RadioDialog</a></div><div class="sidebar-section-children"><a href="module-RecordProgramTask.html">RecordProgramTask</a></div><div class="sidebar-section-children"><a href="module-RectangleBackgroundPrimary.html">RectangleBackgroundPrimary</a></div><div class="sidebar-section-children"><a href="module-RectangleBackgroundSecondary.html">RectangleBackgroundSecondary</a></div><div class="sidebar-section-children"><a href="module-RectangleSecondary.html">RectangleSecondary</a></div><div class="sidebar-section-children"><a href="module-RefreshLiveTvMetadataTask.html">RefreshLiveTvMetadataTask</a></div><div class="sidebar-section-children"><a href="module-RemoteControlTask.html">RemoteControlTask</a></div><div class="sidebar-section-children"><a href="module-ResumeButton.html">ResumeButton</a></div><div class="sidebar-section-children"><a href="module-SceneManager.html">SceneManager</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLarge.html">ScrollingLabelDisabledLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLarger.html">ScrollingLabelDisabledLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledLargest.html">ScrollingLabelDisabledLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledMedium.html">ScrollingLabelDisabledMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmall.html">ScrollingLabelDisabledSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmaller.html">ScrollingLabelDisabledSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelDisabledSmallest.html">ScrollingLabelDisabledSmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLarge.html">ScrollingLabelErrorLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLarger.html">ScrollingLabelErrorLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorLargest.html">ScrollingLabelErrorLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorMedium.html">ScrollingLabelErrorMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmall.html">ScrollingLabelErrorSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmaller.html">ScrollingLabelErrorSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelErrorSmallest.html">ScrollingLabelErrorSmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLarge.html">ScrollingLabelLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLarger.html">ScrollingLabelLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelLargest.html">ScrollingLabelLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelMedium.html">ScrollingLabelMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLarge.html">ScrollingLabelPrimaryLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLarger.html">ScrollingLabelPrimaryLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryLargest.html">ScrollingLabelPrimaryLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimaryMedium.html">ScrollingLabelPrimaryMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmall.html">ScrollingLabelPrimarySmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmaller.html">ScrollingLabelPrimarySmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelPrimarySmallest.html">ScrollingLabelPrimarySmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLarge.html">ScrollingLabelSecondaryLarge</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLarger.html">ScrollingLabelSecondaryLarger</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryLargest.html">ScrollingLabelSecondaryLargest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondaryMedium.html">ScrollingLabelSecondaryMedium</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmall.html">ScrollingLabelSecondarySmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmaller.html">ScrollingLabelSecondarySmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSecondarySmallest.html">ScrollingLabelSecondarySmallest</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmall.html">ScrollingLabelSmall</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmaller.html">ScrollingLabelSmaller</a></div><div class="sidebar-section-children"><a href="module-ScrollingLabelSmallest.html">ScrollingLabelSmallest</a></div><div class="sidebar-section-children"><a href="module-SearchBox.html">SearchBox</a></div><div class="sidebar-section-children"><a href="module-SearchResults.html">SearchResults</a></div><div class="sidebar-section-children"><a href="module-SearchRow.html">SearchRow</a></div><div class="sidebar-section-children"><a href="module-SearchTask.html">SearchTask</a></div><div class="sidebar-section-children"><a href="module-ServerAction.html">ServerAction</a></div><div class="sidebar-section-children"><a href="module-ServerDiscoveryTask.html">ServerDiscoveryTask</a></div><div class="sidebar-section-children"><a href="module-ServerReachableTask.html">ServerReachableTask</a></div><div class="sidebar-section-children"><a href="module-SessionDataTransformer.html">SessionDataTransformer</a></div><div class="sidebar-section-children"><a href="module-SetServerScreen.html">SetServerScreen</a></div><div class="sidebar-section-children"><a href="module-SideEffectTask.html">SideEffectTask</a></div><div class="sidebar-section-children"><a href="module-SongItem.html">SongItem</a></div><div class="sidebar-section-children"><a href="module-Spinner.html">Spinner</a></div><div class="sidebar-section-children"><a href="module-StandardDialog.html">StandardDialog</a></div><div class="sidebar-section-children"><a href="module-SubtitleSelection.html">SubtitleSelection</a></div><div class="sidebar-section-children"><a href="module-TVShowPresenter.html">TVShowPresenter</a></div><div class="sidebar-section-children"><a href="module-TextButton.html">TextButton</a></div><div class="sidebar-section-children"><a href="module-TextSizeTask.html">TextSizeTask</a></div><div class="sidebar-section-children"><a href="module-Toast.html">Toast</a></div><div class="sidebar-section-children"><a href="module-TrackDropdown.html">TrackDropdown</a></div><div class="sidebar-section-children"><a href="module-TrackDropdownRow.html">TrackDropdownRow</a></div><div class="sidebar-section-children"><a href="module-TrickplayCarousel.html">TrickplayCarousel</a></div><div class="sidebar-section-children"><a href="module-TrickplayTileLoader.html">TrickplayTileLoader</a></div><div class="sidebar-section-children"><a href="module-UserData.html">UserData</a></div><div class="sidebar-section-children"><a href="module-UserItem.html">UserItem</a></div><div class="sidebar-section-children"><a href="module-UserRow.html">UserRow</a></div><div class="sidebar-section-children"><a href="module-UserSelect.html">UserSelect</a></div><div class="sidebar-section-children"><a href="module-VertButtonGroup.html">VertButtonGroup</a></div><div class="sidebar-section-children"><a href="module-VideoNotification.html">VideoNotification</a></div><div class="sidebar-section-children"><a href="module-VideoPlayerView.html">VideoPlayerView</a></div><div class="sidebar-section-children"><a href="module-VideoProgressBar.html">VideoProgressBar</a></div><div class="sidebar-section-children"><a href="module-WebSocketClient.html">WebSocketClient</a></div><div class="sidebar-section-children"><a href="module-WebSocketClientTask.html">WebSocketClientTask</a></div><div class="sidebar-section-children"><a href="module-apiPool.html">apiPool</a></div><div class="sidebar-section-children"><a href="module-apiPromise.html">apiPromise</a></div><div class="sidebar-section-children"><a href="module-backdrop.html">backdrop</a></div><div class="sidebar-section-children"><a href="module-baseRequest.html">baseRequest</a></div><div class="sidebar-section-children"><a href="module-captionTask.html">captionTask</a></div><div class="sidebar-section-children"><a href="module-chapterItems.html">chapterItems</a></div><div class="sidebar-section-children"><a href="module-conditional.html">conditional</a></div><div class="sidebar-section-children"><a href="module-config.html">config</a></div><div class="sidebar-section-children"><a href="module-deepLink.html">deepLink</a></div><div class="sidebar-section-children"><a href="module-deviceCapabilities.html">deviceCapabilities</a></div><div class="sidebar-section-children"><a href="module-displaySettings.html">displaySettings</a></div><div class="sidebar-section-children"><a href="module-extrasLayout.html">extrasLayout</a></div><div class="sidebar-section-children"><a href="module-image.html">image</a></div><div class="sidebar-section-children"><a href="module-imageHelpers.html">imageHelpers</a></div><div class="sidebar-section-children"><a href="module-itemImageUrl.html">itemImageUrl</a></div><div class="sidebar-section-children"><a href="module-items.html">items</a></div><div class="sidebar-section-children"><a href="module-languages.html">languages</a></div><div class="sidebar-section-children"><a href="module-libraryViewFactory.html">libraryViewFactory</a></div><div class="sidebar-section-children"><a href="module-liveTv.html">liveTv</a></div><div class="sidebar-section-children"><a href="module-loginRouter.html">loginRouter</a></div><div class="sidebar-section-children"><a href="module-main.html">main</a></div><div class="sidebar-section-children"><a href="module-mediaDisplayTitle.html">mediaDisplayTitle</a></div><div class="sidebar-section-children"><a href="module-mediaSegments.html">mediaSegments</a></div><div class="sidebar-section-children"><a href="module-migrations.html">migrations</a></div><div class="sidebar-section-children"><a href="module-misc.html">misc</a></div><div class="sidebar-section-children"><a href="module-nodeHelpers.html">nodeHelpers</a></div><div class="sidebar-section-children"><a href="module-nodeUtils.html">nodeUtils</a></div><div class="sidebar-section-children"><a href="module-placeholderImage.html">placeholderImage</a></div><div class="sidebar-section-children"><a href="module-queueBackdropHelper.html">queueBackdropHelper</a></div><div class="sidebar-section-children"><a href="module-quickplay.html">quickplay</a></div><div class="sidebar-section-children"><a href="module-remoteDispatch.html">remoteDispatch</a></div><div class="sidebar-section-children"><a href="module-remoteProtocol.html">remoteProtocol</a></div><div class="sidebar-section-children"><a href="module-replayRoute.html">replayRoute</a></div><div class="sidebar-section-children"><a href="module-rowItemImage.html">rowItemImage</a></div><div class="sidebar-section-children"><a href="module-rowItemText.html">rowItemText</a></div><div class="sidebar-section-children"><a href="module-rowListWrap.html">rowListWrap</a></div><div class="sidebar-section-children"><a href="module-schedule.html">schedule</a></div><div class="sidebar-section-children"><a href="module-sdkV1.html">sdkV1</a></div><div class="sidebar-section-children"><a href="module-sdkV2.html">sdkV2</a></div><div class="sidebar-section-children"><a href="module-section.html">section</a></div><div class="sidebar-section-children"><a href="module-sectionScroller.html">sectionScroller</a></div><div class="sidebar-section-children"><a href="module-settings.html">settings</a></div><div class="sidebar-section-children"><a href="module-showScenes.html">showScenes</a></div><div class="sidebar-section-children"><a href="module-streamSelection.html">streamSelection</a></div><div class="sidebar-section-children"><a href="module-subtitles.html">subtitles</a></div><div class="sidebar-section-children"><a href="module-textureManager.html">textureManager</a></div><div class="sidebar-section-children"><a href="module-timeouts.html">timeouts</a></div><div class="sidebar-section-children"><a href="module-trackClusterFocus.html">trackClusterFocus</a></div><div class="sidebar-section-children"><a href="module-translate.html">translate</a></div><div class="sidebar-section-children"><a href="module-translateLocale.html">translateLocale</a></div><div class="sidebar-section-children"><a href="module-trickplay.html">trickplay</a></div><div class="sidebar-section-children"><a href="module-url.html">url</a></div><div class="sidebar-section-children"><a href="module-userAuth.html">userAuth</a></div><div class="sidebar-section-children"><a href="module-voiceTransport.html">voiceTransport</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-classes"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="module-ApiClient.ApiClient.html">ApiClient</a></div><div class="sidebar-section-children"><a href="module-GenericPresenter.GenericPresenter.html">GenericPresenter</a></div><div class="sidebar-section-children"><a href="module-GridPresenterBase.GridPresenterBase.html">GridPresenterBase</a></div><div class="sidebar-section-children"><a href="module-JellyfinDataTransformer.JellyfinDataTransformer.html">JellyfinDataTransformer</a></div><div class="sidebar-section-children"><a href="module-LiveTVPresenter.LiveTVPresenter.html">LiveTVPresenter</a></div><div class="sidebar-section-children"><a href="module-MoviePresenter.MoviePresenter.html">MoviePresenter</a></div><div class="sidebar-section-children"><a href="module-MusicPresenter.MusicPresenter.html">MusicPresenter</a></div><div class="sidebar-section-children"><a href="module-PhotoPresenter.PhotoPresenter.html">PhotoPresenter</a></div><div class="sidebar-section-children"><a href="module-SessionDataTransformer.SessionDataTransformer.html">SessionDataTransformer</a></div><div class="sidebar-section-children"><a href="module-TVShowPresenter.TVShowPresenter.html">TVShowPresenter</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-namespaces"><div>Namespaces</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="extrasLayout.html">extrasLayout</a></div><div class="sidebar-section-children"><a href="nodeHelpers.html">nodeHelpers</a></div><div class="sidebar-section-children"><a href="nodeUtils.html">nodeUtils</a></div><div class="sidebar-section-children"><a href="quickplay.html">quickplay</a></div><div class="sidebar-section-children"><a href="remoteDispatch.html">remoteDispatch</a></div><div class="sidebar-section-children"><a href="remoteProtocol.html">remoteProtocol</a></div><div class="sidebar-section-children"><a href="sdkV1.html">sdkV1</a></div><div class="sidebar-section-children"><a href="sdkV1_sdkV1.html">sdkV1/sdkV1</a></div><div class="sidebar-section-children"><a href="sdkV1_sdkV1_users.html">sdkV1/sdkV1/users</a></div><div class="sidebar-section-children"><a href="sdkV2.html">sdkV2</a></div><div class="sidebar-section-children"><a href="sdkV2_sdkV2.html">sdkV2/sdkV2</a></div><div class="sidebar-section-children"><a href="sdkV2_sdkV2_users.html">sdkV2/sdkV2/users</a></div><div class="sidebar-section-children"><a href="timeouts.html">timeouts</a></div><div class="sidebar-section-children"><a href="trackClusterFocus.html">trackClusterFocus</a></div><div class="sidebar-section-children"><a href="trickplay.html">trickplay</a></div><div class="sidebar-section-children"><a href="voiceTransport.html">voiceTransport</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="sidebar-interfaces"><div>Interfaces</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="nodeHelpers.QueueItem.html">QueueItem</a></div></div></div><div class="mobile-navbar-actions"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#dark-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div></div></div><script type="text/javascript" src="scripts/core.min.js"></script><script src="scripts/search.min.js" defer="defer"></script><script src="scripts/third-party/fuse.js" defer="defer"></script><script type="text/javascript">var tocbotInstance=tocbot.init({tocSelector:"#eed4d2a0bfd64539bb9df78095dec881",contentSelector:".main-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0,scrollContainer:".main-content",headingsOffset:130,onClick:bringLinkToView})</script></body></html>
