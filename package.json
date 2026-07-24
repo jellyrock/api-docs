@@ -5,7 +5,7 @@
   "description": "JellyRock code documentation using JSDoc.",
   "dependencies": {
     "brighterscript": "0.73.0",
-    "brighterscript-jsdocs-plugin": "0.8.0",
+    "brighterscript-jsdocs-plugin": "0.8.1",
     "clean-jsdoc-theme": "4.3.3",
     "jsdoc": "4.0.5",
     "rimraf": "6.1.3"
