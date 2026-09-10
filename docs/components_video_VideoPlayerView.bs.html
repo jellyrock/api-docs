@@ -1847,7 +1847,6 @@ sub onState()
       stopLoadingSpinner()
     end if
     m.playbackTimer.control = "stop"
-    m.playbackTimer.unobserveField("fire")
     m.bufferCheckTimer.control = "stop"
     m.bufferCheckTimer.unobserveField("fire")
     reportPlayback("stop")
@@ -1859,7 +1858,6 @@ sub onState()
   else if m.top.state = "finished"
     stopLoadingSpinner()
     m.playbackTimer.control = "stop"
-    m.playbackTimer.unobserveField("fire")
     m.bufferCheckTimer.control = "stop"
     m.bufferCheckTimer.unobserveField("fire")
     reportPlayback("finished")
